@@ -1,0 +1,151 @@
+// Stack
+$delay: 500ms
+@for $var from 1 through 8
+    .stack .stack-container .language-container-wrapper.animate-in:nth-child(#{$var})
+        animation-delay: $delay
+    $delay: $delay + 100ms
+
+// Project
+.all-projects
+    min-height: 100vh
+    display: flex
+    justify-content: start
+    align-items: center
+    flex-direction: column
+    padding-top: 40px
+    animation: lights-on 500ms ease
+
+@keyframes lights-on
+    0%
+        filter: brightness(0)
+    100%
+        filter: brightness(1)
+
+.all-projects-title
+    width: 1500px
+    color: #0fa
+    font-family: 'HELLO DENVER DISPLAY REGULAR'
+    padding: 10px 0px
+
+.all-projects ul
+    display: flex
+    width: 90%
+    justify-content: space-evenly
+    align-items: center
+    flex-direction: column
+    margin: 50px
+
+.all-projects .project
+    position: relative
+    display: flex
+    align-items: center
+    justify-content: center
+    opacity: 0
+    margin: 15px 10px
+    width: 100%
+    height: 300px
+    border-radius: 10px
+    cursor: pointer
+
+.all-projects .project.active
+    animation: slide-in-right 500ms forwards
+
+.all-projects .project.active:nth-child(even)
+    animation: slide-in-left 500ms forwards
+
+.all-projects .project .details
+    display: flex
+    flex-direction: column
+
+@for $i from 1 through 10
+    .all-projects .project:nth-child(#{$i})
+        animation-delay: #{$i}
+
+@keyframes slide-in-left
+    0%
+        transform: translateX(300px)
+        opacity: 0
+    50%
+        opacity: 1
+    100%
+        transform: translateX(0%)
+        opacity: 1
+
+@keyframes slide-in-right
+    0%
+        transform: translateX(-300px)
+        opacity: 0
+    50%
+        opacity: 1
+    100%
+        transform: translateX(0%)
+        opacity: 1
+
+.all-projects ul .project .figure--wrapper
+    display: flex
+    justify-content: center
+    align-items: center
+    height: 100%
+    width: 45%
+
+.all-projects ul .project .figure
+    height: 100%
+    width: 600px
+    transition: all 500ms ease
+    overflow: hidden
+
+.all-projects ul .project .figure:hover
+    height: 90%
+    width: 550px
+
+.all-projects ul .project .figure img
+    transform: scale(1)
+    transition: all 500ms ease
+
+.all-projects ul .project .figure:hover img
+    transform: scale(1.2)
+
+.all-projects .project .details .links-wrapper .link svg
+    filter: brightness(100%)
+
+.all-projects .project .details
+    width: 30%
+    padding: 10px
+    margin: 0px 20px
+
+@media only screen and (min-width: 900px)
+    .all-projects .project.active:nth-child(even) .details
+        align-items: flex-end
+    .all-projects .project.active:nth-child(even)
+        flex-direction: row-reverse
+
+@media only screen and (max-width: 500px)
+    .all-projects ul .project
+        position: relative
+        border-radius: 10px
+        overflow: hidden
+        height: 350px
+        justify-content: start
+        flex-direction: column
+        backdrop-filter: blur(60px)
+
+    .all-projects ul .project:after
+        content: ""
+        position: absolute
+        z-index: -1
+        top: 0
+        bottom: 0
+        left: 0
+        right: 0
+        filter: blur(60px)
+        background: linear-gradient(180deg, rgba(0,255,170,1) 20%, rgba(0,0,0,1) 90%)
+
+    .all-projects ul .project .figure--wrapper
+        width: 100%
+        height: 50%
+
+    .all-projects ul .project .figure img
+        transform: scale(1)
+
+    .all-projects .project .details
+        width: 100%
