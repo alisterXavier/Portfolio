@@ -3,7 +3,7 @@ import emailjs from "emailjs-com";
 import { FaDiscord } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { AiFillLinkedin } from "react-icons/ai";
-import { ContactApi } from "..";
+import { ContactApi } from "../index";
 
 const Contact = () => {
   const [contactState, setContactState] = useContext(ContactApi);
