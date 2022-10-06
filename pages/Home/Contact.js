@@ -4,7 +4,9 @@ import { FaDiscord } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { AiFillLinkedin } from "react-icons/ai";
 import { ContactApi } from "../_app";
-
+import { GrRotateRight } from 'react-icons/gr'
+import { ImCross } from 'react-icons/im'
+import { BiCheck } from 'react-icons/bi'
 
 const Contact = () => {
   const [contactState, setContactState] = useContext(ContactApi);
@@ -29,10 +31,10 @@ const Contact = () => {
             "service_qfh5m9x",
             "template_erq4h2c",
             {
-              from_name: this.name,
+              from_name: name,
               to_name: "Alister",
-              from_email: this.email,
-              message: this.message,
+              from_email: email,
+              message: message,
             },
             "YGydwiDxBuQnIDA7N"
           )
@@ -55,19 +57,19 @@ const Contact = () => {
         email.toLowerCase()
       );
 
-    const nameValidate = this.name.length !== 0;
-    const messageValidate = this.message.length !== 0;
+    const nameValidate = name.length !== 0;
+    const messageValidate = message.length !== 0;
 
     if (!emailValidate) emailTag.current.style.color = "red";
     if (!nameValidate) nameTag.current.style.color = "red";
-    if (!messageValidate) messageTag.current.classListName.add("invalid");
+    if (!messageValidate) messageTag.current.classList.add("invalid");
 
     if (!emailValidate || !nameValidate || !messageValidate) {
       setSend(false);
       setTimeout(() => {
         emailTag.current.removeAttribute("style");
         nameTag.current.removeAttribute("style");
-        messageTag.current.classListName.remove("invalid");
+        messageTag.current.classList.remove("invalid");
         setSend(undefined);
       }, 2000);
     }
@@ -87,9 +89,9 @@ const Contact = () => {
   const copyEmail = () => {
     const email = "xavieralister153@gmail.com";
     navigator.clipboard.writeText(email);
-    document.querySelector(".tooltip").classListName.add("active");
+    document.querySelector(".tooltip").classList.add("active");
     setTimeout(() => {
-      document.querySelector(".tooltip").classListName.remove("active");
+      document.querySelector(".tooltip").classList.remove("active");
     }, 1000);
   };
 
@@ -108,7 +110,7 @@ const Contact = () => {
             </div>
             <div className="contact-form">
               <label
-                className={`name-wrapper ${nameActive && active}`}
+                className={`name-wrapper ${nameActive && "active"}`}
                 onClick={() => {
                   if (name.length === 0) {
                     if (nameActive) nameInput.current.blur();
@@ -143,7 +145,7 @@ const Contact = () => {
               </label>
 
               <label
-                className={`email-wrapper ${emailActive && active}`}
+                className={`email-wrapper ${emailActive && "active"}`}
                 onClick={() => {
                   if (email.length === 0) {
                     if (emailActive) emailInput.current.blur();
@@ -196,15 +198,15 @@ const Contact = () => {
                     <span></span>
                     <span></span>
                     <span></span>
-                    {/* <fawsome-icon :icon="['fas', 'arrows-rotate']"></fawsome-icon> */}
+                    <GrRotateRight></GrRotateRight>
                   </div>
                 ) : send === true ? (
                   <div className="sent">
-                    {/* <fawsome-icon :icon="['fas', 'check']"></fawsome-icon> */}
+                    <BiCheck></BiCheck>
                   </div>
                 ) : send === false ? (
                   <div className="send-error">
-                    {/* <fawsome-icon :icon="['fas', 'xmark']"></fawsome-icon> */}
+                    <ImCross></ImCross>
                   </div>
                 ) : (
                   <span>Send</span>
