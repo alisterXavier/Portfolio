@@ -77,6 +77,7 @@ const AllProject = () => {
                   <span className="links-wrapper lg:my-2 flex justify-between w-1/5">
                     <a
                     href={p.git_link}
+                    rel="noreferrer"
                     target="_blank"
                     className="link"
                     id="github"
@@ -85,6 +86,7 @@ const AllProject = () => {
                   </a>
                   <a
                     href={p.app_link}
+                    rel="noreferrer"
                     className="link"
                     target="_blank"
                     id="link"

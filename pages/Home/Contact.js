@@ -216,6 +216,7 @@ const Contact = () => {
               <div className="platforms--wrapper flex justify-evenly items-center">
                 <h2 className="hit-me">Hit me up on</h2>
                 <a
+                rel="noreferrer"
                   href="https://discordapp.com/users/703130890288496650"
                   target="_blank"
                 >
@@ -225,6 +226,7 @@ const Contact = () => {
                   <MdEmail className="platform"></MdEmail>
                 </a>
                 <a
+                rel="noreferrer"
                   href="https://www.linkedin.com/in/alister-xavier-63259020b/"
                   target="_blank"
                 >

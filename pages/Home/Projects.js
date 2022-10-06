@@ -196,6 +196,7 @@ const Projects = ({ changeRoute, canvasElem }) => {
                   <span className="links-wrapper my-2 flex justify-evenly">
                     <a
                       href={cp.git_link}
+                      rel="noreferrer"
                       target="_blank"
                       className="link"
                       id="github"
@@ -205,6 +206,7 @@ const Projects = ({ changeRoute, canvasElem }) => {
                     <a
                       href={cp.app_link}
                       className="link"
+                      rel="noreferrer"
                       target="_blank"
                       id="link"
                     >
