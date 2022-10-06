@@ -14,9 +14,10 @@ function MyApp({ Component, pageProps }) {
   return (
     <Screen.Provider value={screen}>
       <ContactApi.Provider value={[contactState, setContactState]}>
-        <Component {...pageProps} />);
+        <Component {...pageProps} />
       </ContactApi.Provider>
-  </Screen.Provider>
+    </Screen.Provider>
+  );
 }
 
 export default MyApp;
