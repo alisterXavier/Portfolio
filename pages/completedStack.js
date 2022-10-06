@@ -1,7 +1,7 @@
 import Image from "next/future/image";
 import { useEffect, useRef } from "react";
-import familiarStack from "./familiarStack.json";
-import stack from "./stack.json";
+import familiarStack from "../components/familiarStack.json";
+import stack from "../components/stack.json";
 
 const AllStack = () => {
   const eachLang = useRef([]);

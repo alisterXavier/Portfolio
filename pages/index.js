@@ -5,7 +5,7 @@ import Stack from "./Home/Stack";
 import Projects from "./Home/Projects.js";
 import Contact from "./Home/Contact";
 import { useRouter } from "next/router";
-import { Gradient } from "./Gradient/gradient";
+import { Gradient } from "../components/Gradient/Gradient";
 
 export const ContactApi = createContext();
 export const Screen = createContext();

@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
-import allp from "./projects.json";
+import allp from "../components/projects.json";
 import { GoMarkGithub, GoLink } from "react-icons/go";
 
 const AllProject = () => {
