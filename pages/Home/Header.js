@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { useContext, useEffect, useRef, useState } from "react";
-import { Screen } from "../index";
+import { Screen } from "..";
 
 const Header = () => {
   const screen = useContext(Screen);

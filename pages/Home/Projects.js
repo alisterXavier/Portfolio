@@ -3,9 +3,9 @@ import { useContext, useEffect, useRef } from "react";
 import mernApp from "/public/assets/abc.png";
 import netflixClone from "/public/assets/netflix-clone.png";
 import eCommerce from "/public/assets/e-commerce.png";
-import { Screen } from "../index";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { GoMarkGithub, GoLink } from "react-icons/go";
+import { Screen } from "..";
 
 const Projects = ({ changeRoute, canvasElem }) => {
   const slides = useRef();
