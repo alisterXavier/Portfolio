@@ -60,7 +60,8 @@ export default function Home() {
                   data-transition-in
                 ></canvas>
               </main>
-              {contactState === true && <Contact></Contact>}
+              {/* {contactState === true && <Contact></Contact>} */}
+              <Contact></Contact>
             </Screen.Provider>
           </ContactApi.Provider>
         </div>
