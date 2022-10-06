@@ -34,38 +34,35 @@ export default function Home() {
   }, []);
 
   return (
-    <>
-      <div className="overflow-div">
-        <div className="mainOverflow-container">
-          <ContactApi.Provider value={[contactState, setContactState]}>
-            <Screen.Provider value={screen}>
-              <Navbar></Navbar>
-              <Header></Header>
-              <main className="main relative">
-                <Stack
-                  changeRoute={(value) => {
-                    handleRoute(value);
-                  }}
-                />
-                <Projects
-                  canvasElem={canvas}
-                  changeRoute={(value) => {
-                    handleRoute(value);
-                  }}
-                />
-                <canvas
-                  ref={canvas}
-                  id="gradient-canvas"
-                  className="absolute top-0 z-1"
-                  data-transition-in
-                ></canvas>
-              </main>
-              {/* {contactState === true && <Contact></Contact>} */}
-              <Contact></Contact>
-            </Screen.Provider>
-          </ContactApi.Provider>
+    <ContactApi.Provider value={[contactState, setContactState]}>
+      <Screen.Provider value={screen}>
+        <div className="overflow-div">
+          <div className="mainOverflow-container">
+            <Navbar></Navbar>
+            <Header></Header>
+            <main className="main relative">
+              <Stack
+                changeRoute={(value) => {
+                  handleRoute(value);
+                }}
+              />
+              <Projects
+                canvasElem={canvas}
+                changeRoute={(value) => {
+                  handleRoute(value);
+                }}
+              />
+              <canvas
+                ref={canvas}
+                id="gradient-canvas"
+                className="absolute top-0 z-1"
+                data-transition-in
+              ></canvas>
+            </main>
+            {contactState === true && <Contact></Contact>}
+          </div>
         </div>
-      </div>
-    </>
+      </Screen.Provider>
+    </ContactApi.Provider>
   );
 }
