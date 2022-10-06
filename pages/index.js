@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import Navbar from "./Home/Navbar";
 import Header from "./Home/Header";
 import Stack from "./Home/Stack";
@@ -7,13 +7,8 @@ import Contact from "./Home/Contact";
 import { useRouter } from "next/router";
 import { Gradient } from "../components/Gradient/Gradient";
 
-export const ContactApi = createContext();
-export const Screen = createContext();
-
 export default function Home() {
   const router = useRouter();
-  const [contactState, setContactState] = useState(false);
-  const [screen, setScreen] = useState();
   const canvas = useRef();
   const handleRoute = (value) => {
     setTimeout(() => {
@@ -29,13 +24,10 @@ export default function Home() {
   };
 
   useEffect(() => {
-    setScreen(window.screen.width);
     gradient();
   }, []);
 
   return (
-    <ContactApi.Provider value={[contactState, setContactState]}>
-      <Screen.Provider value={screen}>
         <div className="overflow-div">
           <div className="mainOverflow-container">
             <Navbar></Navbar>
@@ -62,7 +54,5 @@ export default function Home() {
             {contactState === true && <Contact></Contact>}
           </div>
         </div>
-      </Screen.Provider>
-    </ContactApi.Provider>
   );
 }

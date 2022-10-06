@@ -1,5 +1,6 @@
 import { useContext, useEffect, useRef } from "react";
-import { ContactApi, Screen } from "..";
+import { ContactApi, Screen } from "../_app";
+
 
 const Navbar = () => {
   const navigation = useRef();

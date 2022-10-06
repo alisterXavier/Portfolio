@@ -5,7 +5,7 @@ import netflixClone from "/public/assets/netflix-clone.png";
 import eCommerce from "/public/assets/e-commerce.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { GoMarkGithub, GoLink } from "react-icons/go";
-import { Screen } from "..";
+import { Screen } from "../_app";
 
 const Projects = ({ changeRoute, canvasElem }) => {
   const slides = useRef();
