@@ -5,11 +5,11 @@ export default function Document() {
     <Html>
       <Head>
         <link
-          href="http://fonts.cdnfonts.com/css/hello-denver-display"
+          href="https://fonts.cdnfonts.com/css/hello-denver-display"
           rel="stylesheet"
         />
         <link
-          href="http://fonts.cdnfonts.com/css/omnes-regular"
+          href="https://fonts.cdnfonts.com/css/omnes-regular"
           rel="stylesheet"
         />
       </Head>
