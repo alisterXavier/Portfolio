@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import Navbar from "./Home/Navbar";
 import Header from "./Home/Header";
 import Stack from "./Home/Stack";
@@ -6,10 +6,12 @@ import Projects from "./Home/Projects.js";
 import Contact from "./Home/Contact";
 import { useRouter } from "next/router";
 import { Gradient } from "../components/Gradient/Gradient";
+import { ContactApi } from "./_app";
 
 export default function Home() {
   const router = useRouter();
   const canvas = useRef();
+  const [contactState, ] = useContext(ContactApi)
   const handleRoute = (value) => {
     setTimeout(() => {
       router.push(`/${value}`);
