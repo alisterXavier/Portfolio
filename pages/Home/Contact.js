@@ -81,11 +81,10 @@ const Contact = () => {
 
   const handleClick = () => {
     const value = !contactState;
-    console.log(screen)
+
     setContactState(value);
     if (screen > 900){
-      document.querySelector(".navigation-panel").style.animation =
-        "nav-pop 500ms forwards";
+      document.querySelector(".navigation-panel").classList.add('pop')
       }
   };
 

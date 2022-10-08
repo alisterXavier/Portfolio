@@ -33,18 +33,26 @@ const Navbar = () => {
       document
         .querySelector(`[data-${id}]`)
         .scrollIntoView({ behavior: "smooth" });
+      navPop();
       setContactState(false);
     }
   };
 
+  const navPop = (value) => {
+    navigation.current.classList.remove("unpop");
+    navigation.current.classList.add("pop");
+  };
+  const navUnpop = () => {
+    navigation.current.classList.remove("pop");
+    navigation.current.classList.add("unpop");
+  };
   const handleContact = (e) => {
     handleClick(e);
     setNav(false);
     const value = !contactState;
     setContactState(value);
-    if (value === true)
-      navigation.current.style.animation = "nav-unpop 500ms forwards";
-    else navigation.current.style.animation = "nav-pop 500ms forwards";
+    if (value) navUnpop();
+    else navPop();
   };
 
   useEffect(() => {
