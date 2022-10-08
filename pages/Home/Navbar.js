@@ -1,16 +1,12 @@
-import { useContext, useEffect, useRef } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { ContactApi, Screen } from "../_app";
-
+import { HiMenu } from "react-icons/hi";
 
 const Navbar = () => {
   const navigation = useRef();
   const screen = useContext(Screen);
   const [contactState, setContactState] = useContext(ContactApi);
-
-  const handleNav = (e) => {
-    e.stopPropagation();
-    // navigation.current.classNameList.toggle("active");
-  };
+  const [nav, setNav] = useState(false);
 
   const lightsOn = (e) => {
     const element = e.currentTarget;
@@ -43,7 +39,7 @@ const Navbar = () => {
 
   const handleContact = (e) => {
     handleClick(e);
-    handleNav(e);
+    setNav(false);
     const value = !contactState;
     setContactState(value);
     if (value === true)
@@ -69,12 +65,22 @@ const Navbar = () => {
   return (
     <div>
       {screen < 900 && (
-        <div className="nav-open" onClick={handleNav}>
-          {/* <fawsome-icon :icon="['fas', 'bars']"> </fawsome-icon> */}
+        <div
+          className={`nav-open cursor-pointer`}
+          onClick={() => {
+            setNav(!nav);
+          }}
+        >
+          <HiMenu></HiMenu>
         </div>
       )}
       <nav
-        className="navigation-panel flex justify-end items-center"
+        className={`navigation-panel flex justify-end items-center ${
+          nav && "active"
+        }`}
+        onClick={() => {
+          setNav(false);
+        }}
         ref={navigation}
         data-navparent
       >
@@ -85,7 +91,11 @@ const Navbar = () => {
           }}
         >
           {screen < 900 && (
-            <li onClick={handleNav}>
+            <li
+              onClick={() => {
+                setNav(false);
+              }}
+            >
               <svg
                 width="14"
                 height="15"

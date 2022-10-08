@@ -975,37 +975,37 @@ nav li {
     width: 5px;
   }
 
-  #Me[data-active] ~ .slider {
+  #me[data-active] ~ .slider {
     transform: translateY(70px) translateX(0px);
   }
 
-  #Stack[data-active] ~ .slider {
+  #stack[data-active] ~ .slider {
     transform: translateY(120px) translateX(0px);
   }
 
-  #Projects[data-active] ~ .slider {
+  #projects[data-active] ~ .slider {
     transform: translateY(170px) translateX(0px);
   }
 
-  #Contact[data-active] ~ .slider {
+  #contact[data-active] ~ .slider {
     transform: translateY(220px) translateX(0px);
   }
 
-  #Me[data-hover] ~ .slider {
+  #me[data-hover] ~ .slider {
     transform: translateY(70px) translateX(0px);
   }
 
-  #Stack[data-hover] ~ .slider {
+  #stack[data-hover] ~ .slider {
     transform: translateY(120px) translateX(0px);
   }
 
-  #Projects[data-hover] ~ .slider {
+  #projects[data-hover] ~ .slider {
     transform: translateY(170px) translateX(0px);
   }
-  #About-Me[data-hover] ~ .slider {
+  #about-Me[data-hover] ~ .slider {
     transform: translateY(220px) translateX(0px);
   }
-  #Contact[data-hover] ~ .slider {
+  #contact[data-hover] ~ .slider {
     transform: translateY(270px) translateX(0px);
   }
 }
@@ -1304,11 +1304,9 @@ main .projects .project-glitch {
   }
 
   main .more-projects {
-    top: 90%;
+    top: -5%;
     width: 150px;
-    height: 50px;
-    bottom: 0%;
-    margin: 10px 0px;
+    height: 20px;
   }
 }
 

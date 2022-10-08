@@ -3,13 +3,14 @@ import emailjs from "emailjs-com";
 import { FaDiscord } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { AiFillLinkedin } from "react-icons/ai";
-import { ContactApi } from "../_app";
+import { ContactApi, Screen } from "../_app";
 import { GrRotateRight } from 'react-icons/gr'
 import { ImCross } from 'react-icons/im'
 import { BiCheck } from 'react-icons/bi'
 
 const Contact = () => {
   const [contactState, setContactState] = useContext(ContactApi);
+  const screen = useContext(Screen)
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -80,10 +81,12 @@ const Contact = () => {
 
   const handleClick = () => {
     const value = !contactState;
+    console.log(screen)
     setContactState(value);
-    if (!value)
+    if (screen > 900){
       document.querySelector(".navigation-panel").style.animation =
         "nav-pop 500ms forwards";
+      }
   };
 
   const copyEmail = () => {

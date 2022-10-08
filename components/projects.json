@@ -1,45 +1,73 @@
 [
-    {
-      "img": "/assets/abc.png",
-      "title": "Mern App",
-      "para": "ReactJS, NodeJS, MongoDB, ExpressJS",
-      "git_link": "https://github.com/Alister153/blaa-app",
-      "app_link": "https://blaa-app.herokuapp.com/"
-    },
-    {
-      "img": "/assets/netflix-clone.png",
-      "title": "Netflix Clone",
-      "para": "ReactJS, NodeJS, ExpressJS, Firebase",
-      "git_link": "https://github.com/Alister153/NetflixClone.git",
-      "app_link": "https://netflix-clone-qwerty.vercel.app/"
-    },
-    {
-      "img": "/assets/e-commerce.png",
-      "title": "e-commerce App",
-      "para": "ReactJS",
-      "git_link": "https://github.com/Alister153/e-commerce",
-      "app_link": "https://e-commerce-opal-gamma.vercel.app/"
-    },
-    {
-      "img": "/assets/nft-landing.png",
-      "title": "Nft Landing Page",
-      "para": "NextJS",
-      "git_link": "https://github.com/Alister153/NFT-LandingPage",
-      "app_link": "https://nft-landing-page-bzfd.vercel.app/"
-    },
-    {
-      "img": "/assets/rock-paper-scissors.png",
-      "title": "Rock Paper Scissors",
-      "para": "NextJS",
-      "git_link": "https://github.com/Alister153/Rock-Paper-Scissor",
-      "app_link": "https://rock-paper-scissor-fx9r.vercel.app/"
-    },
-    {
-      "img": "/assets/ip-address-tracker.png",
-      "title": "Ip Address Tracker",
-      "para": "NextJs, ipify API, LeafletJs",
-      "git_link": "https://github.com/Alister153/ip-address-tracker",
-      "app_link": "https://ip-address-tracker-ochre-two.vercel.app/"
-    }
-  ]
-  
+  {
+    "img": [
+      "/assets/BlaaApp/app_1.png",
+      "/assets/BlaaApp/app_2.png",
+      "/assets/BlaaApp/app_3.png",
+      "/assets/BlaaApp/app_4.png",
+      "/assets/BlaaApp/app_5.png",
+      "/assets/BlaaApp/app_6.png",
+      "/assets/BlaaApp/app_7.png"
+    ],
+    "title": "Mern App",
+    "para": " MongoDB, ExpressJS, ReactJS, NodeJS",
+    "git_link": "https://github.com/Alister153/blaa-app",
+    "app_link": "https://blaa-app.herokuapp.com/"
+  },
+  {
+    "img": [
+      "/assets/netflix/app_1.png",
+      "/assets/netflix/app_2.png",
+      "/assets/netflix/app_3.png",
+      "/assets/netflix/app_4.png",
+      "/assets/netflix/app_5.png",
+      "/assets/netflix/app_6.png",
+      "/assets/netflix/app_7.png",
+      "/assets/netflix/app_9.png"
+    ],
+    "title": "Netflix Clone",
+    "para": "ReactJS, NodeJS, ExpressJS, Firebase",
+    "git_link": "https://github.com/Alister153/NetflixClone.git",
+    "app_link": "https://netflix-clone-qwerty.vercel.app/"
+  },
+  {
+    "img": ["/assets/nft-landing/app_1.png"],
+    "title": "Nft Landing Page",
+    "para": "NextJS",
+    "git_link": "https://github.com/Alister153/NFT-LandingPage",
+    "app_link": "https://nft-landing-page-bzfd.vercel.app/"
+  },
+  {
+    "img": [
+      "/assets/e-commerce/app_1.png",
+      "/assets/e-commerce/app_2.png",
+      "/assets/e-commerce/app_3.png",
+      "/assets/e-commerce/app_4.png",
+      "/assets/e-commerce/app_5.png"
+    ],
+    "title": "e-commerce App",
+    "para": "ReactJS",
+    "git_link": "https://github.com/Alister153/e-commerce",
+    "app_link": "https://e-commerce-opal-gamma.vercel.app/"
+  },
+  {
+    "img": [
+      "/assets/rockPaperScissors/app_1.png",
+      "/assets/rockPaperScissors/app_2.png",
+      "/assets/rockPaperScissors/app_3.png",
+      "/assets/rockPaperScissors/app_4.png",
+      "/assets/rockPaperScissors/app_5.png"
+    ],
+    "title": "Rock Paper Scissors",
+    "para": "NextJS",
+    "git_link": "https://github.com/Alister153/Rock-Paper-Scissor",
+    "app_link": "https://rock-paper-scissor-fx9r.vercel.app/"
+  },
+  {
+    "img": ["/assets/ip-address/app_1.png"],
+    "title": "Ip Address Tracker",
+    "para": "NextJs, ipify API, LeafletJs",
+    "git_link": "https://github.com/Alister153/ip-address-tracker",
+    "app_link": "https://ip-address-tracker-ochre-two.vercel.app/"
+  }
+]

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { useContext, useEffect, useRef } from "react";
-import mernApp from "/public/assets/abc.png";
-import netflixClone from "/public/assets/netflix-clone.png";
+import mernApp from "/public/assets/blaaApp.png";
+import netflixClone from "/public/assets/netflix.png";
 import eCommerce from "/public/assets/e-commerce.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { GoMarkGithub, GoLink } from "react-icons/go";
@@ -188,7 +188,7 @@ const Projects = ({ changeRoute, canvasElem }) => {
                 }}
               >
                 <figure className="project-img">
-                  <Image alt={cp.img} src={cp.img} />
+                  <Image alt={cp.img} src={cp.img} layout="fill" priority/>
                 </figure>
                 <div className="details">
                   <h2 className="text-xl lg:text-3xl my-2">{cp.title}</h2>
