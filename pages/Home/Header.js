@@ -101,7 +101,7 @@ const Header = () => {
       <div className="info-container lights-on" ref={info}>
         <div className="info">
           <h1 className="text-4xl hi" ref={hi}>
-            HI I'M
+            HI I&apos;M
           </h1>
           <h1 className="name text-5xl w-fit d-fname" ref={fname}>
             ALISTER

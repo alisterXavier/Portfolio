@@ -53,7 +53,7 @@ const AboutMe = () => {
       <div className="about-wrapper relative">
         <div className="about-name">
           <h1 className="text-3xl lg:text-7xl flex justify-evenly">
-            <span className="">Hi, I'm</span>
+            <span className="">Hi, I&apos;m</span>
             <span className="">Alister</span> <span className="">Xavier,</span>
           </h1>
         </div>
