@@ -12,6 +12,10 @@ export default function Document() {
           href="https://fonts.cdnfonts.com/css/omnes-regular"
           rel="stylesheet"
         />
+        <link
+          href="http://fonts.cdnfonts.com/css/amcap-eternal"
+          rel="stylesheet"
+        />
       </Head>
       <body>
         <Main />

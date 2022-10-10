@@ -1,9 +1,9 @@
 // Stack
 $delay: 500ms
 $left-pos: [-50%, 50%, -50%, 50%, -50%, 50%, 20%, 50%, 25%, 10%]
-@for $var from 1 through 8
+@for $var from 1 through 20
     .stack .stack-container .language-container-wrapper.animate-in:nth-child(#{$var})
-        animation-delay: $delay
+        transition-delay: $delay
     $delay: $delay + 100ms
 
 // Project

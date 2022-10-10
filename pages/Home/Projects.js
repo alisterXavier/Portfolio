@@ -91,7 +91,6 @@ const Projects = ({ changeRoute, canvasElem }) => {
   };
 
   const Navbar = () => {
-    const id = document.querySelector("[data-projects]");
     const navbar = document.querySelector(".navigation-panel");
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#projects");

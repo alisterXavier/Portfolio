@@ -1,5 +1,5 @@
 import { useContext, useEffect, useRef, useState } from "react";
-import { ContactApi, Screen } from "../_app";
+import { ContactApi, Nav, Screen } from "../_app";
 import { HiMenu } from "react-icons/hi";
 
 const Navbar = () => {
@@ -7,7 +7,7 @@ const Navbar = () => {
   const screen = useContext(Screen);
   const [contactState, setContactState] = useContext(ContactApi);
   const [nav, setNav] = useState(false);
-
+  const [navState, setNavState] = useContext(Nav)
   const lightsOn = (e) => {
     const element = e.currentTarget;
     element.style.color = "#0fa";
@@ -29,30 +29,21 @@ const Navbar = () => {
     delete active.dataset.active;
     e.currentTarget.dataset.active = true;
 
-    if (id !== "contact" && id !== "about-me") {
+    if (id !== "contact") {
       document
         .querySelector(`[data-${id}]`)
         .scrollIntoView({ behavior: "smooth" });
-      navPop();
+      setNavState('pop')
       setContactState(false);
     }
   };
 
-  const navPop = (value) => {
-    navigation.current.classList.remove("unpop");
-    navigation.current.classList.add("pop");
-  };
-  const navUnpop = () => {
-    navigation.current.classList.remove("pop");
-    navigation.current.classList.add("unpop");
-  };
   const handleContact = (e) => {
     handleClick(e);
-    setNav(false);
     const value = !contactState;
     setContactState(value);
-    if (value) navUnpop();
-    else navPop();
+    if (value) setNavState('unpop');
+    else setNavState('pop');
   };
 
   useEffect(() => {
@@ -72,7 +63,7 @@ const Navbar = () => {
 
   return (
     <div>
-      {screen < 900 && (
+      {screen <= 900 && (
         <div
           className={`nav-open cursor-pointer`}
           onClick={() => {
@@ -83,7 +74,7 @@ const Navbar = () => {
         </div>
       )}
       <nav
-        className={`navigation-panel flex justify-end items-center ${
+        className={`navigation-panel flex justify-end items-center ${navState} ${
           nav && "active"
         }`}
         onClick={() => {
@@ -126,6 +117,15 @@ const Navbar = () => {
           </li>
           <li
             className="cursor-pointer text-center flex items-center md:justify-center"
+            id="about-me"
+            onMouseEnter={lightsOn}
+            onMouseLeave={lightsOff}
+            onClick={handleClick}
+          >
+            <p>About Me</p>
+          </li>
+          <li
+            className="cursor-pointer text-center flex items-center md:justify-center"
             id="stack"
             onMouseEnter={lightsOn}
             onMouseLeave={lightsOff}
@@ -141,15 +141,6 @@ const Navbar = () => {
             onClick={handleClick}
           >
             <p>Projects</p>
-          </li>
-          <li
-            className="cursor-pointer text-center flex items-center md:justify-center"
-            id="about-me"
-            onMouseEnter={lightsOn}
-            onMouseLeave={lightsOff}
-            onClick={handleClick}
-          >
-            <p>About Me</p>
           </li>
           <li
             className="cursor-pointer text-center flex items-center md:justify-center"

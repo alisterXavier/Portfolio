@@ -3,14 +3,15 @@ import emailjs from "emailjs-com";
 import { FaDiscord } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { AiFillLinkedin } from "react-icons/ai";
-import { ContactApi, Screen } from "../_app";
-import { GrRotateRight } from 'react-icons/gr'
-import { ImCross } from 'react-icons/im'
-import { BiCheck } from 'react-icons/bi'
+import { ContactApi, Nav, Screen } from "../_app";
+import { GrRotateRight } from "react-icons/gr";
+import { ImCross } from "react-icons/im";
+import { BiCheck } from "react-icons/bi";
 
 const Contact = () => {
   const [contactState, setContactState] = useContext(ContactApi);
-  const screen = useContext(Screen)
+  const screen = useContext(Screen);
+  const [navState, setNavState] = useContext(Nav);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -83,9 +84,9 @@ const Contact = () => {
     const value = !contactState;
 
     setContactState(value);
-    if (screen > 900){
-      document.querySelector(".navigation-panel").classList.add('pop')
-      }
+    if (screen > 900) {
+      setNavState("pop");
+    }
   };
 
   const copyEmail = () => {
@@ -221,7 +222,7 @@ const Contact = () => {
               <div className="platforms--wrapper flex justify-evenly items-center">
                 <h2 className="hit-me">Hit me up on</h2>
                 <a
-                rel="noreferrer"
+                  rel="noreferrer"
                   href="https://discordapp.com/users/703130890288496650"
                   target="_blank"
                 >
@@ -231,7 +232,7 @@ const Contact = () => {
                   <MdEmail className="platform"></MdEmail>
                 </a>
                 <a
-                rel="noreferrer"
+                  rel="noreferrer"
                   href="https://www.linkedin.com/in/alister-xavier-63259020b/"
                   target="_blank"
                 >
