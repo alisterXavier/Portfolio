@@ -672,15 +672,15 @@ nav li {
 .about h1 span {
   translate: -1000px 0px;
   transition: translate 1s ease;
-  transition-delay: 500ms;
+  transition-delay: 100ms;
 }
 .about h1 span:nth-child(2) {
   translate: -1500px 0px;
-  transition-delay: 700ms;
+  transition-delay: 300ms;
 }
 .about h1 span:nth-child(3) {
   translate: -2000px 0px;
-  transition-delay: 900ms;
+  transition-delay: 500ms;
 }
 .about .about-name.animate-in h1 span {
   translate: 0px 0px;
@@ -1396,7 +1396,7 @@ main .projects .project-glitch {
 .contact .tooltip {
   position: absolute;
   bottom: 100%;
-  width: 100px;
+  width: fit-content;
   height: 25px;
   visibility: hidden;
 }

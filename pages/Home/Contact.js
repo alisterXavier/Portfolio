@@ -89,9 +89,15 @@ const Contact = () => {
     }
   };
 
-  const copyEmail = () => {
-    const email = "xavieralister153@gmail.com";
-    navigator.clipboard.writeText(email);
+  const copy = (e) => {
+    const { id } = e.currentTarget;
+    const usernames = {
+      "discord uid": "DREMANiC#8953",
+      "email": "xavieralister153@gmail.com",
+    };
+
+    document.querySelector(".tooltip").innerHTML = `${id} copied!`;
+    navigator.clipboard.writeText(usernames[id]);
     document.querySelector(".tooltip").classList.add("active");
     setTimeout(() => {
       document.querySelector(".tooltip").classList.remove("active");
@@ -218,17 +224,17 @@ const Contact = () => {
             </div>
 
             <div className="platforms flex justify-end items-center relative w-11/12">
-              <span className="tooltip">Email Copied!</span>
+              <span className="tooltip"></span>
               <div className="platforms--wrapper flex justify-evenly items-center">
                 <h2 className="hit-me">Hit me up on</h2>
-                <a
-                  rel="noreferrer"
-                  href="https://discordapp.com/users/703130890288496650"
-                  target="_blank"
-                >
-                  <FaDiscord className="platform discord"></FaDiscord>
+                <a rel="noreferrer" target="_blank">
+                  <FaDiscord
+                    onClick={copy}
+                    className="platform discord"
+                    id="discord uid"
+                  ></FaDiscord>
                 </a>
-                <a onClick={copyEmail} className="envelope relative">
+                <a onClick={copy} className="envelope relative" id="email">
                   <MdEmail className="platform"></MdEmail>
                 </a>
                 <a

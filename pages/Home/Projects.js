@@ -16,7 +16,7 @@ const Projects = ({ changeRoute, canvasElem }) => {
   const projectsScroll = useRef();
   const screen = useContext(Screen);
   const observer = useRef();
-  const mount = useRef();
+
   const carouselProjects = [
     {
       img: mernApp,

@@ -6,8 +6,8 @@ const AboutMe = () => {
   const about = useRef();
   const observer = useRef();
   const nav = (e) => {
-    const text  = e.target.text.trim();
-    console.log(text === 'Contact me')
+    const text = e.target.text.trim();
+    console.log(text === "Contact me");
     if (text === "Contact me") {
       setContactState(true);
     } else {
@@ -58,11 +58,10 @@ const AboutMe = () => {
           </h1>
         </div>
         <p className="about-about text-sm lg:text-2xl p-5 lg:p-10">
-          A tireless seeker of knowledge and a web developer. I plan on
-          expanding my knowledge in web development to the backend. As a
-          well-rounded user and developer, I aim to make sure that systems
-          interfaces, languages, and graphics are human-friendly, aesthetically
-          pleasing, clear, on-brand, and usable. Check out my
+          A web developer and tireless seeker of knowledge. As a well-rounded user
+          and developer, I aim to make sure that systems interfaces, languages,
+          and graphics are human-friendly, aesthetically pleasing, clear,
+          on-brand, and usable. Check out my
           <span className="text-orange-500 cursor-pointer">
             <a onClick={nav}> stack</a>
           </span>{" "}
