@@ -76,7 +76,7 @@ const AllProject = () => {
         </ul>
         {selected && (
           <AnimatePresence>
-            <SingleProject selected={selected} setSelected={setSelected} />
+            <div>{selected.title}</div>
           </AnimatePresence>
         )}
       </div>
