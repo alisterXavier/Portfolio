@@ -2,7 +2,7 @@ import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import allp from "../components/projects.json";
 import { AnimatePresence, motion } from "framer-motion";
-// import SingleProject from "./Home/Single";
+import SingleProject from "./Home/Single";
 
 const AllProject = () => {
   const [selected, setSelected] = useState(null);
@@ -76,7 +76,7 @@ const AllProject = () => {
         </ul>
         {selected && (
           <AnimatePresence>
-            <div>{selected.title}</div>
+            <SingleProject selected={selected} setSelected={setSelected} />
           </AnimatePresence>
         )}
       </div>
