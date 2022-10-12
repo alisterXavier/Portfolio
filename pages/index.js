@@ -51,12 +51,12 @@ export default function Home() {
             }}
             ref={navigationPanel}
           />
-          {/* <Projects
+          <Projects
             changeRoute={(value) => {
               handleRoute(value);
             }}
             ref={{ canvas: canvas, navigation: navigationPanel }}
-          /> */}
+          />
         </main>
         {contactState === true && <Contact></Contact>}
       </div>
