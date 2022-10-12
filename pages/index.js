@@ -37,6 +37,12 @@ export default function Home() {
         <Navbar ref={navigationPanel}></Navbar>
         <Header ref={navigationPanel}></Header>
         <main className="main relative">
+          <canvas
+            ref={canvas}
+            id="gradient-canvas"
+            className="absolute top-0 z-1"
+            data-transition-in
+          ></canvas>
           <div className="gradient-section"></div>
           <AboutMe ref={navigationPanel} />
           <Stack
@@ -51,12 +57,6 @@ export default function Home() {
             }}
             ref={{ canvas: canvas, navigation: navigationPanel }}
           />
-          <canvas
-            ref={canvas}
-            id="gradient-canvas"
-            className="absolute top-0 z-1"
-            data-transition-in
-          ></canvas>
         </main>
         {contactState === true && <Contact></Contact>}
       </div>
