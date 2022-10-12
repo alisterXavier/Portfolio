@@ -55,7 +55,7 @@ export default function Home() {
             changeRoute={(value) => {
               handleRoute(value);
             }}
-            ref={{ canvasRef: canvas, navigationRef: navigationPanel }}
+            ref={canvas}
           />
         </main>
         {contactState === true && <Contact></Contact>}
