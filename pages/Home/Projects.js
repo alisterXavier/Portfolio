@@ -16,7 +16,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
   const projectsScroll = useRef();
   const screen = useContext(Screen);
   const observer = useRef();
-  // const { canvas, navigation } = ref;
+  const [canvas, navigation] = ref;
 
   const carouselProjects = [
     {
@@ -110,43 +110,43 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
     ).style.filter = `brightness(0)`;
   };
 
-  // useEffect(() => {
-  //   observer.current = new IntersectionObserver(
-  //     (entries) => {
-  //       entries.forEach((entry) => {
-  //         if (entry.isIntersecting) {
-  //           carousel.current.classList.add("active");
-  //           carousel.current.classList.add("parallex");
-  //           eachProject.current.forEach((project) => {
-  //             project.classList.add("active");
-  //           });
-  //           setTimeout(() => {
-  //             eachProject.current.forEach((project) => {
-  //               project.classList.remove("active");
-  //               project.classList.remove("animate-in");
-  //             });
-  //           }, 600);
-  //           projectRibbon.current.classList.add("active");
-  //           canvas.current.style.opacity = 1;
-  //           Navbar();
-  //         } else {
-  //           if (canvas.current) {
-  //             canvas.current.style.opacity = 0;
-  //           }
-  //         }
-  //       });
-  //     },
-  //     {
-  //       threshold: 0.6,
-  //     }
-  //   );
-  //   observer.current.observe(projects.current);
-  //   projectsScroll.current = Math.abs(
-  //     document.getElementsByTagName("body")[0].getBoundingClientRect().top -
-  //       projects.current.getBoundingClientRect().top
-  //   );
-  //   fadeLeft();
-  // }, []);
+  useEffect(() => {
+    observer.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            carousel.current.classList.add("active");
+            carousel.current.classList.add("parallex");
+            eachProject.current.forEach((project) => {
+              project.classList.add("active");
+            });
+            setTimeout(() => {
+              eachProject.current.forEach((project) => {
+                project.classList.remove("active");
+                project.classList.remove("animate-in");
+              });
+            }, 600);
+            projectRibbon.current.classList.add("active");
+            canvas.current.style.opacity = 1;
+            Navbar();
+          } else {
+            if (canvas.current) {
+              canvas.current.style.opacity = 0;
+            }
+          }
+        });
+      },
+      {
+        threshold: 0.6,
+      }
+    );
+    observer.current.observe(projects.current);
+    projectsScroll.current = Math.abs(
+      document.getElementsByTagName("body")[0].getBoundingClientRect().top -
+        projects.current.getBoundingClientRect().top
+    );
+    fadeLeft();
+  }, []);
 
   return (
     <section
