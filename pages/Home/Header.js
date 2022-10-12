@@ -1,8 +1,8 @@
 import Image from "next/image";
-import { useContext, useEffect, useRef, useState } from "react";
+import { forwardRef, useContext, useEffect, useRef, useState } from "react";
 import { Screen } from "../_app";
 
-const Header = () => {
+const Header = forwardRef((props, ref) => {
   const screen = useContext(Screen);
   const header = useRef();
   const info = useRef();
@@ -13,14 +13,7 @@ const Header = () => {
   const containerTimeout = useRef(0);
   const textTimeout = useRef(0);
   const observer = useRef();
-  const Parallex = (event) => {
-    const x = (event.pageX * -1) / 20;
-    const y = (event.pageY * -1) / 20;
-
-    header.current.style.setProperty("--x", x);
-    header.current.style.setProperty("--y", y);
-  };
-
+  
   const prespectiveEffect = (e) => {
     const { x, y, width, height } = info.current.getBoundingClientRect();
     const limit = 50;
@@ -34,8 +27,7 @@ const Header = () => {
   };
 
   const Navbar = () => {
-    const id = document.querySelector("[data-Me]");
-    const navbar = document.querySelector(".navigation-panel");
+    const navbar = ref.current;
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#me");
     delete active.dataset.active;
@@ -127,6 +119,7 @@ const Header = () => {
       </div>
     </header>
   );
-};
+});
 
+Header.displayName = "Header";
 export default Header;

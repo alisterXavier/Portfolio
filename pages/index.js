@@ -1,4 +1,4 @@
-import { useContext, useEffect, useRef } from "react";
+import { createRef, useContext, useEffect, useRef } from "react";
 import Navbar from "./Home/Navbar";
 import Header from "./Home/Header";
 import Stack from "./Home/Stack";
@@ -12,7 +12,8 @@ import AboutMe from "./Home/AboutMe";
 export default function Home() {
   const router = useRouter();
   const canvas = useRef();
-  const [contactState, ] = useContext(ContactApi);
+  const [contactState] = useContext(ContactApi);
+  const navigationPanel = useRef();
   const handleRoute = (value) => {
     setTimeout(() => {
       router.push(`/${value}`);
@@ -33,22 +34,22 @@ export default function Home() {
   return (
     <div className="overflow-div">
       <div className="mainOverflow-container">
-        <Navbar></Navbar>
-        <Header></Header>
+        <Navbar ref={navigationPanel}></Navbar>
+        <Header ref={navigationPanel}></Header>
         <main className="main relative">
-          <div className="gradient-section">
-          </div>
-          <AboutMe />
+          <div className="gradient-section"></div>
+          <AboutMe ref={navigationPanel} />
           <Stack
             changeRoute={(value) => {
               handleRoute(value);
             }}
+            ref={navigationPanel}
           />
           <Projects
-            canvasElem={canvas}
             changeRoute={(value) => {
               handleRoute(value);
             }}
+            ref={{ canvas: canvas, navigation: navigationPanel }}
           />
           <canvas
             ref={canvas}

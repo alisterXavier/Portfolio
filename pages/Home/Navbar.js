@@ -1,13 +1,13 @@
-import { useContext, useEffect, useRef, useState } from "react";
+import { forwardRef, useContext, useEffect, useRef, useState } from "react";
 import { ContactApi, Nav, Screen } from "../_app";
 import { HiMenu } from "react-icons/hi";
 
-const Navbar = () => {
-  const navigation = useRef();
+const Navbar = forwardRef((props,ref) => {
+  // const navigation = useRef();
   const screen = useContext(Screen);
   const [contactState, setContactState] = useContext(ContactApi);
   const [nav, setNav] = useState(false);
-  const [navState, setNavState] = useContext(Nav)
+  const [navState, setNavState] = useContext(Nav);
   const lightsOn = (e) => {
     const element = e.currentTarget;
     element.style.color = "#0fa";
@@ -23,8 +23,8 @@ const Navbar = () => {
   const handleClick = (e) => {
     e.stopPropagation();
     const { id } = e.currentTarget;
-    const navbar = document.querySelector(".navigation-panel");
-    const active = navbar.querySelector("[data-active]");
+
+    const active = ref.current.querySelector("[data-active]");
 
     delete active.dataset.active;
     e.currentTarget.dataset.active = true;
@@ -33,7 +33,7 @@ const Navbar = () => {
       document
         .querySelector(`[data-${id}]`)
         .scrollIntoView({ behavior: "smooth" });
-      setNavState('pop')
+      setNavState("pop");
       setContactState(false);
     }
   };
@@ -42,20 +42,27 @@ const Navbar = () => {
     handleClick(e);
     const value = !contactState;
     setContactState(value);
-    if (value) setNavState('unpop');
-    else setNavState('pop');
+    if (value) setNavState("unpop");
+    else setNavState("pop");
+  };
+
+  const NavPop = () => {
+    ref.current.classList.remove("unpop");
+    ref.current.classList.add("pop");
+  };
+
+  const NavUnpop = () => {
+    ref.current.classList.remove("pop");
+    ref.current.classList.add("unpop");
   };
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
-      if (navigation.current) {
+      if (ref.current) {
         if (window.scrollY > 20) {
-          navigation.current.classList.remove("unpop");
-          navigation.current.classList.add("pop");
+          NavPop();
         } else {
-          navigation.current.classList.remove("pop");
-          navigation.current.removeAttribute("style");
-          navigation.current.classList.add("unpop");
+          NavUnpop();
         }
       }
     });
@@ -80,7 +87,7 @@ const Navbar = () => {
         onClick={() => {
           setNav(false);
         }}
-        ref={navigation}
+        ref={ref}
         data-navparent
       >
         <ul
@@ -156,6 +163,8 @@ const Navbar = () => {
       </nav>
     </div>
   );
-};
+});
+
+Navbar.displayName = "Navbar";
 
 export default Navbar;

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { useContext, useEffect, useRef } from "react";
+import { forwardRef, useContext, useEffect, useRef } from "react";
 import mernApp from "/public/assets/blaaApp.png";
 import netflixClone from "/public/assets/netflix.png";
 import eCommerce from "/public/assets/e-commerce.png";
@@ -7,7 +7,7 @@ import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { GoMarkGithub, GoLink } from "react-icons/go";
 import { Screen } from "../_app";
 
-const Projects = ({ changeRoute, canvasElem }) => {
+const Projects = forwardRef(({ changeRoute }, ref) => {
   const slides = useRef();
   const carousel = useRef();
   const projectRibbon = useRef();
@@ -16,7 +16,7 @@ const Projects = ({ changeRoute, canvasElem }) => {
   const projectsScroll = useRef();
   const screen = useContext(Screen);
   const observer = useRef();
-
+  const { navigation, canvas } = ref;
   const carouselProjects = [
     {
       img: mernApp,
@@ -91,7 +91,7 @@ const Projects = ({ changeRoute, canvasElem }) => {
   };
 
   const Navbar = () => {
-    const navbar = document.querySelector(".navigation-panel");
+    const navbar = navigation.current;
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#projects");
     delete active.dataset.active;
@@ -126,11 +126,11 @@ const Projects = ({ changeRoute, canvasElem }) => {
               });
             }, 600);
             projectRibbon.current.classList.add("active");
-            canvasElem.current.style.opacity = 1;
+            canvas.current.style.opacity = 1;
             Navbar();
           } else {
-            if (canvasElem.current) {
-              canvasElem.current.style.opacity = 0;
+            if (canvas.current) {
+              canvas.current.style.opacity = 0;
             }
           }
         });
@@ -187,7 +187,7 @@ const Projects = ({ changeRoute, canvasElem }) => {
                 }}
               >
                 <figure className="project-img">
-                  <Image alt={cp.img} src={cp.img} layout="fill" priority/>
+                  <Image alt={cp.img} src={cp.img} layout="fill" priority />
                 </figure>
                 <div className="details">
                   <h2 className="text-xl lg:text-3xl my-2">{cp.title}</h2>
@@ -299,6 +299,8 @@ const Projects = ({ changeRoute, canvasElem }) => {
       )}
     </section>
   );
-};
+});
+
+Projects.displayName = Projects;
 
 export default Projects;

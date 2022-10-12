@@ -3,7 +3,7 @@ $delay: 500ms
 $left-pos: [-50%, 50%, -50%, 50%, -50%, 50%, 20%, 50%, 25%, 10%]
 @for $var from 1 through 20
     .stack .stack-container .language-container-wrapper.animate-in:nth-child(#{$var})
-        transition-delay: $delay
+        animation-delay: $delay
     $delay: $delay + 100ms
 
 // Project
@@ -146,10 +146,10 @@ $left-pos: [-50%, 50%, -50%, 50%, -50%, 50%, 20%, 50%, 25%, 10%]
     animation-delay: 500ms
 
 .swiper-pagination-bullet
-     background-color: #0fa !important
+    background-color: #0fa !important
 
-.swiper-pagination-bullet-active 
-     background-color: #0fa !important
+.swiper-pagination-bullet-active
+    background-color: #0fa !important
 
 .swiper
     width: 100%

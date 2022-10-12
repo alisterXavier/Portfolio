@@ -1,15 +1,27 @@
-import { useContext, useEffect, useRef } from "react";
-import { ContactApi } from "../_app";
+import { forwardRef, useContext, useEffect, useRef } from "react";
+import { ContactApi, Nav } from "../_app";
 
-const AboutMe = () => {
+const AboutMe = forwardRef((props, ref) => {
   const [contactState, setContactState] = useContext(ContactApi);
+  const [navState, setNavState] = useContext(Nav);
   const about = useRef();
+  const innerAbout = useRef();
   const observer = useRef();
+
+  const Parallex = (event) => {
+    const x = (event.pageX * -1) / 15;
+    const y = (event.pageY * -1) / 15;
+
+    innerAbout.current.style.setProperty("--x", x);
+    innerAbout.current.style.setProperty("--y", y);
+  };
+
   const nav = (e) => {
     const text = e.target.text.trim();
-    console.log(text === "Contact me");
+
     if (text === "Contact me") {
       setContactState(true);
+      setNavState("unpop");
     } else {
       document
         .querySelector(`[data-${text}]`)
@@ -18,7 +30,7 @@ const AboutMe = () => {
   };
 
   const Navbar = () => {
-    const navbar = document.querySelector(".navigation-panel");
+    const navbar = ref.current;
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#about-me");
     delete active.dataset.active;
@@ -49,8 +61,12 @@ const AboutMe = () => {
       id="About-Me"
       ref={about}
       data-About-Me
+      onMouseMove={Parallex}
     >
-      <div className="about-wrapper relative">
+      <div
+        className="about-wrapper relative"
+        ref={innerAbout}
+      >
         <div className="about-name">
           <h1 className="text-3xl lg:text-7xl flex justify-evenly">
             <span className="">Hi, I&apos;m</span>
@@ -58,10 +74,10 @@ const AboutMe = () => {
           </h1>
         </div>
         <p className="about-about text-sm lg:text-2xl p-5 lg:p-10">
-          A web developer and tireless seeker of knowledge. As a well-rounded user
-          and developer, I aim to make sure that systems interfaces, languages,
-          and graphics are human-friendly, aesthetically pleasing, clear,
-          on-brand, and usable. Check out my
+          A web developer and tireless seeker of knowledge. As a well-rounded
+          user and developer, I aim to make sure that systems interfaces,
+          languages, and graphics are human-friendly, aesthetically pleasing,
+          clear, on-brand, and usable. Check out my
           <span className="text-orange-500 cursor-pointer">
             <a onClick={nav}> stack</a>
           </span>{" "}
@@ -77,6 +93,7 @@ const AboutMe = () => {
       </div>
     </section>
   );
-};
+});
 
+AboutMe.displayName = "AboutMe";
 export default AboutMe;

@@ -1,8 +1,8 @@
 import Image from "next/future/image";
-import { useEffect, useRef } from "react";
+import { forwardRef, useEffect, useRef } from "react";
 import { FaAngleRight } from "react-icons/fa";
 
-const Stack = (props) => {
+const Stack = forwardRef(({changeRoute}, ref) => {
   const stackRibbon = useRef();
   const eachLanguage = useRef([]);
   const stacks = useRef();
@@ -41,7 +41,6 @@ const Stack = (props) => {
       img: "https://www.mysql.com/common/logos/logo-mysql-170x115.png",
     },
   ];
-  const scroll = 0;
   const StackScroll = useRef();
 
   const fadeRight = () => {
@@ -69,8 +68,7 @@ const Stack = (props) => {
   };
 
   const Navbar = () => {
-    const id = document.querySelector("[data-stack]");
-    const navbar = document.querySelector(".navigation-panel");
+    const navbar = ref.current;
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#stack");
     delete active.dataset.active;
@@ -78,8 +76,14 @@ const Stack = (props) => {
   };
 
   const ViewCompleteStack = () => {
+    changeRoute("completedStack");
     observer.current.unobserve(stacks.current);
-    props.changeRoute("completedStack");
+    document.querySelector(
+      ".mainOverflow-container"
+    ).style.transition = `filter 500ms ease`;
+    document.querySelector(
+      ".mainOverflow-container"
+    ).style.filter = `brightness(0)`;
   };
 
   useEffect(() => {
@@ -161,6 +165,7 @@ const Stack = (props) => {
       </div>
     </section>
   );
-};
+});
 
+Stack.displayName = "Stack";
 export default Stack;
