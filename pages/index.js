@@ -11,9 +11,9 @@ import AboutMe from "./Home/AboutMe";
 
 export default function Home() {
   const router = useRouter();
-  const canvas = useRef();
-  const [contactState] = useContext(ContactApi);
+  const canvas = useRef({});
   const navigationPanel = useRef();
+  const [contactState] = useContext(ContactApi);
   const handleRoute = (value) => {
     setTimeout(() => {
       router.push(`/${value}`);

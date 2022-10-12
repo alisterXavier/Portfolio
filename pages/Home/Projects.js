@@ -17,6 +17,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
   const screen = useContext(Screen);
   const observer = useRef();
   const { canvas, navigation } = ref;
+
   const carouselProjects = [
     {
       img: mernApp,
