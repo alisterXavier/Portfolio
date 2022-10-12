@@ -11,7 +11,7 @@ import AboutMe from "./Home/AboutMe";
 
 export default function Home() {
   const router = useRouter();
-  const canvas = useRef(undefined);
+  const canvas = useRef();
   const navigationPanel = useRef();
   const [contactState] = useContext(ContactApi);
   const handleRoute = (value) => {
@@ -55,7 +55,7 @@ export default function Home() {
             changeRoute={(value) => {
               handleRoute(value);
             }}
-            ref={[canvas, navigationPanel]}
+            ref={{ canvas: canvas, navigation: navigationPanel }}
           />
         </main>
         {contactState === true && <Contact></Contact>}
