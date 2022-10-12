@@ -16,7 +16,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
   const projectsScroll = useRef();
   const screen = useContext(Screen);
   const observer = useRef();
-  const { canvas, navigation } = ref;
+  const { canvasRef, navigationRef } = ref;
 
   const carouselProjects = [
     {
@@ -92,7 +92,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
   };
 
   const Navbar = () => {
-    const navbar = navigation.current;
+    const navbar = navigationRef.current;
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#projects");
     delete active.dataset.active;
@@ -127,11 +127,11 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
               });
             }, 600);
             projectRibbon.current.classList.add("active");
-            canvas.current.style.opacity = 1;
+            canvasRef.current.style.opacity = 1;
             Navbar();
           } else {
-            if (canvas.current) {
-              canvas.current.style.opacity = 0;
+            if (canvasRef.current) {
+              canvasRef.current.style.opacity = 0;
             }
           }
         });
