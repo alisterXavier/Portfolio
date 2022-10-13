@@ -127,7 +127,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
             }, 600);
             projectRibbon.current.classList.add("active");
             // ref.current[1].style.opacity = 1;
-            Navbar();
+            // Navbar();
           } else {
             // if (ref.current[1]) {
             //   ref.current[1].style.opacity = 0;
