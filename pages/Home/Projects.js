@@ -16,7 +16,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
   const projectsScroll = useRef();
   const screen = useContext(Screen);
   const observer = useRef();
-  const navbar = ref.current[0]
+  const navbar = ref.current[0];
 
   const carouselProjects = [
     {
@@ -126,12 +126,12 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
               });
             }, 600);
             projectRibbon.current.classList.add("active");
-            ref.current[1].style.opacity = 1;
+            // ref.current[1].style.opacity = 1;
             Navbar();
           } else {
-            if (ref.current[1]) {
-              ref.current[1].style.opacity = 0;
-            }
+            // if (ref.current[1]) {
+            //   ref.current[1].style.opacity = 0;
+            // }
           }
         });
       },
