@@ -16,7 +16,6 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
   const projectsScroll = useRef();
   const screen = useContext(Screen);
   const observer = useRef();
-  const navbar = ref.current[0];
 
   const carouselProjects = [
     {
@@ -91,12 +90,12 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
     delete NextSlide.dataset.next;
   };
 
-  const Navbar = () => {
-    const active = ref.current[0].querySelector("[data-active]");
-    const navSections = ref.current[0].querySelector("#projects");
-    delete active.dataset.active;
-    navSections.dataset.active = true;
-  };
+  // const Navbar = () => {
+  //   const active = ref.current[0].querySelector("[data-active]");
+  //   const navSections = ref.current[0].querySelector("#projects");
+  //   delete active.dataset.active;
+  //   navSections.dataset.active = true;
+  // };
 
   const ViewAllProjects = () => {
     changeRoute("allProjects");
