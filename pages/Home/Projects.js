@@ -8,7 +8,8 @@ import { GoMarkGithub, GoLink } from "react-icons/go";
 import { Screen } from "../_app";
 
 const Projects = forwardRef(({ changeRoute }, ref) => {
-  const { navigationPanel, canvas } = ref.current;
+  const navigationPanel = ref.current.navigationPanel;
+  const canvas = ref.current.canvas;
   const slides = useRef();
   const carousel = useRef();
   const projectRibbon = useRef();
