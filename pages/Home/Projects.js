@@ -90,12 +90,12 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
     delete NextSlide.dataset.next;
   };
 
-  // const Navbar = () => {
-  //   const active = ref.current[0].querySelector("[data-active]");
-  //   const navSections = ref.current[0].querySelector("#projects");
-  //   delete active.dataset.active;
-  //   navSections.dataset.active = true;
-  // };
+  const Navbar = () => {
+    const active = ref.current[0].querySelector("[data-active]");
+    const navSections = ref.current[0].querySelector("#projects");
+    delete active.dataset.active;
+    navSections.dataset.active = true;
+  };
 
   const ViewAllProjects = () => {
     changeRoute("allProjects");
@@ -125,12 +125,12 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
               });
             }, 600);
             projectRibbon.current.classList.add("active");
-            // ref.current[1].style.opacity = 1;
-            // Navbar();
+            ref.current[1].style.opacity = 1;
+            Navbar();
           } else {
-            // if (ref.current[1]) {
-            //   ref.current[1].style.opacity = 0;
-            // }
+            if (ref.current[1]) {
+              ref.current[1].style.opacity = 0;
+            }
           }
         });
       },

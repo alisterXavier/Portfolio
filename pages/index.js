@@ -51,12 +51,14 @@ export default function Home() {
             }}
             ref={navCanvas}
           />
-          <Projects
-            changeRoute={(value) => {
-              handleRoute(value);
-            }}
-            ref={navCanvas}
-          />
+          {navCanvas.current && (
+            <Projects
+              changeRoute={(value) => {
+                handleRoute(value);
+              }}
+              ref={navCanvas}
+            />
+          )}
         </main>
         {contactState === true && <Contact></Contact>}
       </div>
