@@ -8,7 +8,7 @@ import { GoMarkGithub, GoLink } from "react-icons/go";
 import { Screen } from "../_app";
 
 const Projects = forwardRef(({ changeRoute }, ref) => {
-  const { canvasRef, navigationRef } = ref;
+  const { navigationPanel, canvas } = ref.current;
   const slides = useRef();
   const carousel = useRef();
   const projectRibbon = useRef();
@@ -92,7 +92,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
   };
 
   const Navbar = () => {
-    const navbar = navigationRef.current;
+    const navbar = navigationPanel.current;
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#projects");
     delete active.dataset.active;
@@ -127,11 +127,11 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
               });
             }, 600);
             projectRibbon.current.classList.add("active");
-            canvasRef.current.style.opacity = 1;
+            canvas.current.style.opacity = 1;
             Navbar();
           } else {
-            if (canvasRef.current) {
-              canvasRef.current.style.opacity = 0;
+            if (canvas.current) {
+              canvas.current.style.opacity = 0;
             }
           }
         });

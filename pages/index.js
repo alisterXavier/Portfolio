@@ -13,6 +13,7 @@ export default function Home() {
   const router = useRouter();
   const canvas = useRef();
   const navigationPanel = useRef();
+  const navCanvas = useRef({ navigationPanel, canvas });
   const [contactState] = useContext(ContactApi);
   const handleRoute = (value) => {
     setTimeout(() => {
@@ -55,7 +56,7 @@ export default function Home() {
             changeRoute={(value) => {
               handleRoute(value);
             }}
-            ref={{ canvasRef: canvas, navigationRef: navigationPanel }}
+            ref={navCanvas}
           />
         </main>
         {contactState === true && <Contact></Contact>}
