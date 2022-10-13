@@ -13,7 +13,7 @@ export default function Home() {
   const router = useRouter();
   const canvas = useRef();
   const navigationPanel = useRef();
-  const navCanvas = useRef({ navigationPanel, canvas });
+  const navCanvas = useRef({ navigationPanel });
   const [contactState] = useContext(ContactApi);
   const handleRoute = (value) => {
     setTimeout(() => {

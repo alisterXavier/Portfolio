@@ -9,7 +9,7 @@ import { Screen } from "../_app";
 
 const Projects = forwardRef(({ changeRoute }, ref) => {
   const navigationPanel = ref.current.navigationPanel;
-  const canvas = ref.current.canvas;
+  // const canvas = ref.current.canvas;
   const slides = useRef();
   const carousel = useRef();
   const projectRibbon = useRef();
@@ -92,13 +92,13 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
     delete NextSlide.dataset.next;
   };
 
-  const Navbar = () => {
-    const navbar = navigationPanel.current;
-    const active = navbar.querySelector("[data-active]");
-    const navSections = navbar.querySelector("#projects");
-    delete active.dataset.active;
-    navSections.dataset.active = true;
-  };
+  // const Navbar = () => {
+  //   const navbar = navigationPanel.current;
+  //   const active = navbar.querySelector("[data-active]");
+  //   const navSections = navbar.querySelector("#projects");
+  //   delete active.dataset.active;
+  //   navSections.dataset.active = true;
+  // };
 
   const ViewAllProjects = () => {
     changeRoute("allProjects");
@@ -129,7 +129,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
             }, 600);
             projectRibbon.current.classList.add("active");
             canvas.current.style.opacity = 1;
-            Navbar();
+            // Navbar();
           } else {
             if (canvas.current) {
               canvas.current.style.opacity = 0;
