@@ -8,8 +8,6 @@ import { GoMarkGithub, GoLink } from "react-icons/go";
 import { Screen } from "../_app";
 
 const Projects = forwardRef(({ changeRoute }, ref) => {
-  const navigationPanel = ref.current.navigationPanel;
-  // const canvas = ref.current.canvas;
   const slides = useRef();
   const carousel = useRef();
   const projectRibbon = useRef();
@@ -18,6 +16,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
   const projectsScroll = useRef();
   const screen = useContext(Screen);
   const observer = useRef();
+  const navbar = ref.current[0]
 
   const carouselProjects = [
     {
@@ -92,13 +91,12 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
     delete NextSlide.dataset.next;
   };
 
-  // const Navbar = () => {
-  //   const navbar = navigationPanel.current;
-  //   const active = navbar.querySelector("[data-active]");
-  //   const navSections = navbar.querySelector("#projects");
-  //   delete active.dataset.active;
-  //   navSections.dataset.active = true;
-  // };
+  const Navbar = () => {
+    const active = ref.current[0].querySelector("[data-active]");
+    const navSections = ref.current[0].querySelector("#projects");
+    delete active.dataset.active;
+    navSections.dataset.active = true;
+  };
 
   const ViewAllProjects = () => {
     changeRoute("allProjects");
@@ -128,11 +126,11 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
               });
             }, 600);
             projectRibbon.current.classList.add("active");
-            canvas.current.style.opacity = 1;
-            // Navbar();
+            ref.current[1].style.opacity = 1;
+            Navbar();
           } else {
-            if (canvas.current) {
-              canvas.current.style.opacity = 0;
+            if (ref.current[1]) {
+              ref.current[1].style.opacity = 0;
             }
           }
         });

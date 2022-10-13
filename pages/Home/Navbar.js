@@ -2,7 +2,7 @@ import { forwardRef, useContext, useEffect, useRef, useState } from "react";
 import { ContactApi, Nav, Screen } from "../_app";
 import { HiMenu } from "react-icons/hi";
 
-const Navbar = forwardRef((props,ref) => {
+const Navbar = forwardRef((props, ref) => {
   // const navigation = useRef();
   const screen = useContext(Screen);
   const [contactState, setContactState] = useContext(ContactApi);
@@ -23,8 +23,8 @@ const Navbar = forwardRef((props,ref) => {
   const handleClick = (e) => {
     e.stopPropagation();
     const { id } = e.currentTarget;
-
-    const active = ref.current.querySelector("[data-active]");
+    const nav = ref.current[0];
+    const active = nav.querySelector("[data-active]");
 
     delete active.dataset.active;
     e.currentTarget.dataset.active = true;
@@ -47,18 +47,18 @@ const Navbar = forwardRef((props,ref) => {
   };
 
   const NavPop = () => {
-    ref.current.classList.remove("unpop");
-    ref.current.classList.add("pop");
+    ref.current[0].classList.remove("unpop");
+    ref.current[0].classList.add("pop");
   };
 
   const NavUnpop = () => {
-    ref.current.classList.remove("pop");
-    ref.current.classList.add("unpop");
+    ref.current[0].classList.remove("pop");
+    ref.current[0].classList.add("unpop");
   };
 
   useEffect(() => {
     document.addEventListener("scroll", () => {
-      if (ref.current) {
+      if (ref.current[0]) {
         if (window.scrollY > 20) {
           NavPop();
         } else {
@@ -87,7 +87,7 @@ const Navbar = forwardRef((props,ref) => {
         onClick={() => {
           setNav(false);
         }}
-        ref={ref}
+        ref={(elem) => (ref.current[0] = elem)}
         data-navparent
       >
         <ul
