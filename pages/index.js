@@ -11,8 +11,6 @@ import AboutMe from "./Home/AboutMe";
 
 export default function Home() {
   const router = useRouter();
-  const navbar = useRef();
-  const canvas = useRef();
   const navCanvas = useRef([]);
   const [contactState] = useContext(ContactApi);
   const handleRoute = (value) => {
@@ -35,28 +33,30 @@ export default function Home() {
   return (
     <div className="overflow-div">
       <div className="mainOverflow-container">
-        <Navbar ref={navbar}></Navbar>
-        <Header ref={navbar}></Header>
+        <Navbar ref={navCanvas}></Navbar>
+        <Header ref={navCanvas}></Header>
         <main className="main relative">
           <canvas
-            ref={canvas}
+            ref={(elem) => {
+              navCanvas.current[1] = elem;
+            }}
             id="gradient-canvas"
             className="absolute top-0 z-1"
             data-transition-in
           ></canvas>
-          <AboutMe ref={navbar} />
+          <AboutMe ref={navCanvas} />
           <Stack
             changeRoute={(value) => {
               handleRoute(value);
             }}
-            ref={navbar}
+            ref={navCanvas}
           />
-          {navbar && canvas && (
+          {navCanvas.current && (
             <Projects
               changeRoute={(value) => {
                 handleRoute(value);
               }}
-              ref={{navbar, canvas}}
+              ref={navCanvas}
             />
           )}
         </main>

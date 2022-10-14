@@ -30,7 +30,7 @@ const AboutMe = forwardRef((props, ref) => {
   };
 
   const Navbar = () => {
-    const navbar = ref.current;
+    const navbar = ref.current[0];
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#about-me");
     delete active.dataset.active;
@@ -55,7 +55,6 @@ const AboutMe = forwardRef((props, ref) => {
     );
     observer.current.observe(about.current);
   }, []);
-  
   return (
     <section
       className="about flex justify-center items-center text-start"

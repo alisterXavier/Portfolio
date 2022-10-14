@@ -27,7 +27,7 @@ const Header = forwardRef((props, ref) => {
   };
 
   const Navbar = () => {
-    const navbar = ref.current;
+    const navbar = ref.current[0];
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#me");
     delete active.dataset.active;

@@ -22,7 +22,7 @@ const Navbar = forwardRef((props, ref) => {
   const handleClick = (e) => {
     e.stopPropagation();
     const { id } = e.currentTarget;
-    const nav = ref.current;
+    const nav = ref.current[0];
     const active = nav.querySelector("[data-active]");
 
     delete active.dataset.active;
@@ -86,7 +86,7 @@ const Navbar = forwardRef((props, ref) => {
         onClick={() => {
           setNav(false);
         }}
-        ref={ref}
+        ref={(elem) => (ref.current[0] = elem)}
         data-navparent
       >
         <ul
