@@ -68,7 +68,7 @@ const Stack = forwardRef(({changeRoute}, ref) => {
   };
 
   const Navbar = () => {
-    const navbar = ref.current[0];
+    const navbar = ref.current;
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#stack");
     delete active.dataset.active;

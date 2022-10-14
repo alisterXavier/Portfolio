@@ -3,7 +3,6 @@ import { ContactApi, Nav, Screen } from "../_app";
 import { HiMenu } from "react-icons/hi";
 
 const Navbar = forwardRef((props, ref) => {
-  // const navigation = useRef();
   const screen = useContext(Screen);
   const [contactState, setContactState] = useContext(ContactApi);
   const [nav, setNav] = useState(false);
@@ -23,7 +22,7 @@ const Navbar = forwardRef((props, ref) => {
   const handleClick = (e) => {
     e.stopPropagation();
     const { id } = e.currentTarget;
-    const nav = ref.current[0];
+    const nav = ref.current;
     const active = nav.querySelector("[data-active]");
 
     delete active.dataset.active;
@@ -87,7 +86,7 @@ const Navbar = forwardRef((props, ref) => {
         onClick={() => {
           setNav(false);
         }}
-        ref={(elem) => (ref.current[0] = elem)}
+        ref={ref}
         data-navparent
       >
         <ul
