@@ -857,10 +857,10 @@ nav li {
   main .stack {
     height: 1250px;
   }
-  main .stack .stack-container-wrapper .stack-container {
+  .stack .stack-container-wrapper .stack-container {
     width: 100%;
   }
-  main .stack .stack-container-wrapper .language-container-wrapper {
+  .stack .stack-container-wrapper .language-container-wrapper {
     border-radius: 10px;
     width: 130px;
     margin: 10px;
