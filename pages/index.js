@@ -51,7 +51,7 @@ export default function Home() {
             }}
             ref={navbar}
           />
-          {navbar.current && canvas.current && (
+          {navbar && canvas && (
             <Projects
               changeRoute={(value) => {
                 handleRoute(value);
