@@ -7,10 +7,11 @@ const AboutMe = forwardRef((props, ref) => {
   const about = useRef();
   const innerAbout = useRef();
   const observer = useRef();
+  const navRef = useRef()
 
   const Parallex = (event) => {
-    const x = (event.pageX * -1) / 15;
-    const y = (event.pageY * -1) / 15;
+    const x = ((event.pageX - 500) * -1) / 15;
+    const y = ((event.pageY - 500) * -1) / 15;
 
     innerAbout.current.style.setProperty("--x", x);
     innerAbout.current.style.setProperty("--y", y);
@@ -29,7 +30,7 @@ const AboutMe = forwardRef((props, ref) => {
     }
   };
 
-  const Navbar = () => {
+  navRef.current = () => {``
     const navbar = ref.current[0];
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#about-me");
@@ -42,7 +43,7 @@ const AboutMe = forwardRef((props, ref) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            Navbar();
+            navRef.current()
             entry.target
               .querySelector(".about-name")
               .classList.add("animate-in");
@@ -55,6 +56,7 @@ const AboutMe = forwardRef((props, ref) => {
     );
     observer.current.observe(about.current);
   }, []);
+
   return (
     <section
       className="about flex justify-center items-center text-start"

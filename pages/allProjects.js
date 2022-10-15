@@ -74,11 +74,11 @@ const AllProject = () => {
             );
           })}
         </ul>
-        {selected && (
-          <AnimatePresence>
+        <AnimatePresence>
+          {selected && (
             <SingleProject selected={selected} setSelected={setSelected} />
-          </AnimatePresence>
-        )}
+          )}
+        </AnimatePresence>
       </div>
     </div>
   );

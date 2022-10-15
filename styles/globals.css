@@ -994,35 +994,8 @@ main .projects .project-glitch {
   z-index: 0;
   padding: 0px;
   width: fit-content;
-  /* animation: clip 5s 2.05s infinite; */
 }
-/* main .projects .project-glitch:after {
-    content: "PROJECTS";
-    position: absolute;
-    top: 0%;
-    bottom: 0%;
-    right: 0%;
-    left: 0%;
-    z-index: 1;
-    color: white;
-    text-shadow: -3px 0px magenta;
-    animation: glitch1 500ms 2.5s alternate-reverse infinite,
-      clip 5s 2.05s infinite;
-  } */
-/* main .projects .project-glitch:before {
-    content: "PROJECTS";
-    position: absolute;
-    z-index: 1;
-    color: white;
-    top: 0%;
-    bottom: 0%;
-    right: 0%;
-    left: 0%;
-    text-shadow: -3px 0px limegreen;
-    animation: glitch2 500ms 2.5s alternate-reverse infinite,
-      clip 5s 2.05s infinite;
-  } */
-@keyframes glitch1 {
+/* @keyframes glitch1 {
   0% {
     clip-path: inset(10px 0px 90px 0px);
   }
@@ -1072,7 +1045,8 @@ main .projects .project-glitch {
   2% {
     transform: rotateX(0deg) skewX(0deg);
   }
-}
+} */
+
 /* Single */
 .single-wrapper {
   position: fixed;
