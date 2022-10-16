@@ -4,11 +4,11 @@ import { ContactApi, Nav, Screen } from "../_app";
 const AboutMe = forwardRef((props, ref) => {
   const [contactState, setContactState] = useContext(ContactApi);
   const [navState, setNavState] = useContext(Nav);
-  const screen = useContext(Screen)
+  const screen = useContext(Screen);
   const about = useRef();
   const innerAbout = useRef();
   const observer = useRef();
-  const navRef = useRef()
+  const navRef = useRef();
 
   const Parallex = (event) => {
     const x = ((event.pageX - 500) * -1) / 15;
@@ -31,7 +31,8 @@ const AboutMe = forwardRef((props, ref) => {
     }
   };
 
-  navRef.current = () => {``
+  navRef.current = () => {
+    ``;
     const navbar = ref.current[0];
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#about-me");
@@ -44,7 +45,7 @@ const AboutMe = forwardRef((props, ref) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            navRef.current()
+            navRef.current();
             entry.target
               .querySelector(".about-name")
               .classList.add("animate-in");
@@ -64,14 +65,11 @@ const AboutMe = forwardRef((props, ref) => {
       id="About-Me"
       ref={about}
       data-About-Me
-      onMouseMove={() => {
-        (screen > 900 && Parallex())
+      onMouseMove={(e) => {
+        screen >= 900 && Parallex(e);
       }}
     >
-      <div
-        className="about-wrapper relative"
-        ref={innerAbout}
-      >
+      <div className="about-wrapper relative" ref={innerAbout}>
         <div className="about-name">
           <h1 className="text-3xl lg:text-7xl flex justify-evenly">
             <span className="">Hi, I&apos;m</span>
