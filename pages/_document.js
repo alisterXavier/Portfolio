@@ -10,7 +10,7 @@ export default function Document() {
     gtag("js", new Date());
 
     gtag("config", "G-RH02VTQ8K5");
-  },[]);
+  }, []);
   return (
     <Html>
       <Head>
@@ -19,14 +19,17 @@ export default function Document() {
           src="https://www.googletagmanager.com/gtag/js?id=G-RH02VTQ8K5"
         ></script>
         <link
+          crossorigin="anonymous"
           href="https://fonts.cdnfonts.com/css/hello-denver-display"
           rel="stylesheet"
         />
         <link
+          crossorigin="anonymous"
           href="https://fonts.cdnfonts.com/css/omnes-regular"
           rel="stylesheet"
         />
         <link
+          crossorigin="anonymous"
           href="https://fonts.cdnfonts.com/css/amcap-eternal"
           rel="stylesheet"
         />
