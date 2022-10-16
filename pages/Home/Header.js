@@ -13,7 +13,7 @@ const Header = forwardRef((props, ref) => {
   const containerTimeout = useRef(0);
   const textTimeout = useRef(0);
   const observer = useRef();
-  
+
   const prespectiveEffect = (e) => {
     const { x, y, width, height } = info.current.getBoundingClientRect();
     const limit = 50;
@@ -54,7 +54,7 @@ const Header = forwardRef((props, ref) => {
                 fname.current.classList.add("flicker-effect");
                 hi.current.classList.add("flicker-effect-1");
                 headerBannerText.current.classList.add("glow-1");
-                avatar.current.classList.add("on");
+                // avatar.current.classList.add("on");
               }, 500);
             }, 1100);
           } else {
@@ -71,7 +71,7 @@ const Header = forwardRef((props, ref) => {
             fname.current.classList.remove("flicker-effect");
             hi.current.classList.remove("flicker-effect-1");
             info.current.classList.remove("reflection-lights-on");
-            avatar.current.classList.remove("on");
+            // avatar.current.classList.remove("on");
           }
         });
       },
@@ -102,20 +102,16 @@ const Header = forwardRef((props, ref) => {
             SELF-TAUGHT FRONT-END DEVELOPER.
           </p>
         </div>
-        <div className="avatar-container" ref={avatar}>
+        {/* <div className="avatar-container" ref={avatar}>
           <Image
             className="avatar"
             src="/assets/Zoro.jpg"
             alt=""
             layout="fill"
           />
-        </div>
-        {screen < 900 && (
-          <>
-            <div className="floating float1"></div>
-            <div className="floating float2"></div>
-          </>
-        )}
+        </div> */}
+        <div className="floating float1"></div>
+        <div className="floating float2"></div>
       </div>
     </header>
   );

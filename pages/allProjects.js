@@ -3,16 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import allp from "../components/projects.json";
 import { AnimatePresence, motion } from "framer-motion";
 import SingleProject from "./Home/Single";
+import { BiArrowBack } from "react-icons/bi";
+import { useRouter } from "next/router";
 
 const AllProject = () => {
+  const router = useRouter()
   const [selected, setSelected] = useState(null);
   const [activeItems, setActiveItems] = useState([]);
   const allprojects = useRef([]);
-
-  const Routes = (e) => {
-    const { id } = e.currentTarget;
-    // this.$router.push({ path: `/allProjects/${id.replaceAll(/\s/g, '')}`, params: { id } });
-  };
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -37,6 +35,7 @@ const AllProject = () => {
 
   return (
     <div className="overflow-div">
+            <BiArrowBack className="absolute z-10 top-5 left-5 cursor-text glow" size={30} onClick={()=>{ router.back()}}></BiArrowBack>
       <div className="all-projects relative">
         <div className="all-projects-title">
           <h1 className="text-center text-5xl lg:text-6xl glow flicker-effect-1">
