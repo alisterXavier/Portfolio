@@ -11,6 +11,7 @@ html {
   color: white;
   font-family: "Omnes", sans-serif;
   font-family: "Omnes Semibold", sans-serif;
+  user-select: none;
 }
 :root {
   --dark-bg: #000b16;

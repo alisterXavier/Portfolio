@@ -1,9 +1,10 @@
 import { forwardRef, useContext, useEffect, useRef } from "react";
-import { ContactApi, Nav } from "../_app";
+import { ContactApi, Nav, Screen } from "../_app";
 
 const AboutMe = forwardRef((props, ref) => {
   const [contactState, setContactState] = useContext(ContactApi);
   const [navState, setNavState] = useContext(Nav);
+  const screen = useContext(Screen)
   const about = useRef();
   const innerAbout = useRef();
   const observer = useRef();
@@ -63,7 +64,9 @@ const AboutMe = forwardRef((props, ref) => {
       id="About-Me"
       ref={about}
       data-About-Me
-      onMouseMove={Parallex}
+      onMouseMove={() => {
+        (screen > 900 && Parallex())
+      }}
     >
       <div
         className="about-wrapper relative"

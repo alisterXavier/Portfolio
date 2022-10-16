@@ -148,7 +148,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
 
   return (
     <section
-      className="projects view relative z-10"
+      className="projects view relative z-10 overflow-hidden"
       ref={projects}
       id="Projects"
       data-projects
