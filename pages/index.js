@@ -31,36 +31,39 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="overflow-div">
-      <div className="mainOverflow-container">
-        <Navbar ref={navCanvas}></Navbar>
-        <Header ref={navCanvas}></Header>
-        <main className="main relative">
-          <canvas
-            ref={(elem) => {
-              navCanvas.current[1] = elem;
-            }}
-            id="gradient-canvas"
-            className="absolute top-0 z-1"
-            data-transition-in
-          ></canvas>
-          <AboutMe ref={navCanvas} />
-          <Stack
-            changeRoute={(value) => {
-              handleRoute(value);
-            }}
-            ref={navCanvas}
-          />
-          {navCanvas.current && (
-            <Projects
+    <div className="overflow relative">
+      {/* <h1 className="bg-A glow glow-text hello">A</h1> */}
+      <div className="overflow-div relative z-10">
+        <div className="mainOverflow-container">
+          <Navbar ref={navCanvas}></Navbar>
+          <Header ref={navCanvas}></Header>
+          <main className="main relative">
+            <canvas
+              ref={(elem) => {
+                navCanvas.current[1] = elem;
+              }}
+              id="gradient-canvas"
+              className="absolute top-0 z-1"
+              data-transition-in
+            ></canvas>
+            <AboutMe ref={navCanvas} />
+            <Stack
               changeRoute={(value) => {
                 handleRoute(value);
               }}
               ref={navCanvas}
             />
-          )}
-        </main>
-        {contactState === true && <Contact></Contact>}
+            {navCanvas.current && (
+              <Projects
+                changeRoute={(value) => {
+                  handleRoute(value);
+                }}
+                ref={navCanvas}
+              />
+            )}
+          </main>
+          {contactState === true && <Contact></Contact>}
+        </div>
       </div>
     </div>
   );

@@ -35,6 +35,7 @@ const Navbar = forwardRef((props, ref) => {
       setNavState("pop");
       setContactState(false);
     }
+    setNav(false)
   };
 
   const handleContact = (e) => {
