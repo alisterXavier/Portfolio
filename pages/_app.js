@@ -13,7 +13,10 @@ function MyApp({ Component, pageProps }) {
   const [navState, setNavState] = useState("");
 
   useEffect(() => {
+    const TRACKING_ID = "G-RH02VTQ8K5"; // OUR_TRACKING_ID
+    ReactGA.initialize(TRACKING_ID);
     setScreen(document.documentElement.clientWidth);
+    ReactGA.pageview(window.location.pathname + window.location.search);
   }, []);
   return (
     <Screen.Provider value={screen}>

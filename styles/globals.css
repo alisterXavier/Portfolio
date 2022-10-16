@@ -9,8 +9,7 @@ html {
   margin: 0%;
   padding: 0%;
   color: white;
-  font-family: "Omnes", sans-serif;
-  font-family: "Omnes Semibold", sans-serif;
+  font-family: "Omnes";
   user-select: none;
 }
 :root {
@@ -54,7 +53,18 @@ html {
     transform: scale(1);
   }
 }
-
+@font-face {
+  font-family: 'Hello-Denver';
+  src: url('/assets/hello-denver/HELLODENVERDISPLAYREGULAR_v1.6.otf');
+}
+@font-face {
+  font-family: 'Omnes';
+  src: url('/assets/omnes/Omnes Semibold Regular.ttf');
+}
+@font-face {
+  font-family: 'Amcap';
+  src: url('/assets/amcap-eternal/AMCAP Eternal.otf');
+}
 /* glow and flicker, on effects, text style */
 .glow {
   text-shadow: 3px 0px 0px rgb(4, 150, 101), 3px 0px 5px rgb(6, 150, 102),
@@ -94,7 +104,7 @@ html {
   color: var(--glow-text) !important;
 }
 .hello {
-  font-family: "HELLO DENVER DISPLAY REGULAR";
+  font-family: "Hello-Denver";
 }
 @keyframes lights-on {
   from {
@@ -315,7 +325,7 @@ nav li {
 /* Header */
 .headerBanner {
   position: relative;
-  font-family: "HELLO DENVER DISPLAY REGULAR";
+  font-family: "Hello-Denver";
   z-index: 1;
   color: var(--light-text);
   display: flex;
@@ -421,7 +431,7 @@ nav li {
 
 /* About */
 .about {
-  font-family: "AMCAP Eternal", sans-serif;
+  font-family: "Amcap";
   position: relative;
   z-index: 1;
   height: 100vh;
