@@ -26,7 +26,7 @@ html {
   );
   --glow-text: #0fa;
 }
-.overflow{
+.overflow {
   background-color: black;
 }
 .overflow-div {
@@ -54,16 +54,16 @@ html {
   }
 }
 @font-face {
-  font-family: 'Hello-Denver';
-  src: url('/assets/hello-denver/HELLODENVERDISPLAYREGULAR_v1.6.otf');
+  font-family: "Hello-Denver";
+  src: url("/assets/hello-denver/HELLODENVERDISPLAYREGULAR_v1.6.otf");
 }
 @font-face {
-  font-family: 'Omnes';
-  src: url('/assets/omnes/Omnes Semibold Regular.ttf');
+  font-family: "Omnes";
+  src: url("/assets/omnes/Omnes Semibold Regular.ttf");
 }
 @font-face {
-  font-family: 'Amcap';
-  src: url('/assets/amcap-eternal/AMCAP Eternal.otf');
+  font-family: "Amcap";
+  src: url("/assets/amcap-eternal/AMCAP Eternal.otf");
 }
 /* glow and flicker, on effects, text style */
 .glow {
@@ -244,7 +244,7 @@ html {
   }
 }
 
-.bg-A{
+.bg-A {
   position: fixed;
   top: 50%;
   z-index: 9;
@@ -428,7 +428,6 @@ nav li {
   background-color: rgba(0, 0, 0, 0);
 }
 
-
 /* About */
 .about {
   font-family: "Amcap";
@@ -459,6 +458,7 @@ nav li {
   background: var(--linear-background);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  color: #82f72d;
 }
 .about h1 p {
   translate: -1000px 0px;
