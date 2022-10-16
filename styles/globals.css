@@ -355,7 +355,7 @@ nav li {
   justify-content: center;
   padding: 20px 15px 0px 15px;
   z-index: 1;
-  font-family: "HELLO DENVER DISPLAY REGULAR";
+  font-family: "Hello-Denver";
 }
 .headerBanner .info .hi {
   position: relative;
@@ -460,20 +460,20 @@ nav li {
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
-.about h1 span {
+.about h1 p {
   translate: -1000px 0px;
   transition: translate 1s ease;
   transition-delay: 100ms;
 }
-.about h1 span:nth-child(2) {
+.about h1 p:nth-child(2) {
   translate: -1500px 0px;
   transition-delay: 300ms;
 }
-.about h1 span:nth-child(3) {
+.about h1 p:nth-child(3) {
   translate: -2000px 0px;
   transition-delay: 500ms;
 }
-.about .about-name.animate-in h1 span {
+.about .about-name.animate-in h1 p {
   translate: 0px 0px;
 }
 .about .about-about {
@@ -494,10 +494,10 @@ nav li {
   height: 100%;
   filter: blur(10px);
 }
-.about p a {
+.about .about-about a {
   position: relative;
 }
-.about p a:after {
+.about .about-about a:after {
   content: "";
   position: absolute;
   left: 0%;
@@ -507,7 +507,7 @@ nav li {
   height: 3px;
   transition: width 500ms ease;
 }
-.about p a:hover::after {
+.about .about-about a:hover::after {
   width: 100%;
 }
 
@@ -845,7 +845,7 @@ main .projects .project-glitch {
 .all-projects-title {
   width: 1500px;
   color: #0fa;
-  font-family: "HELLO DENVER DISPLAY REGULAR";
+  font-family: "Hello-Denver";
   padding: 10px 0px;
 }
 .all-projects ul {
