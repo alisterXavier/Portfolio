@@ -35,7 +35,7 @@ const AllStack = () => {
   };
 
   return (
-    <div className="overflow-div">
+    <div className="overflow">
       {screen > 500 && (
         <BiArrowBack
           className="absolute z-10 top-5 left-5 cursor-pointer"

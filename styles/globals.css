@@ -417,16 +417,7 @@ nav li {
   backdrop-filter: blur(20px);
   background-color: rgba(0, 0, 0, 0);
 }
-@keyframes up-down {
-  0%,
-  100% {
-    transform: translateY(10%) translateX(10%);
-  }
 
-  50% {
-    transform: translateY(-10%) translateX(-10%);
-  }
-}
 
 /* About */
 .about {
@@ -577,16 +568,6 @@ nav li {
 }
 .stack .stack-container-wrapper .language-container-wrapper.animate-in {
   animation: stack-in 500ms forwards;
-}
-@keyframes stack-in {
-  0% {
-    translate: 0% 200%;
-    opacity: 0;
-  }
-  100% {
-    translate: 0% 0%;
-    opacity: 1;
-  }
 }
 .stack
   .stack-container-wrapper
@@ -919,48 +900,6 @@ main .projects .project-glitch {
   padding: 10px;
   margin: 0px 20px;
 }
-@keyframes details-pop {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-@keyframes lights-on {
-  0% {
-    filter: brightness(0);
-  }
-  100% {
-    filter: brightness(1);
-  }
-}
-@keyframes slide-in-left {
-  0% {
-    transform: translateX(300px);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-right {
-  0% {
-    transform: translateX(-300px);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
 
 /* Single */
 .single-wrapper {
@@ -1118,27 +1057,7 @@ main .projects .project-glitch {
 .tooltip.active {
   visibility: visible;
 }
-@keyframes jump {
-  0% {
-    transform: translateX(-200px) scale(1, 1) skewX(-40deg);
-  }
-  70% {
-    transform: translateX(10px) scale(1.1, 0.6) skewX(-40deg);
-  }
-  100% {
-    transform: translateX(0px) scale(1, 1) skewX(0deg);
-  }
-}
-@keyframes popup {
-  0% {
-    transform: scale(2);
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+
 .contact-wrapper .contact .contact-title {
   font-size: 50px;
 }
@@ -1262,47 +1181,6 @@ main .projects .project-glitch {
   animation-delay: 1.5s;
 }
 
-@keyframes rotate {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-@keyframes load-1 {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 0%;
-  }
-}
-@keyframes load-2 {
-  0% {
-    top: -100%;
-  }
-  100% {
-    top: 0%;
-  }
-}
-@keyframes load-3 {
-  0% {
-    right: -100%;
-  }
-  100% {
-    right: 0%;
-  }
-}
-@keyframes load-4 {
-  0% {
-    bottom: -100%;
-  }
-  100% {
-    bottom: 0%;
-  }
-}
-
 .send-btn .sent {
   width: 100%;
   height: 100%;
@@ -1328,16 +1206,6 @@ main .projects .project-glitch {
 .send-btn .send-error svg,
 .send-btn .sent svg {
   animation: response 500ms ease;
-}
-@keyframes response {
-  0% {
-    opacity: 0;
-    transform: scale(5);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
 }
 .topBorder,
 .leftBorder,
@@ -1402,7 +1270,139 @@ main .projects .project-glitch {
   transition: all 200ms ease;
   animation: background-animate 10s infinite ease;
 }
+@keyframes up-down {
+  0%,
+  100% {
+    transform: translateY(10%) translateX(10%);
+  }
 
+  50% {
+    transform: translateY(-10%) translateX(-10%);
+  }
+}
+@keyframes stack-in {
+  0% {
+    translate: 0% 200%;
+    opacity: 0;
+  }
+  100% {
+    translate: 0% 0%;
+    opacity: 1;
+  }
+}
+@keyframes details-pop {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes lights-on {
+  0% {
+    filter: brightness(0);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+@keyframes slide-in-left {
+  0% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    transform: translateX(-300px);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes load-1 {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+@keyframes load-2 {
+  0% {
+    top: -100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+@keyframes load-3 {
+  0% {
+    right: -100%;
+  }
+  100% {
+    right: 0%;
+  }
+}
+@keyframes load-4 {
+  0% {
+    bottom: -100%;
+  }
+  100% {
+    bottom: 0%;
+  }
+}
+@keyframes response {
+  0% {
+    opacity: 0;
+    transform: scale(5);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+@keyframes jump {
+  0% {
+    transform: translateX(-200px) scale(1, 1) skewX(-40deg);
+  }
+  70% {
+    transform: translateX(10px) scale(1.1, 0.6) skewX(-40deg);
+  }
+  100% {
+    transform: translateX(0px) scale(1, 1) skewX(0deg);
+  }
+}
+@keyframes popup {
+  0% {
+    transform: scale(2);
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
 @media only screen and (max-width: 500px) {
   .about .info-container .info .headerBannerText {
     margin-top: 10%;
@@ -1678,7 +1678,7 @@ main .projects .project-glitch {
     left: 5%;
     right: 5%;
     border: 1px solid #0fa;
-    border-radius: 20px;
+    border-radius: 5px;
   }
   .navigation-panel.unpop {
     top: 0%;
