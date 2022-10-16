@@ -11,8 +11,11 @@ import {
   Pagination,
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Screen } from "../_app";
+import { useContext } from "react";
 
 const SingleProject = ({ selected, setSelected }) => {
+  const screen = useContext(Screen);
   if (selected)
     return (
       <motion.div
@@ -22,14 +25,16 @@ const SingleProject = ({ selected, setSelected }) => {
           setSelected(null);
         }}
       >
-        <ImCross
-          className="absolute right-60 top-10 cursor-pointer"
-          style={{ fill: "rgba(255,255,255,.5)" }}
-          size={30}
-          onClick={() => {
-            setSelected(null);
-          }}
-        ></ImCross>
+        {screen > 900 && (
+          <ImCross
+            className="absolute right-60 top-10 cursor-pointer"
+            style={{ fill: "rgba(255,255,255,.5)" }}
+            size={30}
+            onClick={() => {
+              setSelected(null);
+            }}
+          ></ImCross>
+        )}
         <div
           className="selected-wrapper h-full lg:w-1/2 mx-auto flex justify-center items-center flex-col"
           onClick={(e) => {
@@ -64,7 +69,7 @@ const SingleProject = ({ selected, setSelected }) => {
                       src={i}
                       alt=""
                       quality={100}
-                      className="selected-project-img"
+                      className="selected-project-img lg:rounded"
                       layout="fill"
                       priority
                     />
