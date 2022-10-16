@@ -70,13 +70,18 @@ const Navbar = forwardRef((props, ref) => {
   return (
     <div>
       {screen <= 900 && (
-        <div
-          className={`nav-open cursor-pointer`}
-          onClick={() => {
-            setNav(!nav);
-          }}
-        >
-          <HiMenu></HiMenu>
+        <div className="nav-open flex items-center cursor-default">
+          <HiMenu
+          className="cursor-pointer"
+            onClick={() => {
+              setNav(!nav);
+            }}
+          ></HiMenu>
+          {screen <= 900 && (
+            <span className="m-5">
+              <p className="glow-text hello glow-1">ALISTER XAVIER</p>
+            </span>
+          )}
         </div>
       )}
       <nav
@@ -89,9 +94,11 @@ const Navbar = forwardRef((props, ref) => {
         ref={(elem) => (ref.current[0] = elem)}
         data-navparent
       >
-        <span className="m-5">
-          <p className="glow-text hello glow-1">ALISTER XAVIER</p>
-        </span>
+        {screen >= 900 && (
+          <span className="m-5">
+            <p className="glow-text hello glow-1">ALISTER XAVIER</p>
+          </span>
+        )}
         <ul
           className="nav-wrapper"
           onClick={(e) => {
