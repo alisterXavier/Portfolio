@@ -452,13 +452,15 @@ nav li {
   left: 0%;
   width: 100%;
   bottom: 95%;
+  background: var(--linear-background);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 .about h1 {
   letter-spacing: -2px;
   background: var(--linear-background);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  color: #82f72d;
 }
 .about h1 p {
   translate: -1000px 0px;
