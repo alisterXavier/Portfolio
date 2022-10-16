@@ -1,14 +1,16 @@
 import Image from "next/image";
-import { useEffect, useRef, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import allp from "../components/projects.json";
 import { AnimatePresence, motion } from "framer-motion";
 import SingleProject from "./Home/Single";
 import { BiArrowBack } from "react-icons/bi";
 import { useRouter } from "next/router";
+import { Screen } from "./_app";
 
 const AllProject = () => {
-  const router = useRouter()
+  const router = useRouter();
   const [selected, setSelected] = useState(null);
+  const screen = useContext(Screen);
   const [activeItems, setActiveItems] = useState([]);
   const allprojects = useRef([]);
 
@@ -35,7 +37,15 @@ const AllProject = () => {
 
   return (
     <div className="overflow-div">
-            <BiArrowBack className="absolute z-10 top-5 left-5 cursor-text glow" size={30} onClick={()=>{ router.back()}}></BiArrowBack>
+      {screen > 500 && (
+        <BiArrowBack
+          className="absolute z-10 top-5 left-5 cursor-pointer glow-text"
+          size={30}
+          onClick={() => {
+            router.back();
+          }}
+        ></BiArrowBack>
+      )}
       <div className="all-projects relative">
         <div className="all-projects-title">
           <h1 className="text-center text-5xl lg:text-6xl glow flicker-effect-1">

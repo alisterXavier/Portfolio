@@ -80,7 +80,7 @@ const Navbar = forwardRef((props, ref) => {
         </div>
       )}
       <nav
-        className={`navigation-panel flex justify-end items-center ${navState} ${
+        className={`navigation-panel flex items-center justify-between ${navState} ${
           nav && "active"
         }`}
         onClick={() => {
@@ -89,6 +89,9 @@ const Navbar = forwardRef((props, ref) => {
         ref={(elem) => (ref.current[0] = elem)}
         data-navparent
       >
+        <span className="m-5">
+          <p className="glow-text hello glow-1">ALISTER XAVIER</p>
+        </span>
         <ul
           className="nav-wrapper"
           onClick={(e) => {

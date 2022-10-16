@@ -1,12 +1,14 @@
 import Image from "next/future/image";
-import { useEffect, useRef } from "react";
+import { useContext, useEffect, useRef } from "react";
 import familiarStack from "../components/familiarStack.json";
 import stack from "../components/stack.json";
 import { BiArrowBack } from "react-icons/bi";
 import { useRouter } from "next/router";
+import { Screen } from "./_app";
 
 const AllStack = () => {
-  const router = useRouter()
+  const router = useRouter();
+  const screen = useContext(Screen)
   const eachLang = useRef([]);
   useEffect(() => {
     eachLang.current.forEach((lang) => {
@@ -34,7 +36,15 @@ const AllStack = () => {
 
   return (
     <div className="overflow-div">
-      <BiArrowBack className="absolute z-10 top-5 left-5 cursor-text glow" size={30} onClick={()=>{ router.back()}}></BiArrowBack>
+      {screen > 500 && (
+        <BiArrowBack
+          className="absolute z-10 top-5 left-5 cursor-pointer"
+          size={30}
+          onClick={() => {
+            router.back();
+          }}
+        ></BiArrowBack>
+      )}
       <section className="stack view overflow-hidden">
         <div className="stack-container-wrapper">
           <div className="stack-container" style={{ width: "90%" }}>
