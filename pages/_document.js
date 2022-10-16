@@ -5,18 +5,6 @@ export default function Document() {
   return (
     <Html>
       <Head>
-        <link
-          href="https://fonts.cdnfonts.com/css/hello-denver-display"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.cdnfonts.com/css/omnes-regular"
-          rel="stylesheet"
-        />
-        <link
-          href="https://fonts.cdnfonts.com/css/amcap-eternal"
-          rel="stylesheet"
-        />
       </Head>
       <body>
         <Main />

@@ -72,8 +72,9 @@ const AboutMe = forwardRef((props, ref) => {
       <div className="about-wrapper relative" ref={innerAbout}>
         <div className="about-name">
           <h1 className="text-3xl lg:text-7xl flex justify-evenly">
-            <span className="">Hi, I&apos;m</span>
-            <span className="">Alister</span> <span className="">Xavier,</span>
+            <p className="">Hi, I&apos;m</p>
+            <p className="">Alister</p> 
+            <p className="">Xavier,</p>
           </h1>
         </div>
         <p className="about-about text-sm lg:text-2xl p-5 lg:p-10">
