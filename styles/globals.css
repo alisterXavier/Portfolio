@@ -452,32 +452,37 @@ nav li {
   left: 0%;
   width: 100%;
   bottom: 95%;
-  background: var(--linear-background);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 }
-.about h1 {
+.about .about-name h1 {
   letter-spacing: -2px;
   background: var(--linear-background);
   -webkit-background-clip: text;
+  translate: -1000px 0px;
+  opacity: 0;
+  transition: translate 1s ease, opacity 1s ease;
   -webkit-text-fill-color: transparent;
 }
-.about h1 p {
-  translate: -1000px 0px;
-  transition: translate 1s ease;
-  transition-delay: 100ms;
-}
-.about h1 p:nth-child(2) {
-  translate: -1500px 0px;
-  transition-delay: 300ms;
-}
-.about h1 p:nth-child(3) {
-  translate: -2000px 0px;
-  transition-delay: 500ms;
-}
-.about .about-name.animate-in h1 p {
+.about .about-name.animate-in h1 {
+  opacity: 1;
   translate: 0px 0px;
 }
+/* .about .about-name h1 span {
+  transform: translateX(-1000px);
+  transition: transform 1s ease;
+  transition-delay: 100ms;
+}
+.about .about-name h1 span:nth-child(2) {
+  transform: translateX(-1500px);
+  transition-delay: 300ms;
+}
+.about .about-name h1 span:nth-child(3) {
+  transform: translateX(-2000px);
+  transition-delay: 500ms;
+}
+.about .about-name.animate-in h1 span {
+  transform: translateX(0px);
+} */
+
 .about .about-about {
   letter-spacing: -1px;
   border: 2px solid;
