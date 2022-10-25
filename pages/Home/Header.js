@@ -91,7 +91,7 @@ const Header = forwardRef((props, ref) => {
                 });
                 // avatar.current.classList.add("on");
               }, 500);
-            }, 1100);
+            }, 900);
           }
           // else {
           //   if (containerTimeout.current)
