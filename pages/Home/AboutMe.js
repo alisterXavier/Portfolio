@@ -77,7 +77,7 @@ const AboutMe = forwardRef((props, ref) => {
           </h1>
         </div>
         <p className="about-about text-sm lg:text-2xl p-5 lg:p-10">
-          A web developer and tireless seeker of knowledge. As a well-rounded
+          A <span >web developer</span>. As a well-rounded
           user and developer, I aim to make sure that systems interfaces,
           languages, and graphics are human-friendly, aesthetically pleasing,
           clear, on-brand, and usable. Check out my

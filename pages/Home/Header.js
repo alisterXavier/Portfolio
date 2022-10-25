@@ -2,8 +2,12 @@ import Image from "next/image";
 import { forwardRef, useContext, useEffect, useRef, useState } from "react";
 import { Screen } from "../_app";
 import { TbBrandDiscord } from "react-icons/tb";
-import { AiOutlineMail } from "react-icons/ai";
-import { AiOutlineLinkedin } from "react-icons/ai";
+import {
+  AiOutlineLinkedin,
+  AiOutlineMail,
+  AiFillCaretDown,
+} from "react-icons/ai";
+import BgParticles from "../tsparticles";
 
 const Header = forwardRef((props, ref) => {
   const screen = useContext(Screen);
@@ -16,7 +20,7 @@ const Header = forwardRef((props, ref) => {
   const containerTimeout = useRef(0);
   const textTimeout = useRef(0);
   const observer = useRef();
-  const platform = useRef([])
+  const platform = useRef([]);
 
   const copy = (e) => {
     const { id } = e.currentTarget;
@@ -25,12 +29,23 @@ const Header = forwardRef((props, ref) => {
       email: "xavieralister153@gmail.com",
     };
 
-    document.querySelector(".tooltip").innerHTML = `${id.toUpperCase()} COPIED!`;
+    document.querySelector(
+      ".tooltip"
+    ).innerHTML = `${id.toUpperCase()} COPIED!`;
     navigator.clipboard.writeText(usernames[id]);
     document.querySelector(".tooltip").classList.add("active");
     setTimeout(() => {
       document.querySelector(".tooltip").classList.remove("active");
     }, 1000);
+  };
+
+  const downMouse = (e) => {
+    const x = e.clientX - e.currentTarget.getBoundingClientRect().x;
+    const y = e.clientY - e.currentTarget.getBoundingClientRect().y;
+    // console.log()
+    document.querySelector(".cursor").style.visibility = "visible";
+    document.querySelector(".cursor").style.left = `${x}px`;
+    document.querySelector(".cursor").style.top = `${y}px`;
   };
 
   const prespectiveEffect = (e) => {
@@ -64,22 +79,22 @@ const Header = forwardRef((props, ref) => {
               info.current.style.border = `3px solid #0fa`;
               info.current.classList.add("reflection-lights-on");
               textTimeout.current = setTimeout(() => {
-                headerBannerText.current.classList.add('glow-text');
-                hi.current.classList.add('glow-text');
-                fname.current.classList.add('glow-text');
+                headerBannerText.current.classList.add("glow-text");
+                hi.current.classList.add("glow-text");
+                fname.current.classList.add("glow-text");
                 fname.current.classList.add("glow");
                 hi.current.classList.add("glow");
                 headerBannerText.current.classList.add("glow-1");
                 fname.current.classList.add("flicker-effect");
                 hi.current.classList.add("flicker-effect-1");
-                platform.current.forEach(e => {
-                  e.classList.add("platform-glow")
-                })
+                platform.current.forEach((e) => {
+                  e.classList.add("platform-glow");
+                });
                 // avatar.current.classList.add("on");
               }, 500);
             }, 1100);
-          } 
-           // else {
+          }
+          // else {
           //   if (containerTimeout.current)
           //     clearTimeout(containerTimeout.current);
           //   if (textTimeout.current) clearTimeout(textTimeout.current);
@@ -109,13 +124,14 @@ const Header = forwardRef((props, ref) => {
 
   return (
     <header
-      className="headerBanner view"
+      className="headerBanner view relative"
       ref={header}
       id="Me"
       onMouseMove={prespectiveEffect}
       data-me
     >
-      <div className="info-container lights-on" ref={info}>
+      {/* <BgParticles className="profile-bg-container absolute z-10 bg-black" /> */}
+      <div className="info-container lights-on z-20 bg-black" ref={info}>
         <div className="info">
           <h1 className="text-4xl hi" ref={hi}>
             HI I&apos;M
@@ -129,7 +145,7 @@ const Header = forwardRef((props, ref) => {
             </p>
           </div>
           <div className="platforms flex justify-end items-center relative">
-            <span className="tooltip top-0" style={{color: "#0fa"}}></span>
+            <span className="tooltip top-0" style={{ color: "#0fa" }}></span>
             <div className="platforms--wrapper flex justify-end items-center mt-5">
               <a
                 rel="noreferrer"
@@ -137,7 +153,7 @@ const Header = forwardRef((props, ref) => {
                 className="platform discord cursor-pointer"
                 id="discord uid"
                 target="_blank"
-                ref={elem => platform.current[0] = elem}
+                ref={(elem) => (platform.current[0] = elem)}
               >
                 <TbBrandDiscord size={20}></TbBrandDiscord>
               </a>
@@ -145,7 +161,7 @@ const Header = forwardRef((props, ref) => {
                 onClick={copy}
                 className="envelope platform cursor-pointer"
                 id="email"
-                ref={elem => platform.current[1] = elem}
+                ref={(elem) => (platform.current[1] = elem)}
               >
                 <AiOutlineMail size={20}></AiOutlineMail>
               </a>
@@ -154,7 +170,7 @@ const Header = forwardRef((props, ref) => {
                 href="https://www.linkedin.com/in/alister-xavier-63259020b/"
                 target="_blank"
                 className="platform linkedin"
-                ref={elem => platform.current[2] = elem}
+                ref={(elem) => (platform.current[2] = elem)}
               >
                 <AiOutlineLinkedin size={20}></AiOutlineLinkedin>
               </a>
@@ -163,6 +179,26 @@ const Header = forwardRef((props, ref) => {
         </div>
         <div className="floating float1"></div>
         <div className="floating float2"></div>
+      </div>
+      <div
+        className="move-down absolute bottom-10 w-40 cursor-pointer flex justify-center flex-col items-center"
+        onClick={() => {
+          document
+            .querySelector(`[data-about-me]`)
+            .scrollIntoView({ behavior: "smooth" });
+        }}
+        onMouseMove={downMouse}
+        onMouseLeave={() => {
+          document.querySelector('.cursor').style.visibility='hidden'
+        }}
+      >
+        <h1 className="glow-text">MORE ABOUT ME</h1>
+        <div className="cursor">
+          <AiFillCaretDown />
+        </div>
+        <div className="down glow-text">
+          <AiFillCaretDown />
+        </div>
       </div>
     </header>
   );
