@@ -86,7 +86,7 @@ const Navbar = forwardRef((props, ref) => {
         </div>
       )}
       <nav
-        className={`navigation-panel flex items-center justify-between ${navState} ${
+        className={`navigation-panel flex items-center ${navState} ${
           nav && "active"
         }`}
         onClick={() => {
@@ -101,7 +101,7 @@ const Navbar = forwardRef((props, ref) => {
           </span>
         )}
         <ul
-          className="nav-wrapper"
+          className="nav-wrapper ml-auto"
           onClick={(e) => {
             e.stopPropagation();
           }}

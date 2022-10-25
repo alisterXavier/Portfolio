@@ -353,7 +353,7 @@ nav li {
   border-radius: 10px;
   transform: perspective(600px) rotateX(calc(var(--XDeg) * 1deg))
     rotateY(calc(var(--YDeg) * 1deg));
-  transition: box-shadow 500ms ease, border 500ms ease;
+  transition: box-shadow 1.5s ease, border 1s ease;
 }
 .headerBanner .info {
   position: relative;
