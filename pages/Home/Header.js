@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { forwardRef, useContext, useEffect, useRef, useState } from "react";
-import { Screen } from "../_app";
+import { Nav, Screen } from "../_app";
 import { TbBrandDiscord } from "react-icons/tb";
 import {
   AiOutlineLinkedin,
@@ -42,8 +42,8 @@ const Header = forwardRef((props, ref) => {
   const downMouse = (e) => {
     const x = e.clientX - e.currentTarget.getBoundingClientRect().x;
     const y = e.clientY - e.currentTarget.getBoundingClientRect().y;
-    // console.log()
-    document.querySelector(".cursor").style.visibility = "visible";
+
+    document.querySelector(".cursor").classList.remove("invisible");
     document.querySelector(".cursor").style.left = `${x}px`;
     document.querySelector(".cursor").style.top = `${y}px`;
   };
@@ -60,15 +60,14 @@ const Header = forwardRef((props, ref) => {
     }
   };
 
-  const Navbar = () => {
-    const navbar = ref.current[0];
-    const active = navbar.querySelector("[data-active]");
-    const navSections = navbar.querySelector("#me");
-    delete active.dataset.active;
-    navSections.dataset.active = true;
-  };
-
   useEffect(() => {
+    const Navbar = () => {
+      const navbar = ref.current[0];
+      const active = navbar.querySelector("[data-active]");
+      const navSections = navbar.querySelector("#me");
+      delete active.dataset.active;
+      navSections.dataset.active = true;
+    };
     observer.current = new IntersectionObserver(
       (entries) => {
         Array.from(entries).forEach((e) => {
@@ -120,7 +119,7 @@ const Header = forwardRef((props, ref) => {
     if (header.current) {
       observer.current.observe(header.current);
     }
-  }, []);
+  }, [ref]);
 
   return (
     <header
@@ -189,11 +188,11 @@ const Header = forwardRef((props, ref) => {
         }}
         onMouseMove={downMouse}
         onMouseLeave={() => {
-          document.querySelector('.cursor').style.visibility='hidden'
+          document.querySelector(".cursor").classList.add("invisible");
         }}
       >
         <h1 className="glow-text">MORE ABOUT ME</h1>
-        <div className="cursor">
+        <div className="cursor invisible">
           <AiFillCaretDown />
         </div>
         <div className="down glow-text">

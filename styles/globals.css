@@ -406,6 +406,9 @@ nav li {
   position: absolute;
   animation: move 2s ease-out infinite;
 }
+.cursor.invisible{
+  display: none;
+}
 @keyframes move {
   0% {
     transform: translateY(5px);
