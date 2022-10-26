@@ -911,8 +911,14 @@ main .projects .project-glitch {
 .all-projects .project.active {
   animation: slide-in-right 500ms forwards;
 }
+.all-projects .project.unactive {
+  animation: slide-out-right 500ms forwards;
+}
 .all-projects .project.active:nth-child(even) {
   animation: slide-in-left 500ms forwards;
+}
+.all-projects .project.unactive:nth-child(even) {
+  animation: slide-out-left 500ms forwards;
 }
 .all-projects .project .details {
   display: flex;
@@ -1380,6 +1386,32 @@ main .projects .project-glitch {
   100% {
     transform: translateX(0%);
     opacity: 1;
+  }
+}
+@keyframes slide-out-left {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(300px);
+    opacity: 0;
+  }
+}
+@keyframes slide-out-right {
+  0% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-300px);
+    opacity: 0;
   }
 }
 @keyframes rotate {

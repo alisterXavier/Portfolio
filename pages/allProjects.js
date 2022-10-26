@@ -19,10 +19,11 @@ const AllProject = () => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
+            entry.target.classList.remove("unactive");
             entry.target.classList.add("active");
           } else {
             entry.target.classList.remove("active");
-            entry.target.removeAttribute("style");
+            entry.target.classList.add("unactive");
           }
         });
       },
