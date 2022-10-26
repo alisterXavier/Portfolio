@@ -27,7 +27,7 @@ const AllProject = () => {
         });
       },
       {
-        threshold: 0.1,
+        threshold: 0.5,
       }
     );
     allprojects.current.forEach((e) => {
