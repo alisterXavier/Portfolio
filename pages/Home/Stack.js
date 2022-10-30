@@ -71,7 +71,7 @@ const Stack = forwardRef(({changeRoute}, ref) => {
     const navbar = ref.current[0];
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#stack");
-    delete active.dataset.active;
+    delete active?.dataset.active;
     navSections.dataset.active = true;
   };
 
@@ -130,7 +130,7 @@ const Stack = forwardRef(({changeRoute}, ref) => {
         onClick={ViewCompleteStack}
       >
         <p>Complete Stack</p>
-        <FaAngleRight></FaAngleRight>
+        <FaAngleRight className="angle-right" size={25}></FaAngleRight>
       </button>
       <div className="stack-container-wrapper">
         <div className="stack-container">

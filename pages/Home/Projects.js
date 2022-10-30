@@ -61,9 +61,9 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
 
     if (prevNewIndex >= slides.current.children.length) prevNewIndex = 0;
 
-    slides.current.children[activeNewIndex].dataset.next = true;
-    slides.current.children[prevNewIndex].dataset.active = true;
     slides.current.children[nextNewIndex].dataset.prev = true;
+    slides.current.children[prevNewIndex].dataset.active = true;
+    slides.current.children[activeNewIndex].dataset.next = true;
 
     delete activeSlide.dataset.active;
     delete PrevSlide.dataset.prev;
@@ -93,7 +93,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
   const Navbar = () => {
     const active = ref.current[0].querySelector("[data-active]");
     const navSections = ref.current[0].querySelector("#projects");
-    delete active.dataset.active;
+    delete active?.dataset.active;
     navSections.dataset.active = true;
   };
 
@@ -165,7 +165,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
         onClick={ViewAllProjects}
       >
         <p>More Projects</p>
-        <FaAngleRight></FaAngleRight>
+        <FaAngleRight className="angle-right" size={25}></FaAngleRight>
       </button>
       <div
         className="carousel-all projects--carousel"

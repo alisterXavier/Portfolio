@@ -79,12 +79,12 @@ const Contact = () => {
       emailValidate == true && nameValidate == true && messageValidate == true
     );
   };
-
+  
   const handleClick = () => {
     const value = !contactState;
 
     setContactState(value);
-    if (screen > 900) {
+    if (screen > 900 && window.scrollY > 20) {
       setNavState("pop");
     }
   };

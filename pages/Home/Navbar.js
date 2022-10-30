@@ -24,9 +24,8 @@ const Navbar = forwardRef((props, ref) => {
     const { id } = e.currentTarget;
     const nav = ref.current[0];
     const active = nav.querySelector("[data-active]");
-
-    delete active.dataset.active;
-    e.currentTarget.dataset.active = true;
+    delete active?.dataset.active;
+    if (id !== "me") e.currentTarget.dataset.active = true;
 
     if (id !== "contact") {
       document
@@ -35,7 +34,7 @@ const Navbar = forwardRef((props, ref) => {
       setNavState("pop");
       setContactState(false);
     }
-    setNav(false)
+    setNav(false);
   };
 
   const handleContact = (e) => {
@@ -73,14 +72,20 @@ const Navbar = forwardRef((props, ref) => {
       {screen <= 900 && (
         <div className="nav-open flex items-center cursor-default">
           <HiMenu
-          className="cursor-pointer"
+            className="cursor-pointer"
             onClick={() => {
               setNav(!nav);
             }}
           ></HiMenu>
           {screen <= 900 && (
             <span className="m-5">
-              <p className="glow-text hello glow-1">ALISTER XAVIER</p>
+              <p
+                className="glow-text hello glow-1 active:scale-50"
+                id="me"
+                onClick={handleClick}
+              >
+                ALISTER XAVIER
+              </p>
             </span>
           )}
         </div>
@@ -97,7 +102,13 @@ const Navbar = forwardRef((props, ref) => {
       >
         {screen >= 900 && (
           <span className="m-5">
-            <p className="glow-text hello glow-1">ALISTER XAVIER</p>
+            <p
+              className="glow-text hello glow-1 cursor-pointer active:scale-95"
+              id="me"
+              onClick={handleClick}
+            >
+              ALISTER XAVIER
+            </p>
           </span>
         )}
         <ul
@@ -122,16 +133,6 @@ const Navbar = forwardRef((props, ref) => {
               </svg>
             </li>
           )}
-          <li
-            className="cursor-pointer text-center flex items-center md:justify-center"
-            id="me"
-            onMouseEnter={lightsOn}
-            onMouseLeave={lightsOff}
-            onClick={handleClick}
-            data-active
-          >
-            <p>Me</p>
-          </li>
           <li
             className="cursor-pointer text-center flex items-center md:justify-center"
             id="about-me"

@@ -36,7 +36,7 @@ const AboutMe = forwardRef((props, ref) => {
     const navbar = ref.current[0];
     const active = navbar.querySelector("[data-active]");
     const navSections = navbar.querySelector("#about-me");
-    delete active.dataset.active;
+    delete active?.dataset.active;
     navSections.dataset.active = true;
   };
 
