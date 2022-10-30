@@ -72,7 +72,6 @@ const Header = forwardRef((props, ref) => {
       (entries) => {
         Array.from(entries).forEach((e) => {
           if (e.isIntersecting) {
-            Navbar();
             containerTimeout.current = setTimeout(() => {
               info.current.style.boxShadow = `0px 0px 2rem #0fa, inset 0px 0px 20px #0fa`;
               info.current.style.border = `3px solid #0fa`;
