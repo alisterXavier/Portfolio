@@ -41,8 +41,8 @@ const Navbar = forwardRef((props, ref) => {
     handleClick(e);
     const value = !contactState;
     setContactState(value);
-    if (value && window.scrollY > 20) setNavState("unpop");
-    else setNavState("pop");
+    if (value) setNavState("unpop");
+    else if(window.scrollY > 20) setNavState("pop");
   };
 
   const NavPop = () => {
