@@ -31,8 +31,8 @@ const Navbar = forwardRef((props, ref) => {
       document
         .querySelector(`[data-${id}]`)
         .scrollIntoView({ behavior: "smooth" });
-      setNavState("pop");
-      setContactState(false);
+      id !== "me" && setNavState("pop");
+      contactState && setContactState(false);
     }
     setNav(false);
   };
