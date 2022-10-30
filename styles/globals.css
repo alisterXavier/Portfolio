@@ -1823,7 +1823,7 @@ main .projects .project-glitch {
     transform: translateX(0px);
   }
   main .projects .projects--carousel .project[data-prev="true"] {
-    transform: translateX(-200px) perspective(1200px) translateZ(-500px)
+    transform: translateX(-200px) perspective(1200px) translateZ(-300px)
       rotateY(20deg);
   }
   main .projects .projects--carousel .project[data-next="true"] {
