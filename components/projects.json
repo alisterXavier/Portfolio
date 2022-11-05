@@ -1,18 +1,10 @@
 [
   {
-    "img": [
-      "/assets/BlaaApp/app_1.png",
-      "/assets/BlaaApp/app_2.png",
-      "/assets/BlaaApp/app_3.png",
-      "/assets/BlaaApp/app_4.png",
-      "/assets/BlaaApp/app_5.png",
-      "/assets/BlaaApp/app_6.png",
-      "/assets/BlaaApp/app_7.png"
-    ],
-    "title": "Mern App",
-    "para": " MongoDB, ExpressJS, ReactJS, NodeJS",
-    "git_link": "https://github.com/Alister153/blaa-app",
-    "app_link": "https://blaa-app.herokuapp.com/"
+    "img": ["coming-soon"],
+    "title": "Cryptocurrency Platform",
+    "para": "NextJS, Css, Coinranking Api",
+    "git_link": "",
+    "app_link": ""
   },
   {
     "img": [
@@ -26,16 +18,31 @@
       "/assets/netflix/app_9.png"
     ],
     "title": "Netflix Clone",
-    "para": "ReactJS, NodeJS, ExpressJS, Firebase",
+    "para": "ReactJS, NodeJS, ExpressJS, Firebase, Css",
     "git_link": "https://github.com/Alister153/NetflixClone.git",
     "app_link": "https://netflix-clone-qwerty.vercel.app/"
   },
   {
     "img": ["/assets/nft-landing/app_1.png"],
     "title": "Nft Landing Page",
-    "para": "NextJS",
+    "para": "NextJS, Css",
     "git_link": "https://github.com/Alister153/NFT-LandingPage",
     "app_link": "https://nft-landing-page-bzfd.vercel.app/"
+  },
+  {
+    "img": [
+      "/assets/BlaaApp/app_1.png",
+      "/assets/BlaaApp/app_2.png",
+      "/assets/BlaaApp/app_3.png",
+      "/assets/BlaaApp/app_4.png",
+      "/assets/BlaaApp/app_5.png",
+      "/assets/BlaaApp/app_6.png",
+      "/assets/BlaaApp/app_7.png"
+    ],
+    "title": "Mern App",
+    "para": " MongoDB, ExpressJS, ReactJS, NodeJS, Css",
+    "git_link": "https://github.com/Alister153/blaa-app",
+    "app_link": "https://blaa-app.herokuapp.com/"
   },
   {
     "img": [
@@ -46,7 +53,7 @@
       "/assets/e-commerce/app_5.png"
     ],
     "title": "e-commerce App",
-    "para": "ReactJS",
+    "para": "ReactJS, Css",
     "git_link": "https://github.com/Alister153/e-commerce",
     "app_link": "https://e-commerce-opal-gamma.vercel.app/"
   },
@@ -59,14 +66,14 @@
       "/assets/rockPaperScissors/app_5.png"
     ],
     "title": "Rock Paper Scissors",
-    "para": "NextJS",
+    "para": "NextJS, Css",
     "git_link": "https://github.com/Alister153/Rock-Paper-Scissor",
     "app_link": "https://rock-paper-scissor-fx9r.vercel.app/"
   },
   {
     "img": ["/assets/ip-address/app_1.png"],
     "title": "Ip Address Tracker",
-    "para": "NextJs, ipify API, LeafletJs",
+    "para": "NextJs, ipify API, LeafletJs, Css",
     "git_link": "https://github.com/Alister153/ip-address-tracker",
     "app_link": "https://ip-address-tracker-ochre-two.vercel.app/"
   }

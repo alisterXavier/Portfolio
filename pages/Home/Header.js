@@ -92,25 +92,6 @@ const Header = forwardRef((props, ref) => {
               }, 500);
             }, 900);
           }
-          // else {
-          //   if (containerTimeout.current)
-          //     clearTimeout(containerTimeout.current);
-          //   if (textTimeout.current) clearTimeout(textTimeout.current);
-          //   info.current.removeAttribute("style");
-          //   hi.current.classList.remove("glow-text");;
-          //   fname.current.classList.remove("glow-text");
-          //   headerBannerText.current.classList.remove("glow-text");;
-          //   hi.current.classList.remove("glow");
-          //   fname.current.classList.remove("glow");
-          //   headerBannerText.current.classList.remove("glow-1");
-          //   fname.current.classList.remove("flicker-effect");
-          //   hi.current.classList.remove("flicker-effect-1");
-          //   info.current.classList.remove("reflection-lights-on");
-          //   platform.current.forEach(e => {
-          //     e.classList.remove("platform-glow")
-          //   })
-          //   // avatar.current.classList.remove("on");
-          // }
         });
       },
       { threshold: 0.6 }
@@ -130,7 +111,7 @@ const Header = forwardRef((props, ref) => {
     >
       {/* <BgParticles className="profile-bg-container absolute z-10 bg-black" /> */}
       <div className="info-container lights-on z-20 bg-black" ref={info}>
-        <div className="info">
+        <div className="info hello">
           <h1 className="text-4xl hi" ref={hi}>
             HI I&apos;M
           </h1>
@@ -190,7 +171,7 @@ const Header = forwardRef((props, ref) => {
           document.querySelector(".cursor").classList.add("invisible");
         }}
       >
-        <h1 className="glow-text">MORE ABOUT ME</h1>
+        <h1 className="glow-text hello">MORE ABOUT ME</h1>
         <div className="cursor invisible">
           <AiFillCaretDown />
         </div>

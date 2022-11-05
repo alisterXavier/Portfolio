@@ -328,7 +328,6 @@ nav li {
 /* Header */
 .headerBanner {
   position: relative;
-  font-family: "Hello-Denver";
   z-index: 1;
   color: var(--light-text);
   display: flex;
@@ -359,7 +358,6 @@ nav li {
   justify-content: center;
   padding: 20px 15px 0px 15px;
   z-index: 1;
-  font-family: "Hello-Denver";
 }
 .headerBanner .info .hi {
   position: relative;
@@ -894,7 +892,6 @@ main .projects .project-glitch {
 .all-projects-title {
   width: 1500px;
   color: #0fa;
-  font-family: "Hello-Denver";
   padding: 10px 0px;
 }
 .all-projects ul {
@@ -974,7 +971,6 @@ main .projects .project-glitch {
   right: 0%;
   bottom: 0%;
   z-index: 99;
-  background-color: rgba(0, 0, 0, 0.315);
 }
 .single-project {
   display: flex;
@@ -988,7 +984,6 @@ main .projects .project-glitch {
   left: 0%;
   right: 0%;
   bottom: 0%;
-  background-color: rgba(0, 0, 0, 0.329);
   backdrop-filter: blur(20px);
 }
 .single-project::after {
@@ -1034,8 +1029,13 @@ main .projects .project-glitch {
 }
 .all-projects .selected .selected-wrapper .selected-details {
   opacity: 0;
+  border-radius: 5px;
+  transition: box-shadow 500ms ease;
   animation: details-pop 1.5s forwards;
   animation-delay: 500ms;
+}
+.all-projects .selected .selected-wrapper .selected-details:hover {
+  box-shadow: 3px 6px 15px black;
 }
 .swiper-pagination-bullet {
   background-color: #0fa !important;
@@ -1752,7 +1752,10 @@ main .projects .project-glitch {
   .all-projects .project.active:nth-child(even) {
     flex-direction: row-reverse;
   }
-
+  .all-projects .selected {
+    background-color: rgba(0, 0, 0, 0.527);
+    backdrop-filter: none;
+  }
   /* Contact */
   .contact-wrapper .contact {
     width: 90%;

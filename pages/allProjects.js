@@ -49,7 +49,7 @@ const AllProject = () => {
       )}
       <div className="all-projects relative">
         <div className="all-projects-title">
-          <h1 className="text-center text-5xl lg:text-6xl glow flicker-effect-1">
+          <h1 className="text-center hello text-5xl lg:text-6xl glow flicker-effect-1">
             ALL PROJECTS
           </h1>
         </div>
@@ -69,16 +69,22 @@ const AllProject = () => {
                 }}
               >
                 <motion.div className="figure--wrapper">
-                  <motion.figure className="figure relative">
-                    <Image
-                      src={p.img[0]}
-                      alt=""
-                      quality={100}
-                      className="project-img"
-                      layout="fill"
-                      priority
-                    />
-                  </motion.figure>
+                  {p.img[0] !== "coming-soon" ? (
+                    <motion.figure className="figure relative">
+                      <Image
+                        src={p.img[0]}
+                        alt=""
+                        quality={100}
+                        className="project-img"
+                        layout="fill"
+                        priority
+                      />
+                    </motion.figure>
+                  ) : (
+                    <motion.div>
+                      <motion.p className="text-5xl glow-text glow flicker-effect-1 hello">COMING SOON</motion.p>
+                    </motion.div>
+                  )}
                 </motion.div>
               </motion.li>
             );

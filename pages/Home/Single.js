@@ -50,7 +50,7 @@ const SingleProject = ({ selected, setSelected }) => {
               }}
               mousewheel={true}
               autoplay={{
-                delay: 1000,
+                delay: 1500,
                 disableOnInteraction: false,
               }}
               modules={[
@@ -65,21 +65,28 @@ const SingleProject = ({ selected, setSelected }) => {
               {selected.img.map((i, index) => {
                 return (
                   <SwiperSlide key={index}>
+                   {
+                    i !== 'coming-soon' ?
                     <Image
-                      src={i}
-                      alt=""
-                      quality={100}
-                      className="selected-project-img lg:rounded"
-                      layout="fill"
-                      priority
-                    />
+                    src={i}
+                    alt=""
+                    quality={100}
+                    className="selected-project-img lg:rounded"
+                    layout="fill"
+                    priority
+                  />
+                  :
+                  <div className="w-full h-full flex items-center justify-center bg-black">
+                      <p className="text-5xl glow-text glow hello">COMING SOON</p>
+                    </div>
+                   }
                   </SwiperSlide>
                 );
               })}
             </Swiper>
           </figure>
           <div
-            className="selected-details w-full p-10"
+            className="selected-details w-full m-5 p-5"
             onClick={(e) => {
               e.stopPropagation();
             }}
