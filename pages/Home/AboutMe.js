@@ -1,14 +1,13 @@
 import { forwardRef, useContext, useEffect, useRef } from "react";
 import { ContactApi, Nav, Screen } from "../_app";
 
-const AboutMe = forwardRef((props, ref) => {
+const AboutMe = forwardRef(({ section }, ref) => {
   const [contactState, setContactState] = useContext(ContactApi);
   const [navState, setNavState] = useContext(Nav);
   const screen = useContext(Screen);
   const about = useRef();
   const innerAbout = useRef();
   const observer = useRef();
-  const navRef = useRef();
 
   const Parallex = (event) => {
     const x = ((event.pageX - 500) * -1) / 15;
@@ -31,21 +30,12 @@ const AboutMe = forwardRef((props, ref) => {
     }
   };
 
-  navRef.current = () => {
-    ``;
-    const navbar = ref.current[0];
-    const active = navbar.querySelector("[data-active]");
-    const navSections = navbar.querySelector("#about-me");
-    delete active?.dataset.active;
-    navSections.dataset.active = true;
-  };
-
   useEffect(() => {
     observer.current = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            navRef.current();
+            section("#about-me");
             entry.target
               .querySelector(".about-name")
               .classList.add("animate-in");
@@ -53,7 +43,7 @@ const AboutMe = forwardRef((props, ref) => {
         });
       },
       {
-        threshold: 0.6,
+        threshold: 0.5,
       }
     );
     observer.current.observe(about.current);
@@ -64,7 +54,7 @@ const AboutMe = forwardRef((props, ref) => {
       className="about flex justify-center items-center text-start"
       id="About-Me"
       ref={about}
-      data-About-Me
+      data-about-Me
       onMouseMove={(e) => {
         screen >= 900 && Parallex(e);
       }}
@@ -77,10 +67,10 @@ const AboutMe = forwardRef((props, ref) => {
           </h1>
         </div>
         <p className="about-about text-sm lg:text-2xl p-5 lg:p-10">
-          A <span >web developer</span>. As a well-rounded
-          user and developer, I aim to make sure that systems interfaces,
-          languages, and graphics are human-friendly, aesthetically pleasing,
-          clear, on-brand, and usable. Check out my
+          A <span>web developer</span>. As a well-rounded user and developer, I
+          aim to make sure that systems interfaces, languages, and graphics are
+          human-friendly, aesthetically pleasing, clear, on-brand, and usable.
+          Check out my
           <span className="text-orange-500 cursor-pointer">
             <a onClick={nav}> stack</a>
           </span>{" "}

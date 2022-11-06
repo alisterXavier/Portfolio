@@ -7,7 +7,31 @@ import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { GoMarkGithub, GoLink } from "react-icons/go";
 import { Screen } from "../_app";
 
-const Projects = forwardRef(({ changeRoute }, ref) => {
+const carouselProjects = [
+  {
+    img: netflixClone,
+    title: "Netflix Clone",
+    para: "ReactJS, Css, TMDB Api",
+    git_link: "https://github.com/Alister153/NetflixClone.git",
+    app_link: "https://netflix-clone-qwerty.vercel.app/",
+  },
+  {
+    img: mernApp,
+    title: "Mern App",
+    para: "MongoDB, ExpressJS, ReactJS, NodeJS, Css",
+    git_link: "https://github.com/Alister153/blaa-app",
+    app_link: "https://blaa-app.herokuapp.com/",
+  },
+  {
+    img: eCommerce,
+    title: "e-commerce App",
+    para: "ReactJS, Css",
+    git_link: "https://github.com/Alister153/e-commerce",
+    app_link: "https://e-commerce-opal-gamma.vercel.app/",
+  },
+];
+
+const Projects = forwardRef(({ changeRoute, section }, ref) => {
   const slides = useRef();
   const carousel = useRef();
   const projectRibbon = useRef();
@@ -16,30 +40,6 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
   const projectsScroll = useRef();
   const screen = useContext(Screen);
   const observer = useRef();
-
-  const carouselProjects = [
-    {
-      img: mernApp,
-      title: "Mern App",
-      para: "Responsive MERN App",
-      git_link: "https://github.com/Alister153/blaa-app",
-      app_link: "https://blaa-app.herokuapp.com/",
-    },
-    {
-      img: netflixClone,
-      title: "Netflix Clone",
-      para: "Netflix clone made with ReactJS on the frontend and NodeJS (express, firebase) on the backend",
-      git_link: "https://github.com/Alister153/NetflixClone.git",
-      app_link: "https://netflix-clone-qwerty.vercel.app/",
-    },
-    {
-      img: eCommerce,
-      title: "e-commerce App",
-      para: "e-commerce App made with ReactJS",
-      git_link: "https://github.com/Alister153/e-commerce",
-      app_link: "https://e-commerce-opal-gamma.vercel.app/",
-    },
-  ];
 
   const fadeLeft = () => {
     document.addEventListener("scroll", (e) => {
@@ -50,7 +50,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
     });
   };
 
-  const nextBtn = () => {
+  const btnClick = (btn) => {
     const activeSlide = slides.current.querySelector("[data-active='true']");
     const PrevSlide = slides.current.querySelector("[data-prev='true']");
     const NextSlide = slides.current.querySelector("[data-next='true']");
@@ -61,40 +61,24 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
 
     if (prevNewIndex >= slides.current.children.length) prevNewIndex = 0;
 
-    slides.current.children[nextNewIndex].dataset.prev = true;
-    slides.current.children[prevNewIndex].dataset.active = true;
-    slides.current.children[activeNewIndex].dataset.next = true;
+    const obj = {
+      1: () => {
+        slides.current.children[nextNewIndex].dataset.prev = true;
+        slides.current.children[prevNewIndex].dataset.active = true;
+        slides.current.children[activeNewIndex].dataset.next = true;
+      },
+      2: () => {
+        slides.current.children[activeNewIndex].dataset.prev = true;
+        slides.current.children[prevNewIndex].dataset.next = true;
+        slides.current.children[nextNewIndex].dataset.active = true;
+      },
+    };
+
+    obj[btn]();
 
     delete activeSlide.dataset.active;
     delete PrevSlide.dataset.prev;
     delete NextSlide.dataset.next;
-  };
-
-  const prevBtn = () => {
-    const activeSlide = slides.current.querySelector("[data-active='true']");
-    const PrevSlide = slides.current.querySelector("[data-prev='true']");
-    const NextSlide = slides.current.querySelector("[data-next='true']");
-
-    var activeNewIndex = [...slides.current.children].indexOf(activeSlide);
-    var prevNewIndex = [...slides.current.children].indexOf(PrevSlide);
-    var nextNewIndex = [...slides.current.children].indexOf(NextSlide);
-
-    if (prevNewIndex >= slides.current.children.length) prevNewIndex = 0;
-
-    slides.current.children[activeNewIndex].dataset.prev = true;
-    slides.current.children[prevNewIndex].dataset.next = true;
-    slides.current.children[nextNewIndex].dataset.active = true;
-
-    delete activeSlide.dataset.active;
-    delete PrevSlide.dataset.prev;
-    delete NextSlide.dataset.next;
-  };
-
-  const Navbar = () => {
-    const active = ref.current[0].querySelector("[data-active]");
-    const navSections = ref.current[0].querySelector("#projects");
-    delete active?.dataset.active;
-    navSections.dataset.active = true;
   };
 
   const ViewAllProjects = () => {
@@ -126,7 +110,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
             }, 600);
             projectRibbon.current.classList.add("active");
             ref.current[1].style.opacity = 1;
-            Navbar();
+            section("#projects");
           } else {
             if (ref.current[1]) {
               ref.current[1].style.opacity = 0;
@@ -135,7 +119,7 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
         });
       },
       {
-        threshold: 0.6,
+        threshold: 0.5,
       }
     );
     observer.current.observe(projects.current);
@@ -220,12 +204,16 @@ const Projects = forwardRef(({ changeRoute }, ref) => {
         {screen > 500 && (
           <div className="next-btn">
             <FaAngleLeft
-              onClick={prevBtn}
+              onClick={() => {
+                btnClick(1);
+              }}
               size={40}
               id="prev-btn"
             ></FaAngleLeft>
             <FaAngleRight
-              onClick={nextBtn}
+              onClick={() => {
+                btnClick(2);
+              }}
               size={40}
               id="next-btn"
             ></FaAngleRight>

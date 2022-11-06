@@ -289,13 +289,16 @@ nav li {
 .slider {
   position: absolute;
   z-index: 1;
-  top: 98%;
   left: 0%;
   bottom: 0%;
   transform: translateX(0);
   width: 200px;
+  height: 5px;
+  background: transparent;
+  transition: background 500ms ease, transform 500ms ease;
+}
+nav li[data-active] ~ .slider, nav li:hover ~ .slider{
   background: #0fa;
-  transition: transform 500ms ease;
 }
 #about-me[data-active] ~ .slider {
   transform: translateX(0px);
@@ -312,16 +315,17 @@ nav li {
 #me[data-hover] ~ .slider {
   transform: translateX(0px);
 }
-#about-me[data-hover] ~ .slider {
+
+#about-me:hover ~ .slider {
   transform: translateX(0px);
 }
-#stack[data-hover] ~ .slider {
+#stack:hover ~ .slider {
   transform: translateX(200px);
 }
-#projects[data-hover] ~ .slider {
+#projects:hover ~ .slider {
   transform: translateX(400px);
 }
-#contact[data-hover] ~ .slider {
+#contact:hover ~ .slider {
   transform: translateX(600px);
 }
 
@@ -494,23 +498,6 @@ nav li {
   opacity: 1;
   translate: 0px 0px;
 }
-/* .about .about-name h1 span {
-  transform: translateX(-1000px);
-  transition: transform 1s ease;
-  transition-delay: 100ms;
-}
-.about .about-name h1 span:nth-child(2) {
-  transform: translateX(-1500px);
-  transition-delay: 300ms;
-}
-.about .about-name h1 span:nth-child(3) {
-  transform: translateX(-2000px);
-  transition-delay: 500ms;
-}
-.about .about-name.animate-in h1 span {
-  transform: translateX(0px);
-} */
-
 .about .about-about {
   letter-spacing: -1px;
   border: 2px solid;
@@ -585,13 +572,13 @@ nav li {
 .stack .stack-container-wrapper {
   padding: 20px 0px;
   width: 100%;
-  height: 70%;
   align-items: center;
   display: flex;
   justify-content: center;
 }
 .stack .stack-container-wrapper .stack-container {
-  width: 60%;
+  width: 50%;
+  height: 100%;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -601,6 +588,8 @@ nav li {
   margin: 20px;
   padding: 2px;
   border-radius: 5px;
+  width: 140px;
+  height: 180px;
   border: 3px solid #0fa;
   box-shadow: 0px 0px 5px #0fa, inset 0px 0px 5px #0fa;
   overflow: hidden;
@@ -620,12 +609,12 @@ nav li {
   .language-container {
   position: relative;
   z-index: 1;
-  width: 140px;
-  height: 180px;
   display: flex;
   justify-content: center;
   flex-direction: column;
   align-items: center;
+  width: 100%;
+  height: 100%;
   filter: brightness(95%);
   padding: 10px;
   background-color: transparent;
@@ -827,57 +816,6 @@ main .projects .project-glitch {
   padding: 0px;
   width: fit-content;
 }
-/* @keyframes glitch1 {
-  0% {
-    clip-path: inset(10px 0px 90px 0px);
-  }
-
-  30% {
-    clip-path: inset(40px 0px 20px 0px);
-  }
-
-  60% {
-    clip-path: inset(70px 0px 5px 0px);
-  }
-
-  90% {
-    clip-path: inset(80px 0px 20px 0px);
-  }
-
-  100% {
-    clip-path: inset(2px 0px 8px 0px);
-  }
-}
-@keyframes glitch2 {
-  0% {
-    clip-path: inset(10px 0px 30px 0px);
-  }
-
-  30% {
-    clip-path: inset(25px 0px 15px 0px);
-  }
-
-  60% {
-    clip-path: inset(29px 0px 65px 0px);
-  }
-
-  90% {
-    clip-path: inset(20px 0px 25px 0px);
-  }
-
-  100% {
-    clip-path: inset(1px 0px 70px 0px);
-  }
-}
-@keyframes clip {
-  1% {
-    transform: rotateX(-180deg) skewX(70deg);
-  }
-
-  2% {
-    transform: rotateX(0deg) skewX(0deg);
-  }
-} */
 
 /* All Projects */
 .all-projects {
@@ -1671,7 +1609,6 @@ main .projects .project-glitch {
     flex-direction: column;
     width: 250px;
     background-color: black;
-    padding: 20px 0px;
   }
   nav li {
     text-align: start !important;
@@ -1686,20 +1623,17 @@ main .projects .project-glitch {
     right: 100%;
     width: 5px;
   }
-  #me[data-active] ~ .slider {
-    transform: translateY(70px) translateX(0px);
-  }
   #about-me[data-active] ~ .slider {
-    transform: translateY(120px) translateX(0px);
+    transform: translateY(50px) translateX(0px);
   }
   #stack[data-active] ~ .slider {
-    transform: translateY(170px) translateX(0px);
+    transform: translateY(100px) translateX(0px);
   }
   #projects[data-active] ~ .slider {
-    transform: translateY(220px) translateX(0px);
+    transform: translateY(150px) translateX(0px);
   }
   #contact[data-active] ~ .slider {
-    transform: translateY(270px) translateX(0px);
+    transform: translateY(200px) translateX(0px);
   }
   #me[data-hover] ~ .slider {
     transform: translateY(70px) translateX(0px);
@@ -1771,7 +1705,9 @@ main .projects .project-glitch {
     top: 4%;
     left: 5%;
     right: 5%;
-    border: 1px solid #0fa;
+    border-top: 1px solid #0fa;
+    border-left: 1px solid #0fa;
+    border-right: 1px solid #0fa;
     border-radius: 5px;
   }
   .navigation-panel.unpop {

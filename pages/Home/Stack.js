@@ -2,7 +2,7 @@ import Image from "next/future/image";
 import { forwardRef, useEffect, useRef } from "react";
 import { FaAngleRight } from "react-icons/fa";
 
-const Stack = forwardRef(({changeRoute}, ref) => {
+const Stack = forwardRef(({changeRoute, section}, ref) => {
   const stackRibbon = useRef();
   const eachLanguage = useRef([]);
   const stacks = useRef();
@@ -91,7 +91,7 @@ const Stack = forwardRef(({changeRoute}, ref) => {
       (entries) => {
         Array.from(entries).forEach((e) => {
           if (e.isIntersecting) {
-            Navbar();
+            section("#stack")
             stackRibbon.current.classList.add("active");
             eachLanguage.current.forEach((lang) => {
               lang.classList.add("animate-in");

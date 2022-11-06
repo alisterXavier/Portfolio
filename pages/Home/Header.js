@@ -9,7 +9,7 @@ import {
 } from "react-icons/ai";
 import BgParticles from "../tsparticles";
 
-const Header = forwardRef((props, ref) => {
+const Header = forwardRef(({ section }, ref) => {
   const screen = useContext(Screen);
   const header = useRef();
   const info = useRef();
@@ -61,17 +61,11 @@ const Header = forwardRef((props, ref) => {
   };
 
   useEffect(() => {
-    const Navbar = () => {
-      const navbar = ref.current[0];
-      const active = navbar.querySelector("[data-active]");
-      const navSections = navbar.querySelector("#me");
-      delete active?.dataset.active;
-      navSections.dataset.active = true;
-    };
     observer.current = new IntersectionObserver(
       (entries) => {
         Array.from(entries).forEach((e) => {
           if (e.isIntersecting) {
+            section("#me");
             containerTimeout.current = setTimeout(() => {
               info.current.style.boxShadow = `0px 0px 2rem #0fa, inset 0px 0px 20px #0fa`;
               info.current.style.border = `3px solid #0fa`;
@@ -94,7 +88,7 @@ const Header = forwardRef((props, ref) => {
           }
         });
       },
-      { threshold: 0.6 }
+      { threshold: 0.5 }
     );
     if (header.current) {
       observer.current.observe(header.current);
