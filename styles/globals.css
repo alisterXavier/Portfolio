@@ -1598,7 +1598,7 @@ main .projects .project-glitch {
     background-color: rgba(0, 0, 0, 0.303);
     justify-content: start !important;
     overflow: hidden;
-    transition: right 500ms ease, width 500ms;
+    transition: right 500ms ease;
   }
   .navigation-panel.active {
     width: 100vw;
@@ -1607,8 +1607,13 @@ main .projects .project-glitch {
   }
   .navigation-panel ul {
     flex-direction: column;
-    width: 250px;
+    width: 0px;
     background-color: black;
+    overflow: hidden;
+    transition: width 500ms ease;
+  }
+  .navigation-panel.active ul {
+    width: 250px;
   }
   nav li {
     text-align: start !important;
