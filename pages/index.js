@@ -1,5 +1,5 @@
 import { createRef, useContext, useEffect, useRef, useState } from "react";
-import Navbar from "./Home/Navbar";
+// import Navbar from "./Home/Navbar";
 import Header from "./Home/Header";
 import Stack from "./Home/Stack";
 import Projects from "./Home/Projects.js";
