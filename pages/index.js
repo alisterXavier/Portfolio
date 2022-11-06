@@ -106,8 +106,8 @@ export default function Home() {
             contact={(value) => {
               handleContact(value);
             }}
-            nav
-            setNav
+            nav={nav}
+            setNav={setNav}
             closeMobile={closeMobileNav}
           ></Navbar>
           <Header
