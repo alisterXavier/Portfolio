@@ -1005,7 +1005,7 @@ main .projects .project-glitch {
   right: 0%;
   left: 0%;
   bottom: 0%;
-  background-color: rgba(0, 0, 0, 0.411);
+  background-color: rgba(0, 0, 0, 0.76);
 }
 .contact-wrapper .contact {
   position: relative;
@@ -1109,7 +1109,7 @@ main .projects .project-glitch {
 }
 .contact-wrapper .contact .contact-form textarea {
   padding: 10px;
-  height: 250px;
+  height: 200px;
 }
 .contact-wrapper .contact .contact-form .send-btn {
   width: 150px;
@@ -1222,30 +1222,30 @@ main .projects .project-glitch {
   top: 0%;
   left: 10%;
   right: 0%;
-  background-color: aqua;
-  box-shadow: 2px 0px 5px aqua, -2px 0px 10px aqua;
+  background-color: #0fa;
+  box-shadow: 2px 0px 5px #0fa, -2px 0px 10px #0fa;
 }
 .leftBorder {
-  background-color: aqua;
+  background-color: #0fa;
   top: 0%;
   left: 99.7%;
   bottom: 10%;
-  box-shadow: 2px 0px 5px aqua, -2px 0px 10px aqua;
+  box-shadow: 2px 0px 5px #0fa, -2px 0px 10px #0fa;
 }
 .rightBorder {
-  background-color: orange;
+  background-color: #0fa;
   top: 10%;
   right: 99.7%;
   bottom: -0.5%;
-  box-shadow: 2px 0px 5px orange, -2px 0px 10px orange;
+  box-shadow: 2px 0px 5px #0fa, -2px 0px 10px #0fa;
 }
 .bottomBorder {
-  background-color: orange;
+  background-color: #0fa;
   top: 100%;
   left: 0%;
   right: 10%;
   bottom: 10%;
-  box-shadow: 2px 0px 5px orange, -2px 0px 10px orange;
+  box-shadow: 2px 0px 5px #0fa, -2px 0px 10px #0fa;
 }
 
 .avatar-container {
