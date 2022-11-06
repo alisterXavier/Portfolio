@@ -43,6 +43,7 @@ export default function Home() {
   const closeMobileNav = () => {
     setNav(false)
   }
+
   const sectionObserver = (id) => {
     var navbar, active, navSections;
     if (id !== "#me") {
@@ -97,7 +98,7 @@ export default function Home() {
       {/* <h1 className="bg-A glow glow-text hello">A</h1> */}
       <div className="overflow-div relative z-10">
         <div className="mainOverflow-container">
-          <Navbar
+          {/* <Navbar
             ref={navCanvas}
             navClick={(value) => {
               handleClick(value);
@@ -107,7 +108,7 @@ export default function Home() {
             }}
             mobileNav={[nav, setNav]}
             closeMobile={closeMobileNav}
-          ></Navbar>
+          ></Navbar> */}
           <Header
             section={(value) => {
               sectionObserver(value);
