@@ -1,5 +1,5 @@
 import { forwardRef, useContext, useEffect, useRef, useState } from "react";
-import { Nav, Screen } from "../pages/_app";
+import { Nav, Screen } from "../_app";
 import { HiMenu } from "react-icons/hi";
 
 const Navbar = forwardRef(
