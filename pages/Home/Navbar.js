@@ -3,7 +3,7 @@ import { Nav, Screen } from "../_app";
 import { HiMenu } from "react-icons/hi";
 
 const Navbar = forwardRef(
-  ({ navClick, contact, mobileNav, closeMobile }, ref) => {
+  ({ navClick, contact, nav, setNav, closeMobile }, ref) => {
     const screen = useContext(Screen);
     const [navState, setNavState] = useContext(Nav);
 
@@ -26,7 +26,7 @@ const Navbar = forwardRef(
             <HiMenu
               className="cursor-pointer"
               onClick={() => {
-                mobileNav[1](true);
+                setNav(true);
               }}
             ></HiMenu>
             {screen <= 900 && (
@@ -43,9 +43,11 @@ const Navbar = forwardRef(
           </div>
         )}
         <nav
-          className={`navigation-panel flex items-center ${navState}`}
+          className={`navigation-panel flex items-center ${navState} ${
+            nav && "active"
+          }`}
           onClick={() => {
-            mobileNav[1](false);
+            setNav(false);
           }}
           ref={(elem) => (ref.current[0] = elem)}
           data-navparent

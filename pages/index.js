@@ -27,7 +27,7 @@ export default function Home() {
     const nav = navCanvas.current[0];
     const active = nav.querySelector("[data-active]");
     delete active?.dataset.active;
-    
+
     if (id !== "me") e.currentTarget.dataset.active = true;
 
     if (id !== "contact") {
@@ -41,8 +41,8 @@ export default function Home() {
   };
 
   const closeMobileNav = () => {
-    setNav(false)
-  }
+    setNav(false);
+  };
 
   const sectionObserver = (id) => {
     var navbar, active, navSections;
@@ -106,7 +106,8 @@ export default function Home() {
             contact={(value) => {
               handleContact(value);
             }}
-            mobileNav={[nav, setNav]}
+            nav
+            setNav
             closeMobile={closeMobileNav}
           ></Navbar>
           <Header
