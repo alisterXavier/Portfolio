@@ -1,9 +1,9 @@
 import { forwardRef, useContext, useEffect, useRef, useState } from "react";
-import { Nav, Screen } from "../pages/_app";
+import { Nav, Screen } from "../_app";
 import { HiMenu } from "react-icons/hi";
 
 const Navbar = forwardRef(
-  ({ navClick, contact, mobileNav, closeMobile }, ref) => {
+  ({ navClick, mobileNav, closeMobile }, ref) => {
     const screen = useContext(Screen);
     const [navState, setNavState] = useContext(Nav);
 
@@ -116,7 +116,7 @@ const Navbar = forwardRef(
               id="contact"
               onMouseEnter={lightsOn}
               onMouseLeave={lightsOff}
-              onClick={contact}
+              // onClick={contact}
             >
               <p>Contact Me</p>
             </li>
