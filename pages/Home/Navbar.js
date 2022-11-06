@@ -30,7 +30,7 @@ const Navbar = forwardRef(
               }}
             ></HiMenu>
             {screen <= 900 && (
-              <span className="m-5">
+              <span className="ml-5">
                 <p
                   className="glow-text hello glow-1 active:scale-50"
                   id="me"
