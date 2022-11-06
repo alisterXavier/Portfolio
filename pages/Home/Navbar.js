@@ -1,9 +1,9 @@
 import { forwardRef, useContext, useEffect, useRef, useState } from "react";
-import { Nav, Screen } from "../_app";
+import { Nav, Screen } from "../pages/_app";
 import { HiMenu } from "react-icons/hi";
 
 const Navbar = forwardRef(
-  ({ navClick, contact, closeMobile }, ref) => {
+  ({ navClick, contact, mobileNav, closeMobile }, ref) => {
     const screen = useContext(Screen);
     const [navState, setNavState] = useContext(Nav);
 
@@ -25,9 +25,9 @@ const Navbar = forwardRef(
           <div className="nav-open flex items-center cursor-default">
             <HiMenu
               className="cursor-pointer"
-              // onClick={() => {
-              //   mobileNav[1](true);
-              // }}
+              onClick={() => {
+                mobileNav[1](true);
+              }}
             ></HiMenu>
             {screen <= 900 && (
               <span className="m-5">
@@ -44,9 +44,9 @@ const Navbar = forwardRef(
         )}
         <nav
           className={`navigation-panel flex items-center ${navState}`}
-          // onClick={() => {
-          //   mobileNav[1](false);
-          // }}
+          onClick={() => {
+            mobileNav[1](false);
+          }}
           ref={(elem) => (ref.current[0] = elem)}
           data-navparent
         >
