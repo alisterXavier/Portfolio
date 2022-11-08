@@ -14,3 +14,8 @@ $left-pos: [-50%, 50%, -50%, 50%, -50%, 50%, -50%, 50%, -50%, 50%]
 @for $i from 1 through 10
     .all-projects .project:nth-child(#{$i})
         animation-delay: #{$i}
+
+@media only screen and (max-width: 651px)
+    @for $i from 1 through 10
+        .all-projects .project:nth-child(#{$i})
+            left: 0%

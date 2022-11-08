@@ -45,7 +45,7 @@ const AllStack = () => {
           }}
         ></BiArrowBack>
       )}
-      <section className="stack view overflow-hidden">
+      <section className="stack complete-stack view overflow-hidden">
         <div className="stack-container-wrapper">
           <div className="stack-container" style={{ width: "90%" }}>
             {stack.map((l, index) => {

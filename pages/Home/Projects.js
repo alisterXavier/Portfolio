@@ -87,6 +87,7 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
   const ViewAllProjects = () => {
     changeRoute("allProjects");
     observer.current.unobserve(projects.current);
+    waveObserver.current.unobserve(projects.current);
     document.querySelector(
       ".mainOverflow-container"
     ).style.transition = `filter 500ms ease`;
@@ -190,7 +191,7 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
                   </figure>
                   <div className="details">
                     <h2 className="text-xl lg:text-3xl my-2">{cp.title}</h2>
-                    <p className="description my-2">{cp.para}</p>
+                    <p className="description text-sm my-2">{cp.para}</p>
                     <span className="links-wrapper my-2 flex justify-evenly">
                       <a
                         href={cp.git_link}
@@ -244,7 +245,7 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
           <FaAngleRight className="angle-right" size={25}></FaAngleRight>
         </button>
       </div>
-      <div className="w-full flex items-center justify-start px-5 mt-3 lg-mt-0">
+      <div className="w-full flex items-center justify-start px-2 mt-3 lg-mt-0">
         {noDep.map((n) => (
           <div
             key={n.name}
