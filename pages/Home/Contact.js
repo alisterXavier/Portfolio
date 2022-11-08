@@ -95,12 +95,12 @@ const Contact = () => {
       "discord uid": "DREMANiC#8953",
       "email": "xavieralister153@gmail.com",
     };
-
-    document.querySelector(".tooltip").innerHTML = `${id} copied!`;
+    const parent = e.target.closest("[data-parent]")
+    parent.querySelector(".tooltip").innerText = `${id} copied!`;
     navigator.clipboard.writeText(usernames[id]);
-    document.querySelector(".tooltip").classList.add("active");
+    parent.querySelector(".tooltip").classList.add("active");
     setTimeout(() => {
-      document.querySelector(".tooltip").classList.remove("active");
+      parent.querySelector(".tooltip").classList.remove("active");
     }, 1000);
   };
 
@@ -223,7 +223,7 @@ const Contact = () => {
               </button>
             </div>
 
-            <div className="platforms flex justify-end items-center relative w-11/12">
+            <div className="platforms flex justify-end items-center relative w-11/12" data-parent>
               <span className="tooltip"></span>
               <div className="platforms--wrapper flex justify-evenly items-center">
                 <h2 className="hit-me">Hit me up on</h2>

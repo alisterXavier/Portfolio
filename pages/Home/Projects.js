@@ -6,6 +6,7 @@ import eCommerce from "/public/assets/e-commerce.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { GoMarkGithub, GoLink } from "react-icons/go";
 import { Screen } from "../_app";
+import noDep from "../../components/no-deploy.json";
 
 const carouselProjects = [
   {
@@ -40,6 +41,8 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
   const projectsScroll = useRef();
   const screen = useContext(Screen);
   const observer = useRef();
+  const waveObserver = useRef();
+  const wave = useRef();
 
   const fadeLeft = () => {
     document.addEventListener("scroll", (e) => {
@@ -63,14 +66,14 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
 
     const obj = {
       1: () => {
-        slides.current.children[nextNewIndex].dataset.prev = true;
-        slides.current.children[prevNewIndex].dataset.active = true;
-        slides.current.children[activeNewIndex].dataset.next = true;
-      },
-      2: () => {
         slides.current.children[activeNewIndex].dataset.prev = true;
         slides.current.children[prevNewIndex].dataset.next = true;
         slides.current.children[nextNewIndex].dataset.active = true;
+      },
+      2: () => {
+        slides.current.children[nextNewIndex].dataset.prev = true;
+        slides.current.children[prevNewIndex].dataset.active = true;
+        slides.current.children[activeNewIndex].dataset.next = true;
       },
     };
 
@@ -122,7 +125,23 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
         threshold: 0.5,
       }
     );
+
+    waveObserver.current = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            wave.current.classList.add("fixed");
+          } else wave.current.classList.remove("fixed");
+        });
+      },
+      {
+        threshold: 0.3,
+      }
+    );
+
     observer.current.observe(projects.current);
+    waveObserver.current.observe(projects.current);
+
     projectsScroll.current = Math.abs(
       document.getElementsByTagName("body")[0].getBoundingClientRect().top -
         projects.current.getBoundingClientRect().top
@@ -137,94 +156,126 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
       id="Projects"
       data-projects
     >
-      <div className="project-title" ref={projectRibbon}>
-        <div className="">
-          <h2 className="project-glitch my-0 mx-auto text-5xl lg:text-6xl">
-            PROJECTS
-          </h2>
-        </div>
-      </div>
-      <button
-        className="more-projects flex items-center"
-        onClick={ViewAllProjects}
-      >
-        <p>More Projects</p>
-        <FaAngleRight className="angle-right" size={25}></FaAngleRight>
-      </button>
       <div
-        className="carousel-all projects--carousel"
-        ref={carousel}
-        data-parent
+        className="w-full flex flex-col items-center justify-center"
+        style={{ width: "100%", height: "100vh" }}
       >
-        <ul className="" data-slides ref={slides}>
-          {carouselProjects.map((cp, index) => {
-            return (
-              <li
-                className="project animate-in"
-                key={index}
-                data-active={index == 0}
-                data-next={index === 1}
-                data-prev={index === 2}
-                ref={(elem) => {
-                  eachProject.current.splice(index, 1, elem);
-                }}
-              >
-                <figure className="project-img">
-                  <Image alt={cp.img} src={cp.img} layout="fill" priority />
-                </figure>
-                <div className="details">
-                  <h2 className="text-xl lg:text-3xl my-2">{cp.title}</h2>
-                  <p className="description my-2">{cp.para}</p>
-                  <span className="links-wrapper my-2 flex justify-evenly">
-                    <a
-                      href={cp.git_link}
-                      rel="noreferrer"
-                      target="_blank"
-                      className="link"
-                      id="github"
-                    >
-                      <GoMarkGithub size={50}></GoMarkGithub>
-                    </a>
-                    <a
-                      href={cp.app_link}
-                      className="link"
-                      rel="noreferrer"
-                      target="_blank"
-                      id="link"
-                    >
-                      <GoLink size={50}></GoLink>
-                    </a>
-                  </span>
-                </div>
-              </li>
-            );
-          })}
-        </ul>
-
-        {screen > 500 && (
-          <div className="next-btn">
-            <FaAngleLeft
-              onClick={() => {
-                btnClick(1);
-              }}
-              size={40}
-              id="prev-btn"
-            ></FaAngleLeft>
-            <FaAngleRight
-              onClick={() => {
-                btnClick(2);
-              }}
-              size={40}
-              id="next-btn"
-            ></FaAngleRight>
+        <div className="project-title my-5" ref={projectRibbon}>
+          <div className="">
+            <h2 className="project-glitch my-0 mx-auto text-5xl lg:text-6xl">
+              PROJECTS
+            </h2>
           </div>
-        )}
+        </div>
+        <div
+          className="carousel-all projects--carousel"
+          ref={carousel}
+          data-parent
+        >
+          <ul className="w-full h-full" data-slides ref={slides}>
+            {carouselProjects.map((cp, index) => {
+              return (
+                <li
+                  className="project animate-in"
+                  key={index}
+                  data-active={index == 0}
+                  data-next={index === 1}
+                  data-prev={index === 2}
+                  ref={(elem) => {
+                    eachProject.current.splice(index, 1, elem);
+                  }}
+                >
+                  <figure className="project-img">
+                    <Image alt={cp.img} src={cp.img} layout="fill" priority />
+                  </figure>
+                  <div className="details">
+                    <h2 className="text-xl lg:text-3xl my-2">{cp.title}</h2>
+                    <p className="description my-2">{cp.para}</p>
+                    <span className="links-wrapper my-2 flex justify-evenly">
+                      <a
+                        href={cp.git_link}
+                        rel="noreferrer"
+                        target="_blank"
+                        className="link"
+                        id="github"
+                      >
+                        <GoMarkGithub size={50}></GoMarkGithub>
+                      </a>
+                      <a
+                        href={cp.app_link}
+                        className="link"
+                        rel="noreferrer"
+                        target="_blank"
+                        id="link"
+                      >
+                        <GoLink size={50}></GoLink>
+                      </a>
+                    </span>
+                  </div>
+                </li>
+              );
+            })}
+          </ul>
+
+          {screen > 500 && (
+            <div className="next-btn">
+              <FaAngleLeft
+                onClick={() => {
+                  btnClick(1);
+                }}
+                size={40}
+                id="prev-btn"
+              ></FaAngleLeft>
+              <FaAngleRight
+                onClick={() => {
+                  btnClick(2);
+                }}
+                size={40}
+                id="next-btn"
+              ></FaAngleRight>
+            </div>
+          )}
+        </div>
+        <button
+          className="more-projects flex items-center"
+          onClick={ViewAllProjects}
+        >
+          <p>More Projects</p>
+          <FaAngleRight className="angle-right" size={25}></FaAngleRight>
+        </button>
       </div>
-      {screen > 500 && (
-        <svg width="100%" className="wave">
-          <path
-            fill="black"
-            d="
+      <div className="w-full flex items-center justify-start px-5 mt-3 lg-mt-0">
+        {noDep.map((n) => (
+          <div
+            key={n.name}
+            className="no-deploy-container flex border rounded glow-border w-fit p-3"
+            onMouseEnter={(e) => {
+              e.currentTarget.classList.add("glow-shadow");
+            }}
+            onMouseLeave={(e) => {
+              e.target.classList.remove("glow-shadow");
+            }}
+          >
+            <div className="projects-no-deploy glow-text mt-10">
+              <div className="">
+                <h1 className="text-3xl font-semibold">{n.name}</h1>
+              </div>
+              <div>
+                <p className="my-3">{n.para}</p>
+                <button className="text-black">
+                  <a href={n.git_link} target="_blank_">
+                    Github
+                  </a>
+                </button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      <svg width="100%" className="wave" ref={wave}>
+        <path
+          fill="black"
+          d="
           M0 67
           C 273,183
             822,-40
@@ -234,12 +285,12 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
           H 0 
           V 67
           Z"
-          >
-            <animate
-              repeatCount="indefinite"
-              attributeName="d"
-              dur="15s"
-              values="
+        >
+          <animate
+            repeatCount="indefinite"
+            attributeName="d"
+            dur="15s"
+            values="
             M0 77 
             C 473,283
               822,-40
@@ -280,10 +331,9 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
             V 67 
             Z
             "
-            ></animate>
-          </path>
-        </svg>
-      )}
+          ></animate>
+        </path>
+      </svg>
     </section>
   );
 });

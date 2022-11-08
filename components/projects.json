@@ -1,6 +1,11 @@
 [
   {
-    "img": ["coming-soon"],
+    "img": [
+      "/assets/Crypto/app_1.png",
+      "/assets/Crypto/app_2.png",
+      "/assets/Crypto/app_3.png",
+      "/assets/Crypto/app_4.png"
+    ],
     "title": "Cryptocurrency Platform",
     "para": "NextJS, Css, Coinranking Api",
     "git_link": "",
@@ -15,6 +20,7 @@
       "/assets/netflix/app_5.png",
       "/assets/netflix/app_6.png",
       "/assets/netflix/app_7.png",
+      "/assets/netflix/app_8.png",
       "/assets/netflix/app_9.png"
     ],
     "title": "Netflix Clone",

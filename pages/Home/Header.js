@@ -67,8 +67,8 @@ const Header = forwardRef(({ section }, ref) => {
           if (e.isIntersecting) {
             section("#me");
             containerTimeout.current = setTimeout(() => {
-              info.current.style.boxShadow = `0px 0px 2rem #0fa, inset 0px 0px 20px #0fa`;
-              info.current.style.border = `3px solid #0fa`;
+              info.current.classList.add("glow-border")
+              info.current.classList.add("glow-shadow")
               info.current.classList.add("reflection-lights-on");
               textTimeout.current = setTimeout(() => {
                 headerBannerText.current.classList.add("glow-text");

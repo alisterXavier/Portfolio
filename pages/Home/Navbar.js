@@ -21,7 +21,7 @@ const Navbar = forwardRef(
 
     return (
       <div>
-        {screen <= 900 && (
+        {screen <= 950 && (
           <div className="nav-open flex items-center cursor-default">
             <HiMenu
               className="cursor-pointer"
@@ -29,7 +29,7 @@ const Navbar = forwardRef(
                 setNav(true);
               }}
             ></HiMenu>
-            {screen <= 900 && (
+            {screen <= 950 && (
               <span className="ml-5">
                 <p
                   className="glow-text hello glow-1 active:scale-50"
@@ -52,7 +52,7 @@ const Navbar = forwardRef(
           ref={(elem) => (ref.current[0] = elem)}
           data-navparent
         >
-          {screen >= 900 && (
+          {screen >= 950 && (
             <span className="m-5">
               <p
                 className="glow-text hello glow-1 cursor-pointer active:scale-95"
@@ -69,10 +69,11 @@ const Navbar = forwardRef(
               e.stopPropagation();
             }}
           >
-            {screen < 900 && (
+            {screen < 950 && (
               <li
-                className="cursor-pointer text-center flex items-center md:justify-center"
+                className="cursor-pointer text-center flex items-center lg:justify-center"
                 onClick={closeMobile}
+                id="cross"
               >
                 <svg
                   width="14"
@@ -85,7 +86,7 @@ const Navbar = forwardRef(
               </li>
             )}
             <li
-              className="cursor-pointer text-center flex items-center md:justify-center"
+              className="cursor-pointer text-center flex items-center lg:justify-center"
               id="about-me"
               onMouseEnter={lightsOn}
               onMouseLeave={lightsOff}
@@ -94,7 +95,7 @@ const Navbar = forwardRef(
               <p>About Me</p>
             </li>
             <li
-              className="cursor-pointer text-center flex items-center md:justify-center"
+              className="cursor-pointer text-center flex items-center lg:justify-center"
               id="stack"
               onMouseEnter={lightsOn}
               onMouseLeave={lightsOff}
@@ -103,7 +104,7 @@ const Navbar = forwardRef(
               <p>Stack</p>
             </li>
             <li
-              className="cursor-pointer text-center flex items-center md:justify-center"
+              className="cursor-pointer text-center flex items-center lg:justify-center"
               id="projects"
               onMouseEnter={lightsOn}
               onMouseLeave={lightsOff}
@@ -112,7 +113,7 @@ const Navbar = forwardRef(
               <p>Projects</p>
             </li>
             <li
-              className="cursor-pointer text-center flex items-center md:justify-center"
+              className="cursor-pointer text-center flex items-center lg:justify-center"
               id="contact"
               onMouseEnter={lightsOn}
               onMouseLeave={lightsOff}
