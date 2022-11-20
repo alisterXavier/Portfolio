@@ -1,6 +1,28 @@
 [
   {
     "img": [
+      "/assets/to-infinity-and-beyond/app_1.png",
+      "/assets/to-infinity-and-beyond/app_2.png",
+      "/assets/to-infinity-and-beyond/app_3.png",
+      "/assets/to-infinity-and-beyond/app_4.png"
+    ],
+    "title": "To infinity and beyond",
+    "para": "NextJS, ThreeJS, Css",
+    "git_link": "https://github.com/alisterXavier/To-infinity-and-beyond",
+    "app_link": "https://to-infinity-and-beyond.vercel.app/"
+  },
+  {
+    "img": [
+      "/assets/music-downloader/app_1.png",
+      "/assets/music-downloader/app_2.png"
+    ],
+    "title": "Music Downloader",
+    "para": "NextJS, Css",
+    "git_link": "https://github.com/alisterXavier/Music-downloader",
+    "app_link": "https://music-downloader-three.vercel.app/"
+  },
+  {
+    "img": [
       "/assets/Crypto/app_1.png",
       "/assets/Crypto/app_2.png",
       "/assets/Crypto/app_3.png",

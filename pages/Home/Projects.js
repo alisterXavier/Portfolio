@@ -131,8 +131,8 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            wave.current.classList.add("fixed");
-          } else wave.current.classList.remove("fixed");
+            wave?.current.classList.add("fixed");
+          } else wave?.current.classList.remove("fixed");
         });
       },
       {
