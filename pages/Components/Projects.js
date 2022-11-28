@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { forwardRef, useContext, useEffect, useRef } from "react";
+import { forwardRef, useContext, useEffect, useRef, useState } from "react";
 import mernApp from "/public/assets/blaaApp.png";
 import netflixClone from "/public/assets/netflix.png";
 import eCommerce from "/public/assets/e-commerce.png";
 import { FaAngleRight, FaAngleLeft } from "react-icons/fa";
 import { GoMarkGithub, GoLink } from "react-icons/go";
 import { Screen } from "../_app";
-import noDep from "../../components/no-deploy.json";
 
 const carouselProjects = [
   {
@@ -32,7 +31,7 @@ const carouselProjects = [
   },
 ];
 
-const Projects = forwardRef(({ changeRoute, section }, ref) => {
+const Projects = forwardRef(({ changeRoute, section, setAllProjectVis }, ref) => {
   const slides = useRef();
   const carousel = useRef();
   const projectRibbon = useRef();
@@ -85,15 +84,7 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
   };
 
   const ViewAllProjects = () => {
-    changeRoute("allProjects");
-    observer.current.unobserve(projects.current);
-    waveObserver.current.unobserve(projects.current);
-    document.querySelector(
-      ".mainOverflow-container"
-    ).style.transition = `filter 500ms ease`;
-    document.querySelector(
-      ".mainOverflow-container"
-    ).style.filter = `brightness(0)`;
+    setAllProjectVis(true)
   };
 
   useEffect(() => {
@@ -103,6 +94,7 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
           if (entry.isIntersecting) {
             carousel.current.classList.add("active");
             carousel.current.classList.add("parallex");
+            projects.current.classList.add("active")            
             eachProject.current.forEach((project) => {
               project.classList.add("active");
             });
@@ -132,7 +124,7 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             wave?.current.classList.add("fixed");
-          } else wave?.current.classList.remove("fixed");
+          } else wave?.current?.classList.remove("fixed");
         });
       },
       {
@@ -245,7 +237,7 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
           <FaAngleRight className="angle-right" size={25}></FaAngleRight>
         </button>
       </div>
-      <div className="w-full flex items-center justify-start px-2 mt-3 lg-mt-0">
+      {/* <div className="w-full flex items-center justify-start px-2 mt-3 lg-mt-0">
         {noDep.map((n) => (
           <div
             key={n.name}
@@ -272,7 +264,7 @@ const Projects = forwardRef(({ changeRoute, section }, ref) => {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
       <svg width="100%" className="wave" ref={wave}>
         <path
           fill="black"

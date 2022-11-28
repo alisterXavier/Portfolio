@@ -55,15 +55,15 @@ html {
 }
 @font-face {
   font-family: "Hello-Denver";
-  src: url("/assets/hello-denver/HELLODENVERDISPLAYREGULAR_v1.6.otf");
+  src: url("/assets/fonts/hello-denver/HELLODENVERDISPLAYREGULAR_v1.6.otf");
 }
 @font-face {
   font-family: "Omnes";
-  src: url("/assets/omnes/Omnes Semibold Regular.ttf");
+  src: url("/assets/fonts/omnes/Omnes Semibold Regular.ttf");
 }
 @font-face {
   font-family: "Amcap";
-  src: url("/assets/amcap-eternal/AMCAP Eternal.otf");
+  src: url("/assets/fonts/amcap-eternal/AMCAP Eternal.otf");
 }
 ::-webkit-scrollbar {
   height: 12px;
@@ -697,7 +697,6 @@ main .projects {
   width: 100%;
   min-height: 100vh;
   font-style: italic;
-  padding: 50px 10px;
 }
 main .projects .carousel-all {
   transform: translateY(350px);
@@ -715,9 +714,12 @@ main .projects .project-title {
   position: relative;
   width: 90%;
   text-align: center;
-  transform: translateX(0%);
-  left: calc(var(--Left) * 1px);
+  opacity: 0;
+  translate: 0% 50%;
   border-radius: 5px;
+}
+main .projects.active .project-title {
+  animation: stack-in 1s 500ms forwards;
 }
 main .projects .projects--carousel {
   width: 50%;
@@ -871,162 +873,58 @@ main .projects .projects-no-deploy button:active {
 }
 
 /* All Projects */
-.all-projects {
-  min-height: 100vh;
-  display: flex;
-  justify-content: start;
-  align-items: center;
-  flex-direction: column;
-  padding-top: 40px;
-  animation: lights-on 500ms ease;
-}
-.all-projects-title {
-  width: 1500px;
-  color: #0fa;
-  padding: 10px 0px;
-}
-.all-projects ul {
-  display: flex;
-  width: 40%;
-  justify-content: space-evenly;
-  align-items: center;
-  flex-direction: column;
-  margin: 50px;
-}
-.all-projects .project {
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  opacity: 0;
-  margin: 15px 10px;
-  width: 100%;
-  height: 300px;
-  border-radius: 10px;
-  cursor: pointer;
-}
-.all-projects .project.active {
-  animation: slide-in-right 500ms forwards;
-}
-.all-projects .project.unactive {
-  animation: slide-out-right 500ms forwards;
-}
-.all-projects .project.active:nth-child(even) {
-  animation: slide-in-left 500ms forwards;
-}
-.all-projects .project.unactive:nth-child(even) {
-  animation: slide-out-left 500ms forwards;
-}
-.all-projects .project .details {
-  display: flex;
-  flex-direction: column;
-}
-.all-projects ul .project .figure--wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
-  width: 100%;
-}
-.all-projects ul .project .figure {
-  height: 100%;
-  width: 600px;
-  transition: all 500ms ease;
-  overflow: hidden;
-}
-.all-projects ul .project .figure:hover {
-  height: 90%;
-  width: 550px;
-}
-.all-projects ul .project .figure img {
-  transform: scale(1);
-  transition: all 500ms ease;
-}
-.all-projects ul .project .figure:hover img {
-  transform: scale(1.2);
-}
-.all-projects .project .details .links-wrapper .link svg {
-  filter: brightness(100%);
-}
-.all-projects .project .details {
-  width: 30%;
-  padding: 10px;
-  margin: 0px 20px;
-}
-
-/* Single */
-.single-wrapper {
+.all-projects-wrapper {
   position: fixed;
-  top: 0%;
-  left: 0%;
-  right: 0%;
-  bottom: 0%;
-  z-index: 99;
+  z-index: 100;
+  right: 0;
+  width: 0vw;
+  height: 100vh;
+  background-color: black;
+  transition: width 500ms ease;
 }
-.single-project {
-  display: flex;
-  align-items: center;
-  justify-self: center;
-  position: absolute;
-  overflow: hidden;
-  padding: 40px;
-  border-radius: 10px;
-  top: 0%;
-  left: 0%;
-  right: 0%;
-  bottom: 0%;
-  backdrop-filter: blur(20px);
+.all-projects-wrapper.active {
+  width: 75vw;
 }
-.single-project::after {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  top: 0%;
-  left: 0%;
-  right: 0%;
-  bottom: 0%;
-  filter: blur(20px);
-}
-.single-project figure {
-  height: 500px;
-  width: 900px;
-  border-radius: 0px;
-}
-.single-project figure img {
+.all-projects-wrapper .all-projects {
+  width: 100%;
   height: 100%;
-  width: 100%;
-}
-.all-projects .selected {
-  width: 100vw;
-  height: 100vh;
-  backdrop-filter: blur(20px);
-  animation: details-pop 1s ease;
-}
-.all-projects .selected::before {
-  content: "";
-  position: absolute;
-  width: 100vw;
-  height: 100vh;
-  filter: blur(10px);
-  background: #00000023;
-  animation-delay: 5s;
-  animation: details-pop 1s ease;
-}
-.all-projects .selected .selected-wrapper .selected-figure {
-  width: 100%;
-  height: 400px;
-  border-radius: 10px;
+  background-color: black;
   overflow: hidden;
+  transition: background-color 2s ease;
 }
-.all-projects .selected .selected-wrapper .selected-details {
+.all-projects-wrapper.active .all-projects .option-title {
   opacity: 0;
-  border-radius: 5px;
-  transition: box-shadow 500ms ease;
-  animation: details-pop 1.5s forwards;
-  animation-delay: 500ms;
+  translate: 100px;
+  animation: slide-in-left 200ms forwards;
 }
-.all-projects .selected .selected-wrapper .selected-details:hover {
-  box-shadow: 3px 6px 15px black;
+.all-projects-wrapper .all-projects.fade-out .option-title {
+  opacity: 1;
+  translate: 0px;
+  animation: slide-out-left 200ms forwards;
+}
+.all-projects-wrapper .all-projects figure {
+  position: absolute;
+  top: 5%;
+  right: 0%;
+  z-index: 101;
+  translate: 500px 0px;
+  transition: translate 500ms ease;
+}
+.all-projects-wrapper .all-projects .option-title:hover + figure {
+  translate: -20px 0px;
+}
+.all-projects-wrapper .selected {
+  z-index: 102;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.all-projects-wrapper .selected .selected-figure {
+  width: 650px;
+  height: 320px;
 }
 .swiper-pagination-bullet {
   background-color: #0fa !important;
@@ -1067,10 +965,14 @@ main .projects .projects-no-deploy button:active {
   border-radius: 10px;
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: center;
   backdrop-filter: blur(10px);
-  opacity: 0;
-  animation: popup 500ms forwards;
+  filter: brightness(0);
+  animation: popup 500ms 200ms forwards;
+}
+.contact-wrapper .contact .inner-contact {
+  animation: contact-content 5s ease;
 }
 .contact-wrapper .contact::after {
   content: "";
@@ -1084,6 +986,9 @@ main .projects .projects-no-deploy button:active {
 }
 .contact .platforms .discord {
   color: #7289da;
+}
+.contact .platforms .telegram {
+  color: #229ed9;
 }
 .contact .platforms .linkedin {
   color: #0072b1;
@@ -1113,7 +1018,9 @@ main .projects .projects-no-deploy button:active {
 .tooltip.active {
   visibility: visible;
 }
-
+.cross svg:active {
+  scale: 0.8;
+}
 .contact-wrapper .contact .contact-title {
   font-size: 50px;
 }
@@ -1326,6 +1233,15 @@ main .projects .projects-no-deploy button:active {
   transition: all 200ms ease;
   animation: background-animate 10s infinite ease;
 }
+
+@keyframes contact-content {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 @keyframes up-down {
   0%,
   100% {
@@ -1364,54 +1280,22 @@ main .projects .projects-no-deploy button:active {
 }
 @keyframes slide-in-left {
   0% {
-    transform: translateX(300px);
+    translate: 100px 0px;
     opacity: 0;
   }
-  50% {
-    opacity: 1;
-  }
   100% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-}
-@keyframes slide-in-right {
-  0% {
-    transform: translateX(-300px);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(0%);
+    translate: 0px 0px;
     opacity: 1;
   }
 }
 @keyframes slide-out-left {
   0% {
-    transform: translateX(0%);
     opacity: 1;
-  }
-  50% {
-    opacity: 1;
+    translate: 0px 0px;
   }
   100% {
-    transform: translateX(300px);
     opacity: 0;
-  }
-}
-@keyframes slide-out-right {
-  0% {
-    transform: translateX(0%);
-    opacity: 1;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateX(-300px);
-    opacity: 0;
+    translate: 100px 0px;
   }
 }
 @keyframes rotate {
@@ -1477,12 +1361,10 @@ main .projects .projects-no-deploy button:active {
 }
 @keyframes popup {
   0% {
-    transform: scale(2);
-    opacity: 0;
+    filter: brightness(0.2);
   }
   100% {
-    opacity: 1;
-    transform: scale(1);
+    filter: brightness(1);
   }
 }
 @keyframes slide-in {
@@ -1496,23 +1378,6 @@ main .projects .projects-no-deploy button:active {
 }
 
 @media only screen and (min-width: 1100px) {
-  .navigation-panel.pop {
-    top: 4%;
-    left: 5%;
-    right: 5%;
-    border-top: 1px solid #0fa;
-    border-left: 1px solid #0fa;
-    border-right: 1px solid #0fa;
-    border-radius: 5px;
-  }
-  .navigation-panel.unpop {
-    top: 0%;
-    left: 0%;
-    right: 0%;
-    border: 1px solid transparent;
-    border-radius: 0px;
-  }
-
   main .projects .projects--carousel ul .project {
     position: absolute;
     width: 100%;
@@ -1583,6 +1448,9 @@ main .projects .projects-no-deploy button:active {
     .project.animate-in.active[data-prev="true"] {
     transform: translateX(-200px) translateY(0%) perspective(1200px)
       translateZ(-300px) scale(1) rotateY(20deg);
+  }
+  .stack .stack-container-wrapper .stack-container {
+    width: 750px;
   }
 }
 
@@ -1710,7 +1578,12 @@ main .projects .projects-no-deploy button:active {
     margin: 10px 0px;
   }
   .more-projects {
-    top: 97%;
+    background-color: #0fa;
+    padding: 5px;
+    border-radius: 5px;
+    top: 95%;
+    color: black;
+    box-shadow: -5px -5px 15px black;
   }
   main .projects .projects--carousel .next-btn {
     display: none;
@@ -1719,18 +1592,6 @@ main .projects .projects-no-deploy button:active {
   .contact-wrapper .contact {
     width: 80%;
     height: 70%;
-  }
-
-  .all-projects .project {
-    height: 180px;
-    border-radius: 10px;
-    overflow: hidden;
-  }
-  .all-projects .selected .selected-wrapper{
-    width: 80%;
-  }
-  .all-projects .selected .selected-wrapper .selected-figure{
-    height: 340px;
   }
 }
 
@@ -1753,10 +1614,25 @@ main .projects .projects-no-deploy button:active {
   .stack .stack-container-wrapper .stack-container {
     width: 500px;
   }
-
+  .all-projects-wrapper .all-projects figure {
+    display: none;
+  }
+  .all-projects-wrapper .all-projects{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .all-projects-wrapper.active {
+    width: 100vw;
+  }
+  .all-projects-wrapper .selected .selected-figure {
+    width: 300px;
+    height: 150px;
+  }
   .contact-wrapper .contact {
     width: 90%;
-    height: 90%;
+    height: 80%;
   }
   .contact-wrapper .contact .contact-form > * {
     width: 80%;
@@ -1764,78 +1640,13 @@ main .projects .projects-no-deploy button:active {
   .contact-wrapper .contact .contact-form textarea {
     height: 150px;
   }
-
-  .all-projects ul {
-    width: 90%;
-  }
-  .all-projects .project {
-    width: 100%;
-    height: 290px;
-  }
-
-  .all-projects .selected .selected-wrapper{
-    height: 100%;
-    width: 80%;
-  }
-  .all-projects .selected .selected-wrapper .selected-figure{
-    height: 270px;
-  }
-
-  @keyframes slide-in-left {
-    0% {
-      transform: translateX(100px);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-  }
-  @keyframes slide-in-right {
-    0% {
-      transform: translateX(-100px);
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-  }
-  @keyframes slide-out-left {
-    0% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(100px);
-      opacity: 0;
-    }
-  }
-  @keyframes slide-out-right {
-    0% {
-      transform: translateX(0%);
-      opacity: 1;
-    }
-    50% {
-      opacity: 1;
-    }
-    100% {
-      transform: translateX(-100px);
-      opacity: 0;
-    }
-  }
 }
 
 @media only screen and (max-width: 501px) {
+  main .projects {
+    margin: 20px 0px;
+    padding: 10px 0px;
+  }
   main .projects .projects--carousel ul .project {
     width: 50%;
     height: 190px;
@@ -1844,15 +1655,15 @@ main .projects .projects-no-deploy button:active {
     width: 100%;
     height: 200px;
   }
-  .all-projects .selected .selected-wrapper{
+  .all-projects .selected .selected-wrapper {
     height: 100%;
     width: 90%;
   }
-  .all-projects .selected .selected-wrapper .selected-figure{
+  .all-projects .selected .selected-wrapper .selected-figure {
     height: 190px;
   }
 
-  .complete-stack .stack-container{
+  .complete-stack .stack-container {
     width: 100% !important;
   }
 }

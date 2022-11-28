@@ -1,9 +1,9 @@
 import { useContext, useRef, useState } from "react";
 import emailjs from "emailjs-com";
-import { FaDiscord } from "react-icons/fa";
+import { FaDiscord, FaTelegramPlane } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { AiFillLinkedin } from "react-icons/ai";
-import { ContactApi, Nav, Screen } from "../_app";
+import { ContactApi, Screen } from "../_app";
 import { GrRotateRight } from "react-icons/gr";
 import { ImCross } from "react-icons/im";
 import { BiCheck } from "react-icons/bi";
@@ -11,7 +11,6 @@ import { BiCheck } from "react-icons/bi";
 const Contact = () => {
   const [contactState, setContactState] = useContext(ContactApi);
   const screen = useContext(Screen);
-  const [navState, setNavState] = useContext(Nav);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -79,23 +78,20 @@ const Contact = () => {
       emailValidate == true && nameValidate == true && messageValidate == true
     );
   };
-  
+
   const handleClick = () => {
     const value = !contactState;
 
     setContactState(value);
-    if (screen > 900 && window.scrollY > 20) {
-      setNavState("pop");
-    }
   };
 
   const copy = (e) => {
     const { id } = e.currentTarget;
     const usernames = {
       "discord uid": "DREMANiC#8953",
-      "email": "xavieralister153@gmail.com",
+      email: "xavieralister153@gmail.com",
     };
-    const parent = e.target.closest("[data-parent]")
+    const parent = e.target.closest("[data-parent]");
     parent.querySelector(".tooltip").innerText = `${id} copied!`;
     navigator.clipboard.writeText(usernames[id]);
     parent.querySelector(".tooltip").classList.add("active");
@@ -108,14 +104,17 @@ const Contact = () => {
     <>
       <div className="contact-wrapper" onClick={handleClick}>
         <div
-          className="contact"
+          className="contact "
           onClick={(e) => {
             e.stopPropagation();
           }}
         >
-          <div className="w-full text-center">
+          <div className="w-full absolute top-10">
+            <ImCross className="absolute right-5 lg:right-10 cursor-pointer" size={20} onClick={handleClick}></ImCross>
+          </div>
+          <div className="w-full text-center inner-contact ">
             <div className="contact-title">
-              <h1>Contact Me</h1>
+              <h1 className="text-3xl">Contact Me</h1>
             </div>
             <div className="contact-form">
               <label
@@ -223,26 +222,40 @@ const Contact = () => {
               </button>
             </div>
 
-            <div className="platforms flex justify-end items-center relative w-11/12" data-parent>
+            <div 
+              className="platforms flex justify-end items-center relative w-11/12"
+              data-parent
+            >
               <span className="tooltip"></span>
               <div className="platforms--wrapper flex justify-evenly items-center">
                 <h2 className="hit-me">Hit me up on</h2>
-                <a rel="noreferrer" target="_blank">
-                  <FaDiscord
-                    onClick={copy}
-                    className="platform discord"
-                    id="discord uid"
-                  ></FaDiscord>
+                <a
+                  rel="noreferrer"
+                  className="platform discord"
+                  target="_blank"
+                  id="discord_id"
+                  onClick={copy}
+                >
+                  <FaDiscord></FaDiscord>
                 </a>
-                <a onClick={copy} className="envelope relative" id="email">
-                  <MdEmail className="platform"></MdEmail>
+                <a onClick={copy} className="envelope platform" id="email">
+                  <MdEmail></MdEmail>
+                </a>
+                <a
+                  rel="noreferrer"
+                  href="https://t.me/AlisterXavier"
+                  target="_blank"
+                  className="platform telegram"
+                >
+                  <FaTelegramPlane></FaTelegramPlane>
                 </a>
                 <a
                   rel="noreferrer"
                   href="https://www.linkedin.com/in/alister-xavier-63259020b/"
                   target="_blank"
+                  className="platform linkedin"
                 >
-                  <AiFillLinkedin className="platform linkedin"></AiFillLinkedin>
+                  <AiFillLinkedin ></AiFillLinkedin>
                 </a>
               </div>
             </div>

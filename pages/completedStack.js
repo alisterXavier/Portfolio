@@ -1,7 +1,6 @@
 import Image from "next/future/image";
 import { useContext, useEffect, useRef } from "react";
-import familiarStack from "../components/familiarStack.json";
-import stack from "../components/stack.json";
+import stack from "@/assets/data/stack.json";
 import { BiArrowBack } from "react-icons/bi";
 import { useRouter } from "next/router";
 import { Screen } from "./_app";

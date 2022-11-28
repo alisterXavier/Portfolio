@@ -1,20 +1,29 @@
-import { createRef, useContext, useEffect, useRef, useState } from "react";
-import Navbar from "./Home/Navbar";
-import Header from "./Home/Header";
-import Stack from "./Home/Stack";
-import Projects from "./Home/Projects.js";
-import Contact from "./Home/Contact";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+import Navbar from "./Components/Navbar";
+import Header from "./Components/Header";
+import Stack from "./Components/Stack";
+import Projects from "./Components/Projects.js";
+import Contact from "./Components/Contact";
 import { useRouter } from "next/router";
-import { Gradient } from "../components/Gradient/Gradient";
-import { ContactApi, Nav } from "./_app";
-import AboutMe from "./Home/AboutMe";
+import { Gradient } from "../components/Gradient";
+import { ContactApi } from "./_app";
+import AboutMe from "./Components/AboutMe";
+import AllProjects from "./Components/AllProject";
+
+export const ProjectsVisibility = createContext();
 
 export default function Home() {
   const router = useRouter();
   const navCanvas = useRef([]);
   const [contactState, setContactState] = useContext(ContactApi);
-  const [navState, setNavState] = useContext(Nav);
   const [nav, setNav] = useState(false);
+  const [allProjectsVis, setAllProjectVis] = useState(false);
 
   const handleRoute = (value) => {
     setTimeout(() => {
@@ -34,7 +43,6 @@ export default function Home() {
       document
         .querySelector(`[data-${id}]`)
         .scrollIntoView({ behavior: "smooth" });
-      id !== "me" && setNavState("pop");
       contactState && setContactState(false);
     }
     setNav(false);
@@ -46,23 +54,14 @@ export default function Home() {
 
   const sectionObserver = (id) => {
     var navbar, active, navSections;
+    navbar = navCanvas.current[0];
+    active = navbar.querySelector("[data-active]");
+    delete active?.dataset.active;
+
     if (id !== "#me") {
-      navbar = navCanvas.current[0];
-      active = navbar.querySelector("[data-active]");
       navSections = navbar.querySelector(id);
       navSections.dataset.active = true;
     }
-    delete active?.dataset.active;
-  };
-
-  const NavPop = () => {
-    navCanvas.current[0].classList.remove("unpop");
-    navCanvas.current[0].classList.add("pop");
-  };
-
-  const NavUnpop = () => {
-    navCanvas.current[0].classList.remove("pop");
-    navCanvas.current[0].classList.add("unpop");
   };
 
   const gradient = () => {
@@ -76,26 +75,18 @@ export default function Home() {
     handleClick(e);
     const value = !contactState;
     setContactState(value);
-    if (value) setNavState("unpop");
-    else if (window.scrollY > 20) setNavState("pop");
   };
 
   useEffect(() => {
     gradient();
-    document.addEventListener("scroll", () => {
-      if (navCanvas.current[0]) {
-        if (window.scrollY > 20) {
-          NavPop();
-        } else {
-          NavUnpop();
-        }
-      }
-    });
   }, []);
 
   return (
     <div className="overflow relative">
-      {/* <h1 className="bg-A glow glow-text hello">A</h1> */}
+      <AllProjects
+        allProjectsVis={allProjectsVis}
+        setAllProjectVis={setAllProjectVis}
+      />
       <div className="overflow-div relative z-10">
         <div className="mainOverflow-container">
           <Navbar
@@ -149,6 +140,7 @@ export default function Home() {
                   sectionObserver(value);
                 }}
                 ref={navCanvas}
+                setAllProjectVis={setAllProjectVis}
               />
             )}
           </main>

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { forwardRef, useContext, useEffect, useRef, useState } from "react";
 import { Nav, Screen } from "../_app";
-import { TbBrandDiscord } from "react-icons/tb";
+import { TbBrandDiscord,TbBrandTelegram } from "react-icons/tb";
 import {
   AiOutlineLinkedin,
   AiOutlineMail,
@@ -82,7 +82,6 @@ const Header = forwardRef(({ section }, ref) => {
                 platform.current.forEach((e) => {
                   e.classList.add("platform-glow");
                 });
-                // avatar.current.classList.add("on");
               }, 500);
             }, 900);
           }
@@ -140,10 +139,19 @@ const Header = forwardRef(({ section }, ref) => {
               </a>
               <a
                 rel="noreferrer"
+                href="https://t.me/AlisterXavier"
+                target="_blank"
+                className="platform telegram"
+                ref={(elem) => (platform.current[2] = elem)}
+              >
+                <TbBrandTelegram size={20}></TbBrandTelegram>
+              </a>
+              <a
+                rel="noreferrer"
                 href="https://www.linkedin.com/in/alister-xavier-63259020b/"
                 target="_blank"
                 className="platform linkedin"
-                ref={(elem) => (platform.current[2] = elem)}
+                ref={(elem) => (platform.current[3] = elem)}
               >
                 <AiOutlineLinkedin size={20}></AiOutlineLinkedin>
               </a>

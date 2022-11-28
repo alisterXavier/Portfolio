@@ -1,9 +1,8 @@
 import { forwardRef, useContext, useEffect, useRef } from "react";
-import { ContactApi, Nav, Screen } from "../_app";
+import { ContactApi, Screen } from "../_app";
 
 const AboutMe = forwardRef(({ section }, ref) => {
   const [contactState, setContactState] = useContext(ContactApi);
-  const [navState, setNavState] = useContext(Nav);
   const screen = useContext(Screen);
   const about = useRef();
   const innerAbout = useRef();
@@ -22,7 +21,6 @@ const AboutMe = forwardRef(({ section }, ref) => {
 
     if (text === "Contact me") {
       setContactState(true);
-      setNavState("unpop");
     } else {
       document
         .querySelector(`[data-${text}]`)

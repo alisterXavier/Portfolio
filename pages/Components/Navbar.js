@@ -1,11 +1,10 @@
 import { forwardRef, useContext, useEffect, useRef, useState } from "react";
-import { Nav, Screen } from "../_app";
+import { Screen } from "../_app";
 import { HiMenu } from "react-icons/hi";
 
 const Navbar = forwardRef(
   ({ navClick, contact, nav, setNav, closeMobile }, ref) => {
     const screen = useContext(Screen);
-    const [navState, setNavState] = useContext(Nav);
 
     const lightsOn = (e) => {
       const element = e.currentTarget;
@@ -43,9 +42,7 @@ const Navbar = forwardRef(
           </div>
         )}
         <nav
-          className={`navigation-panel flex items-center ${navState} ${
-            nav && "active"
-          }`}
+          className={`navigation-panel flex items-center ${nav && "active"}`}
           onClick={() => {
             setNav(false);
           }}

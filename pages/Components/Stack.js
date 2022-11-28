@@ -67,15 +67,7 @@ const Stack = forwardRef(({changeRoute, section}, ref) => {
     const text = Pelement.querySelector(".language-name");
     text.removeAttribute("style");
   };
-
-  const Navbar = () => {
-    const navbar = ref.current[0];
-    const active = navbar.querySelector("[data-active]");
-    const navSections = navbar.querySelector("#stack");
-    delete active?.dataset.active;
-    navSections.dataset.active = true;
-  };
-
+  
   const ViewCompleteStack = () => {
     changeRoute("completedStack");
     observer.current.unobserve(stacks.current);
@@ -98,7 +90,7 @@ const Stack = forwardRef(({changeRoute, section}, ref) => {
               lang.classList.add("animate-in");
             });
           } else {
-            if (stackRibbon.current) {
+            if (stackRibbon.current) { 
               stackRibbon.current.style.setProperty("--Left", 1000);
             }
           }

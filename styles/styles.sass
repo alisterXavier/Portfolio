@@ -1,19 +1,22 @@
 // Stack
-$delay: 200ms
-$left-pos: [-50%, 50%, -50%, 50%, -50%, 50%, -50%, 50%, -50%, 50%]
+$delay-fade-in: 300ms
+$delay-fade-out: 300ms
+$delay-stack: 300ms
+
 @for $var from 1 through 20
     .stack .stack-container .language-container-wrapper.animate-in:nth-child(#{$var})
-        animation-delay: $delay
-    $delay: $delay + 100ms
+        animation-delay: $delay-stack
+    $delay-stack: $delay-stack + 70ms
 
 // Project
-@for $i from 1 through 10
-    .all-projects .project:nth-child(#{$i})
-        left: nth($left-pos, $i)
-
-@for $i from 1 through 10
-    .all-projects .project:nth-child(#{$i})
-        animation-delay: #{$i}
+@for $i from 1 through 50
+    .all-projects-wrapper.active .all-projects > div:nth-child(#{$i}) .option-title
+        animation-delay: $delay-fade-in
+    $delay-fade-in: $delay-fade-in + 30ms
+    @for $i from 1 through 50
+    .all-projects-wrapper .all-projects.fade-out > div:nth-child(#{$i}) .option-title
+        animation-delay: $delay-fade-out
+    $delay-fade-out: $delay-fade-out + 30ms
 
 @media only screen and (max-width: 651px)
     @for $i from 1 through 10
