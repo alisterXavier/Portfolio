@@ -31,7 +31,7 @@ const Navbar = forwardRef(
             {screen <= 950 && (
               <span className="ml-5">
                 <p
-                  className="glow-text hello glow-1 active:scale-50"
+                  className="glow-text hello glow-1 active:scale-95"
                   id="me"
                   onClick={navClick}
                 >
