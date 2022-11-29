@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import { createContext, useContext, useEffect, useRef, useState } from "react";
 import Navbar from "./Components/Navbar";
 import Header from "./Components/Header";
 import Stack from "./Components/Stack";
@@ -45,11 +39,17 @@ export default function Home() {
         .scrollIntoView({ behavior: "smooth" });
       contactState && setContactState(false);
     }
-    setNav(false);
+    closeMobileNav();
   };
 
   const closeMobileNav = () => {
-    setNav(false);
+    navCanvas.current[0].firstChild.classList.add("fade-out");
+    setTimeout(() => {
+      setNav(false);
+      setTimeout(()=> {
+        navCanvas.current[0].firstChild.classList.remove("fade-out");
+      },700)
+    }, 600);
   };
 
   const sectionObserver = (id) => {

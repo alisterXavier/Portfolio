@@ -17,7 +17,7 @@
       "/assets/Project-images/music-downloader/app_2.png"
     ],
     "title": "Music Downloader",
-    "para": "NextJS, Css",
+    "para": "NextJS, TypeScript, Css",
     "git_link": "https://github.com/alisterXavier/Music-downloader",
     "app_link": "https://music-downloader-three.vercel.app/"
   },

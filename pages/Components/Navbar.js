@@ -88,6 +88,7 @@ const Navbar = forwardRef(
               onMouseEnter={lightsOn}
               onMouseLeave={lightsOff}
               onClick={navClick}
+              data-width="70px"
             >
               <p>About Me</p>
             </li>
@@ -97,6 +98,7 @@ const Navbar = forwardRef(
               onMouseEnter={lightsOn}
               onMouseLeave={lightsOff}
               onClick={navClick}
+              data-width="40px"
             >
               <p>Stack</p>
             </li>

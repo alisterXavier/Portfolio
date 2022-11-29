@@ -297,43 +297,31 @@ nav li {
   z-index: 1;
   left: 0%;
   bottom: 0%;
-  transform: translateX(0);
+  translate: 0 0;
   width: 200px;
   height: 5px;
   background: transparent;
-  transition: background 500ms ease, transform 500ms ease;
+  transition: background 500ms ease, translate 500ms ease;
 }
 nav li[data-active] ~ .slider,
 nav li:hover ~ .slider {
   background: #0fa;
 }
+#about-me:hover ~ .slider,
 #about-me[data-active] ~ .slider {
-  transform: translateX(0px);
+  translate: 0px 0px;
 }
+#stack:hover ~ .slider,
 #stack[data-active] ~ .slider {
-  transform: translateX(200px);
+  translate: 200px 0px;
 }
+#projects:hover ~ .slider,
 #projects[data-active] ~ .slider {
-  transform: translateX(400px);
+  translate: 400px 0px;
 }
+#contact:hover ~ .slider,
 #contact[data-active] ~ .slider {
-  transform: translateX(600px);
-}
-#me[data-hover] ~ .slider {
-  transform: translateX(0px);
-}
-
-#about-me:hover ~ .slider {
-  transform: translateX(0px);
-}
-#stack:hover ~ .slider {
-  transform: translateX(200px);
-}
-#projects:hover ~ .slider {
-  transform: translateX(400px);
-}
-#contact:hover ~ .slider {
-  transform: translateX(600px);
+  translate: 600px 0px;
 }
 
 /* Header */
@@ -546,7 +534,7 @@ nav li:hover ~ .slider {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 2;
+  z-index: 11;
   border-radius: 5px;
   width: 100%;
   min-height: 100vh;
@@ -959,7 +947,7 @@ main .projects .projects-no-deploy button:active {
   background-color: rgba(0, 0, 0, 0.76);
 }
 .contact-wrapper .contact {
-  position: relative;
+  position: absolute;
   width: 60%;
   height: 80%;
   border-radius: 10px;
@@ -1031,23 +1019,27 @@ main .projects .projects-no-deploy button:active {
   align-items: center;
 }
 .contact-wrapper .contact .contact-form > * {
+  position: relative;
+  background-color: white;
   margin: 10px 0px;
   width: 60%;
   height: 40px;
   border-radius: 5px;
   resize: none;
-  color: black;
+  color: grey;
   outline: none;
 }
 .contact-wrapper .contact .contact-form input {
   position: absolute;
   padding: 10px;
+  z-index: 2;
   border-radius: 5px;
   top: 0%;
   left: 0%;
   width: 100%;
   height: 100%;
   outline: none;
+  background-color: transparent;
 }
 .contact-wrapper .contact .contact-form .name-wrapper p,
 .contact-wrapper .contact .contact-form .email-wrapper p {
@@ -1062,10 +1054,6 @@ main .projects .projects-no-deploy button:active {
   font-size: 10px;
   color: grey;
   transform: translateX(10%) translateY(0%);
-}
-.contact-wrapper .contact .contact-form .name-wrapper,
-.contact-wrapper .contact .contact-form .email-wrapper {
-  position: relative;
 }
 .contact-wrapper .contact .contact-form textarea {
   padding: 10px;
@@ -1262,12 +1250,20 @@ main .projects .projects-no-deploy button:active {
     opacity: 1;
   }
 }
-@keyframes details-pop {
-  0% {
+@keyframes opacity {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
+  }
+}
+@keyframes opacity-r {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
   }
 }
 @keyframes lights-on {
@@ -1296,6 +1292,26 @@ main .projects .projects-no-deploy button:active {
   100% {
     opacity: 0;
     translate: 100px 0px;
+  }
+}
+@keyframes slide-in-right {
+  0% {
+    translate: -100px 0px;
+    opacity: 0;
+  }
+  100% {
+    translate: 0px 0px;
+    opacity: 1;
+  }
+}
+@keyframes slide-out-right {
+  0% {
+    opacity: 1;
+    translate: 0px 0px;
+  }
+  100% {
+    opacity: 0;
+    translate: -100px 0px;
   }
 }
 @keyframes rotate {
@@ -1469,6 +1485,7 @@ main .projects .projects-no-deploy button:active {
 }
 
 @media only screen and (max-width: 950px) {
+/* Navbar */
   .nav-open {
     position: fixed;
     padding: 10px;
@@ -1501,69 +1518,80 @@ main .projects .projects-no-deploy button:active {
     left: 0%;
     bottom: 0%;
     right: 100%;
-    width: 0%;
-    height: 0%;
-    background-color: rgba(0, 0, 0, 0.303);
-    justify-content: start !important;
+    height: 100vh;
+    justify-content: center;
+    background-color: black;
     overflow: hidden;
-    transition: none;
+    transition: right 400ms ease;
   }
   .navigation-panel.active {
-    width: 100vw;
-    height: 100vh;
     right: 0%;
+    overflow: hidden;
   }
   .navigation-panel ul {
     flex-direction: column;
-    width: 0px;
     background-color: black;
-    overflow: hidden;
+    height: fit-content;
     transition: width 500ms ease;
   }
   .navigation-panel.active ul {
-    width: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
-  nav li {
+  .navigation-panel ul li {
     text-align: start !important;
     padding: 10px 40px;
     width: 250px;
     height: 50px;
   }
+  .navigation-panel.active ul li {
+    opacity: 0;
+    translate: -100px 0px;
+    animation: slide-in-right 300ms forwards;
+  }
+  .navigation-panel ul.fade-out li {
+    opacity: 1;
+    translate: 0px 0px;
+    animation: slide-out-right 300ms forwards;
+  }
   .slider {
     top: 0%;
-    left: 0%;
-    height: 50px;
-    right: 100%;
-    width: 5px;
+    bottom: auto;
+    translate: 35px 10px;
+    height: 30px;
+    border-radius: 2px;
+    border: transparent;
+    background: transparent !important;
+    transition: translate 400ms ease, border 100ms ease;
+  }
+  .navigation-panel.active ul .slider {
+    opacity: 0;
+    animation: opacity 300ms 700ms forwards;
+  }
+  .navigation-panel ul.fade-out .slider {
+    opacity: 1;
+    animation: opacity-r 300ms 200ms forwards !important;
   }
   #about-me[data-active] ~ .slider {
-    transform: translateY(50px) translateX(0px);
+    border: 1px solid #0fa;
+    translate: 35px 60px;
   }
   #stack[data-active] ~ .slider {
-    transform: translateY(100px) translateX(0px);
+    border: 1px solid #0fa;
+    translate: 35px 110px;
   }
   #projects[data-active] ~ .slider {
-    transform: translateY(150px) translateX(0px);
+    border: 1px solid #0fa;
+    translate: 35px 160px;
   }
   #contact[data-active] ~ .slider {
-    transform: translateY(200px) translateX(0px);
-  }
-  #cross:hover ~ .slider {
-    background: 0;
-  }
-  #about-me:hover ~ .slider {
-    transform: translateY(50px) translateX(0px);
-  }
-  #stack:hover ~ .slider {
-    transform: translateY(100px) translateX(0px);
-  }
-  #projects:hover ~ .slider {
-    transform: translateY(150px) translateX(0px);
-  }
-  #contact:hover ~ .slider {
-    transform: translateY(200px) translateX(0px);
+    border: 1px solid #0fa;
+    translate: 35px 210px;
   }
 
+/* Projects */
   main .projects .projects--carousel {
     height: auto;
   }
@@ -1578,10 +1606,11 @@ main .projects .projects-no-deploy button:active {
     margin: 10px 0px;
   }
   .more-projects {
+    z-index: 1;
     background-color: #0fa;
     padding: 5px;
-    border-radius: 5px;
-    top: 95%;
+    right: 5%;
+    top: 94%;
     color: black;
     box-shadow: -5px -5px 15px black;
   }
@@ -1589,9 +1618,10 @@ main .projects .projects-no-deploy button:active {
     display: none;
   }
 
+/* Contact */
   .contact-wrapper .contact {
-    width: 80%;
-    height: 70%;
+    width: 800px;
+    height: 700px;
   }
 }
 
@@ -1603,36 +1633,43 @@ main .projects .projects-no-deploy button:active {
     width: 300px;
     height: 350px;
   }
-
-  main .projects .projects--carousel ul .project {
-    width: 80%;
-    height: 250px;
-    border-radius: 10px;
-    overflow: hidden;
+  /* Stack */
+  .stack .stack-container-wrapper .language-container-wrapper{
+    width: 125px;
+    height: 165px;
   }
-
   .stack .stack-container-wrapper .stack-container {
     width: 500px;
   }
-  .all-projects-wrapper .all-projects figure {
-    display: none;
+
+  /* Project */
+  main .projects .projects--carousel ul .project {
+    width: 80%;
+    height: 250px;
+    border-radius: 6px;
+    overflow: hidden;
   }
-  .all-projects-wrapper .all-projects{
+  .all-projects-wrapper.active {
+    width: 100vw;
+  }
+  .all-projects-wrapper .all-projects {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
   }
-  .all-projects-wrapper.active {
-    width: 100vw;
-  }
   .all-projects-wrapper .selected .selected-figure {
     width: 300px;
     height: 150px;
   }
+  .all-projects-wrapper .all-projects figure {
+    display: none;
+  }
+
+  /* Contact */
   .contact-wrapper .contact {
     width: 90%;
-    height: 80%;
+    height: 500px;
   }
   .contact-wrapper .contact .contact-form > * {
     width: 80%;
@@ -1644,8 +1681,8 @@ main .projects .projects-no-deploy button:active {
 
 @media only screen and (max-width: 501px) {
   main .projects {
-    margin: 20px 0px;
     padding: 10px 0px;
+    margin: 10px 0px;
   }
   main .projects .projects--carousel ul .project {
     width: 50%;
