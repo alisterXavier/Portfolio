@@ -19,13 +19,7 @@ const Projects = ({
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             section("#projects");
-            // document
-            //   .querySelector(".content-wrapper")
-            //   ?.classList.add("lighter-background");
           }
-          // document
-          //   .querySelector(".content-wrapper")
-          //   ?.classList.remove("lighter-background");
         });
       },
       {
