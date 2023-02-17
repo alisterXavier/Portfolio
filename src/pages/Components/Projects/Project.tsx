@@ -11,8 +11,8 @@ import {
 } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { BiArrowBack } from "react-icons/bi";
-import { SelectedProjectInterface } from "@/pages/types/types";
-import { useSmallDeviceSize } from "@/pages/Hooks/smalDeviceHook";
+import { SelectedProjectInterface } from "@/types/types";
+import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
 
 const Project = ({
   selectedProject,

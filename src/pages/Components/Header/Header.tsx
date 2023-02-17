@@ -5,7 +5,7 @@ import {
   AiOutlineMail,
   AiFillCaretDown,
 } from "react-icons/ai";
-import { useSmallDeviceSize } from "@/pages/Hooks/smalDeviceHook";
+import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
 
 const Header = ({ section } : {section: (id: string) => void}) => {
   const headerRef = useRef<HTMLElement>(null);

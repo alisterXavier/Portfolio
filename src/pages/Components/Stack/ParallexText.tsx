@@ -1,4 +1,4 @@
-import { useSmallDeviceSize } from "@/pages/Hooks/smalDeviceHook";
+import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
 import { useMotionValue, useScroll, useVelocity, useSpring, useTransform, wrap, useAnimationFrame, motion } from "framer-motion";
 import { useRef } from "react";
 

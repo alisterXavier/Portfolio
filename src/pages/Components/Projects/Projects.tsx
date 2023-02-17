@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 import ProjectCarousel from "./ProjectCarousel";
-import { SelectedProjectInterface } from "@/pages/types/types";
+import { SelectedProjectInterface } from "@/types/types";
 
 interface ProjectInterface extends SelectedProjectInterface {
   section: (id: string) => void;

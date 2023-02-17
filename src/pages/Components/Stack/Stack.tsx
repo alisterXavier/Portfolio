@@ -1,7 +1,7 @@
 import { RefObject, useEffect, useRef } from "react";
 import { FaAngleRight } from "react-icons/fa";
 import Image from "next/image";
-import { useSmallDeviceSize } from "@/pages/Hooks/smalDeviceHook";
+import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
 import Link from "next/link";
 import languages from "@a/data/displayStack.json";
 import ParallaxText from "./ParallexText";

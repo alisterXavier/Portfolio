@@ -6,7 +6,7 @@ import { BiCheck } from "react-icons/bi";
 import { TbBrandDiscord, TbBrandTelegram } from "react-icons/tb";
 import { AiOutlineLinkedin } from "react-icons/ai";
 import { ImCross } from "react-icons/im";
-import { useSmallDeviceSize } from "@/pages/Hooks/smalDeviceHook";
+import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
 
 const Contact = ({ section }: { section: (id: string) => void }) => {
   const isSmallScreen = useSmallDeviceSize()

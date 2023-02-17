@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { useSmallDeviceSize } from "./Hooks/smalDeviceHook";
+import { useSmallDeviceSize } from "../Hooks/smalDeviceHook";
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
 import { HiMenu } from "react-icons/hi";
@@ -9,7 +9,7 @@ import Projects from "./Components/Projects/Projects";
 import Contact from "./Components/Contact/Contact";
 import { AnimatePresence } from "framer-motion";
 import Project from "./Components/Projects/Project";
-import { ProjectDataInterface } from "./types/types";
+import { ProjectDataInterface } from "../types/types";
 import colors from "@a/data/colors.json";
 
 export default function Home() {

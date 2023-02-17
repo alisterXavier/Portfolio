@@ -1,5 +1,5 @@
 import { RefObject } from "react";
-import { useSmallDeviceSize } from "@/pages/Hooks/smalDeviceHook";
+import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
 
 interface NavbarInterface {
   navToggle: boolean;

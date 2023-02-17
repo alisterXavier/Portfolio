@@ -3,7 +3,7 @@ import Image from "next/image";
 import { useEffect, useRef } from "react";
 import projects from "@a/data/projects.json";
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
-import { SelectedProjectInterface } from "@/pages/types/types";
+import { SelectedProjectInterface } from "@/types/types";
 import { Autoplay, Mousewheel, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";

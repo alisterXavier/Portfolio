@@ -1,4 +1,4 @@
-import { useSmallDeviceSize } from "@/pages/Hooks/smalDeviceHook";
+import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
 import { RefObject, useEffect, useRef } from "react";
 
 const AboutMe = ({
