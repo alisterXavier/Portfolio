@@ -1,0 +1,81 @@
+/* Navbar */
+.navigation-panel {
+  position: fixed;
+  z-index: 2;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  height: 10vh;
+  border: 1px solid transparent;
+  overflow: hidden;
+  backdrop-filter: blur(10px);
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 500ms ease;
+}
+.navigation-panel ul {
+  display: flex;
+  height: 100%;
+  position: relative;
+}
+nav li {
+  position: relative;
+  z-index: 2;
+  width: 200px;
+  height: 100%;
+  background: var(--neon);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.slider {
+  position: absolute;
+  z-index: 1;
+  left: 0%;
+  bottom: 0%;
+  translate: 0 0;
+  width: 200px;
+  height: 5px;
+  background: transparent;
+  transition: background 500ms ease, translate 500ms ease;
+}
+nav li[data-active] ~ .slider,
+nav li:hover ~ .slider {
+  background: var(--neon);
+}
+#about-me[data-active] ~ .slider {
+  translate: 0px 0px;
+}
+#stack[data-active] ~ .slider {
+  translate: 200px 0px;
+}
+#projects[data-active] ~ .slider {
+  translate: 400px 0px;
+}
+#contact[data-active] ~ .slider {
+  translate: 600px 0px;
+}
+
+@media screen and (max-width: 1024px) {
+  .slider{
+    display: none;
+  }
+  .nav-header-wrapper {
+    display: flex;
+  }
+  .navigation-panel {
+    width: 50vw;
+    height: 100vh;
+    justify-content: center;
+    transform: translateZ(-200px);
+  }
+  .main.navbar-active .navigation-panel {
+    transform: translateZ(0px) perspective(1200px);
+  }
+  .navigation-panel ul {
+    width: 50%;
+    flex-direction: column;
+    height: fit-content;
+  }
+  .navigation-panel ul li {
+    height: 50px;
+  }
+}

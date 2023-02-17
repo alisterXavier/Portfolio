@@ -1,0 +1,38 @@
+[
+  {
+    "base": "#0fa",
+    "background": "#000000",
+    "lighter": "#242424",
+    "shadow": "0px 0px 2rem #0fa, inset 0px 0px 20px #0fa",
+    "text": "3px 0px 0px rgb(4, 150, 101), 3px 0px 5px rgb(6, 150, 102),3px 0px 10px rgb(6, 150, 102), 2px 0px 80px #0fa, 6px 0px 90px #0fa,0px 0px 60px #0fa, 4px 0px 100px #0fa",
+    "itemsShadow": "-15px -15px 49px #0e0e0e, 15px 15px 49px #3a3a3a",
+    "inset": "inset -15px -15px 49px #0e0e0e, inset 15px 15px 49px #3a3a3a"
+  },
+  {
+    "base": "#fa1593",
+    "background": "#000e1c",
+    "lighter": "#000e1c",
+    "shadow": "0px 0px 2rem #fa1593, inset 0px 0px 20px #fa1593",
+    "text": "3px 0px 0px #9b0149, 3px 0px 5px #9b0149,3px 0px 10px #9b0149, 2px 0px 80px var(--neon), 6px 0px 90px var(--neon),0px 0px 60px var(--neon), 4px 0px 100px var(--neon)",
+    "itemsShadow": "-15px -15px 47px #00060b, 15px 15px 47px #00162d",
+    "inset": "inset -15px -15px 47px #00060b,inset 15px 15px 47px #00162d"
+  },
+  {
+    "base": "white",
+    "background": "#09011f",
+    "lighter": "#0c0127",
+    "shadow": "0px 0px 20px #835dec, 0px 0px 2rem #5026c3,inset 0px 0px 20px #835dec, inset 0px 0px 20px #5026c3",
+    "text": "3px 0px 0px #835dec, 3px 0px 5px #835dec, 3px 0px 10px #835dec,2px 0px 80px #1c0e43, 6px 0px 90px #5026c3, 0px 0px 60px #5026c3,4px 0px 100px #5026c3",
+    "itemsShadow": "-27px 27px 100px #04000c, 27px -27px 100px #0e0232",
+    "inset": "inset -27px 27px 100px #04000c,inset 27px -27px 100px #0e0232"
+  },
+  {
+    "base": "#CCFF00",
+    "background": "#00000",
+    "lighter": "#242424",
+    "shadow": "0px 0px 20px #CCFF00, inset 0px 0px 2rem #CCFF00",
+    "text": "3px 0px 0px #9db442, 3px 0px 5px #9db442,3px 0px 10px #9db442, 2px 0px 80px var(--neon), 6px 0px 90px var(--neon),0px 0px 60px var(--neon), 4px 0px 100px var(--neon)",
+    "itemsShadow": "-15px -15px 49px #0e0e0e,15px 15px 49px #3a3a3a",
+    "inset": "inset -15px -15px 49px #0e0e0e, inset 15px 15px 49px #3a3a3a"
+  }
+]

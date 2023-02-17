@@ -1,0 +1,126 @@
+/* Projects */
+.main .projects {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100vh;
+  font-style: italic;
+}
+.main .projects.active .project-title {
+  animation: stack-in 1s 500ms forwards;
+}
+.main .projects .carousel {
+  width: 100%;
+  height: 70%;
+}
+.main .projects .carousel .mySwiper {
+  display: flex;
+  align-items: center;
+  padding: 50px;
+  height: fit-content !important;
+}
+.main .projects .carousel .mySwiper .swiper-slide {
+  height: 300px !important;
+}
+.main .projects .carousel .project-item {
+  width: 100%;
+  height: 100%;
+  transition: box-shadow 500ms ease, scale 200ms ease;
+}
+.main .projects .carousel .project-item:hover {
+  scale: 1.04;
+}
+.main .projects .carousel .project-item::after {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  right: -5px;
+  bottom: -5px;
+  border: 0.2px solid transparent;
+  transition: all 100ms ease;
+}
+.main .projects .carousel .project-item:hover::after {
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border: 0.2px solid var(--neon);
+}
+.main .projects .carousel .project-item figure {
+  width: auto;
+  height: 150px;
+}
+
+/* All Projects */
+.selected-wrapper {
+  width: 100vw;
+  height: 100vh;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+}
+.selected-wrapper .selected {
+  display: flex;
+  width: 80%;
+  opacity: 0;
+  animation: opacity 500ms forwards;
+  animation-delay: 700ms;
+}
+.selected-wrapper .selected-figure {
+  width: 650px;
+  height: 320px;
+}
+.swiper-pagination-bullet {
+  background-color: var(--neon) !important;
+}
+.swiper-pagination-bullet-active {
+  background-color: var(--neon) !important;
+}
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+}
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+@media screen and (max-width: 1024px) {
+  .main .projects .projects--carousel {
+    width: 100%;
+    height: auto;
+  }
+  .main .projects .projects--carousel ul {
+    flex-direction: column;
+  }
+  .main .projects .projects--carousel ul .project {
+    position: relative;
+    width: 90%;
+    height: 200px;
+    transform: none !important;
+  }
+  .main .projects .project .details {
+    padding: 20px;
+    align-items: end;
+    justify-content: end;
+  }
+  .main .projects .project .details .description {
+    text-align: end;
+  }
+  .main .projects .carousel .mySwiper {
+    width: 100%;
+    padding: 30px;
+  }
+  .selected .selected-figure {
+    width: 300px;
+    height: 170px;
+  }
+}

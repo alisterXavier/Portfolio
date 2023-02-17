@@ -1,0 +1,124 @@
+/* Header */
+.headerBanner {
+  position: relative;
+  z-index: 1;
+  color: var(--light-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100%;
+  background-color: var(--background);
+}
+.headerBanner .hero-container {
+  position: relative;
+  z-index: 1;
+  width: 450px;
+  height: 350px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border-radius: 10px;
+  transform: perspective(600px) rotateX(calc(var(--XDeg) * 1deg))
+    rotateY(calc(var(--YDeg) * 1deg));
+  transition: box-shadow 1.5s ease, border 1s ease;
+}
+.headerBanner .info {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px 15px 0px 15px;
+  z-index: 1;
+}
+.headerBanner .info .hi {
+  position: relative;
+  z-index: 3;
+  margin: 0px;
+  color: transparent;
+  transition: transform 500ms ease, text-shadow 500ms ease;
+}
+.headerBanner .d-fname {
+  color: transparent;
+  letter-spacing: 4px;
+  transition: transform 500ms ease, text-shadow 500ms ease;
+}
+.headerBanner .info .headerBannerText {
+  position: relative;
+  width: 100%;
+  letter-spacing: 1px;
+  line-height: 30px;
+  font-size: 20px;
+  z-index: 3;
+  color: transparent;
+  transition: transform 500ms ease, text-shadow 500ms ease;
+}
+.platform {
+  color: transparent;
+}
+.platform-glow {
+  color: var(--neon);
+  filter: drop-shadow(0px 0px 1px var(--neon));
+}
+.move-down {
+  cursor: none;
+}
+.down {
+  width: 28px;
+  height: 8px;
+  animation: move 2s ease-out infinite;
+}
+.cursor {
+  animation: move 2s ease-out infinite;
+}
+.cursor.invisible {
+  display: none;
+}
+.floating {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  backdrop-filter: blur(10px);
+  border-radius: 5px;
+}
+.floating.float1 {
+  bottom: 90%;
+  right: 10px;
+  animation: up-down 3s ease infinite;
+}
+.floating.float1::after {
+  content: "";
+  position: absolute;
+  border-radius: 5px;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0);
+}
+.floating.float2 {
+  top: 89%;
+  left: 20px;
+  animation: up-down 3s ease reverse infinite;
+  animation-delay: 1s;
+}
+.floating.float2::after {
+  content: "";
+  position: absolute;
+  border-radius: 5px;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(20px);
+  background-color: rgba(0, 0, 0, 0);
+}
+
+@media screen and (max-width: 1024px) {
+  .headerBanner .hero-container {
+    width: 300px;
+    height: 300px;
+  }
+}

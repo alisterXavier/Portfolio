@@ -1,0 +1,138 @@
+[
+  {
+    "img": [
+      "/assets/Project-images/BlaaApp2.0/app_1.png",
+      "/assets/Project-images/BlaaApp2.0/app_2.png",
+      "/assets/Project-images/BlaaApp2.0/app_3.png",
+      "/assets/Project-images/BlaaApp2.0/app_4.png",
+      "/assets/Project-images/BlaaApp2.0/app_5.png",
+      "/assets/Project-images/BlaaApp2.0/app_6.png",
+      "/assets/Project-images/BlaaApp2.0/app_7.png"
+    ],
+    "title": "Social Media App 2.0",
+    "stack": "Firebase, ExpressJS, ReactJS, TypeScript, Css",
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/Blaa-App-2.0",
+    "app_link": "https://blaa-app-2-0.vercel.app/"
+  },
+  {
+    "img": [
+      "/assets/Project-images/to-infinity-and-beyond/app_1.png",
+      "/assets/Project-images/to-infinity-and-beyond/app_2.png",
+      "/assets/Project-images/to-infinity-and-beyond/app_3.png",
+      "/assets/Project-images/to-infinity-and-beyond/app_4.png"
+    ],
+    "title": "To infinity and beyond",
+    "desc": "",
+    "stack": "NextJS, ThreeJS, Css",
+    "git_link": "https://github.com/alisterXavier/To-infinity-and-beyond",
+    "app_link": "https://to-infinity-and-beyond.vercel.app/"
+  },
+  {
+    "img": [
+      "/assets/Project-images/music-downloader/app_1.png",
+      "/assets/Project-images/music-downloader/app_2.png"
+    ],
+    "title": "Music Downloader",
+    "stack": "NextJS, TypeScript, Css",
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/Music-downloader",
+    "app_link": "https://music-downloader-three.vercel.app/"
+  },
+  {
+    "img": [
+      "/assets/Project-images/Crypto/app_1.png",
+      "/assets/Project-images/Crypto/app_2.png",
+      "/assets/Project-images/Crypto/app_3.png",
+      "/assets/Project-images/Crypto/app_4.png"
+    ],
+    "title": "Cryptocurrency Platform",
+    "stack": "NextJS, Css, Coinranking Api",
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/Crypto-Curr",
+    "app_link": "https://crypto-curr-eta.vercel.app/components/swap"
+  },
+  {
+    "img": [
+      "/assets/Project-images/netflix/app_1.png",
+      "/assets/Project-images/netflix/app_2.png",
+      "/assets/Project-images/netflix/app_3.png",
+      "/assets/Project-images/netflix/app_4.png",
+      "/assets/Project-images/netflix/app_5.png",
+      "/assets/Project-images/netflix/app_6.png",
+      "/assets/Project-images/netflix/app_7.png",
+      "/assets/Project-images/netflix/app_8.png",
+      "/assets/Project-images/netflix/app_9.png"
+    ],
+    "title": "Netflix Clone",
+    "stack": "ReactJS, ExpressJS, Firebase, Css",
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/NetflixClone",
+    "app_link": "https://netflix-clone-qwerty.vercel.app/"
+  },
+  {
+    "img": ["/assets/Project-images/nft-landing/app_1.png"],
+    "title": "Nft Landing Page",
+    "stack": "NextJS, Css",
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/NFT-LandingPage",
+    "app_link": "https://nft-landing-page-bzfd.vercel.app/"
+  },
+  {
+    "img": [
+      "/assets/Project-images/BlaaApp/app_1.png",
+      "/assets/Project-images/BlaaApp/app_2.png",
+      "/assets/Project-images/BlaaApp/app_3.png",
+      "/assets/Project-images/BlaaApp/app_4.png",
+      "/assets/Project-images/BlaaApp/app_5.png",
+      "/assets/Project-images/BlaaApp/app_6.png",
+      "/assets/Project-images/BlaaApp/app_7.png"
+    ],
+    "title": "Social Media App",
+    "stack": " MongoDB, ExpressJS, ReactJS, NodeJS, Css",
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/blaa-app"
+  },
+  {
+    "img": [
+      "/assets/Project-images/e-commerce/app_1.png",
+      "/assets/Project-images/e-commerce/app_2.png",
+      "/assets/Project-images/e-commerce/app_3.png",
+      "/assets/Project-images/e-commerce/app_4.png",
+      "/assets/Project-images/e-commerce/app_5.png"
+    ],
+    "title": "e-commerce App",
+    "stack": "ReactJS, Css",
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/e-commerce",
+    "app_link": "http://e-commerce-dremanic.vercel.app/"
+  },
+  {
+    "img": [
+      "/assets/Project-images/rockPaperScissors/app_1.png",
+      "/assets/Project-images/rockPaperScissors/app_2.png",
+      "/assets/Project-images/rockPaperScissors/app_3.png",
+      "/assets/Project-images/rockPaperScissors/app_4.png",
+      "/assets/Project-images/rockPaperScissors/app_5.png"
+    ],
+    "title": "Rock Paper Scissors",
+    "stack": "NextJS, Css",
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/Rock-Paper-Scissor",
+    "app_link": "https://rock-paper-scissor-fx9r.vercel.app/"
+  },
+  {
+    "img": ["/assets/Project-images/ip-address/app_1.png"],
+    "title": "Ip Address Tracker",
+    "stack": "NextJs, ipify API, LeafletJs, Css",
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/ip-address-tracker",
+    "app_link": "https://ip-address-tracker-dremanic.vercel.app/"
+  },
+  {
+    "title": "WikiScape",
+    "stack": "React, Python Flask, Python Wikipedia Api",
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/Wiki-React-Flask"
+  }
+]

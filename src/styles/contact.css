@@ -1,0 +1,221 @@
+/* Contact */
+.contact-wrapper {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  transition: transform 60ms ease;
+}
+.contact-wrapper .contact-title {
+  position: absolute;
+  left: 0%;
+  top: 45%;
+  width: 100%;
+  height: 100%;
+  font-size: 150px;
+}
+.contact-wrapper .contact-form-wrapper {
+  position: relative;
+  z-index: 1;
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation: popup 500ms 200ms forwards;
+}
+.contact-wrapper .contact-form-wrapper .contact-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.contact-wrapper .contact-form-wrapper .contact-form label {
+  position: relative;
+  margin: 10px 0px;
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  resize: none;
+  color: grey;
+  outline: none;
+}
+.contact-wrapper .contact-form-wrapper .contact-form label:nth-child(3) {
+  height: 150px;
+}
+.contact-wrapper .contact-form-wrapper .contact-form label:after {
+  content: "";
+  position: absolute;
+  z-index: -2;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: 20px;
+  background-color: rgba(58, 58, 58, 0.578);
+}
+.contact-wrapper .contact-form-wrapper .contact-form input {
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  background-color: transparent;
+}
+.contact-wrapper .contact-form-wrapper .contact-form .name-wrapper p,
+.contact-wrapper .contact-form-wrapper .contact-form .email-wrapper p {
+  position: absolute;
+  top: 0%;
+  color: white;
+  transform: translateX(10%) translateY(30%);
+  z-index: -1;
+  transition: transform 100ms ease, font-size 100ms ease, color 100ms ease;
+}
+.contact-wrapper .contact-form-wrapper .contact-form .name-wrapper.active p,
+.contact-wrapper .contact-form-wrapper .contact-form .email-wrapper.active p {
+  font-size: 10px;
+  color: grey;
+  transform: translateX(10%) translateY(0%);
+}
+.contact-wrapper .contact-form-wrapper .contact-form label textarea {
+  padding: 10px;
+  width: 100%;
+  height: 100%;
+  resize: none;
+  background-color: transparent;
+}
+.contact-wrapper .contact-form-wrapper .contact-form .send-btn {
+  width: 150px;
+  height: 40px;
+  color: white;
+  background-color: transparent;
+}
+.send-btn .sent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: lime;
+  border: 1px solid lime;
+  overflow: hidden;
+}
+.send-btn .send-error {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  border-radius: 5px;
+  border: 1px solid red;
+}
+.send-btn .send-error svg,
+.send-btn .sent svg {
+  animation: response 500ms ease;
+}
+.contact-form-wrapper .platforms .platforms--wrapper {
+  overflow: hidden;
+  width: 170px;
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%;
+  width: fit-content;
+  height: 25px;
+  visibility: hidden;
+}
+.tooltip.active {
+  visibility: visible;
+}
+.cross svg:active {
+  scale: 0.8;
+}
+.invalid::placeholder {
+  color: red;
+}
+
+.loading {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.loading svg {
+  animation: rotate 1.5s infinite;
+}
+.loading span:nth-child(1) {
+  position: absolute;
+  top: 0%;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background-color: lime;
+  animation: load-1 500ms forwards;
+}
+.loading span:nth-child(2) {
+  position: absolute;
+  top: -100%;
+  right: 0%;
+  width: 4px;
+  height: 100%;
+  background-color: lime;
+  animation: load-2 500ms forwards;
+  animation-delay: 500ms;
+}
+.loading span:nth-child(3) {
+  position: absolute;
+  bottom: 0%;
+  right: -100%;
+  width: 100%;
+  height: 4px;
+  background-color: lime;
+  animation: load-3 500ms forwards;
+  animation-delay: 1s;
+}
+.loading span:nth-child(4) {
+  position: absolute;
+  bottom: -100%;
+  left: 0%;
+  width: 4px;
+  height: 100%;
+  background-color: lime;
+  animation: load-4 500ms forwards;
+  animation-delay: 1.5s;
+}
+.leftBorder {
+  position: absolute;
+  padding: 2px;
+  border-radius: 50px;
+  background-color: var(--neon);
+  top: 0%;
+  left: 0%;
+  bottom: 10%;
+  box-shadow: 2px 0px 5px var(--neon), -2px 0px 10px var(--neon);
+}
+
+@media screen and (max-width: 1024px) {
+  .contact-wrapper .contact-title {
+    font-size: 50px;
+    opacity: 0.6;
+  }
+  .contact-wrapper .contact-form-wrapper {
+    width: 100%;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  .contact-wrapper .contact-form-wrapper .contact-form label:nth-child(3) {
+    height: 150px;
+  }
+  .contact-wrapper .contact-form-wrapper .contact-form {
+    height: 60%;
+  }
+}
