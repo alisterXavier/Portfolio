@@ -21,7 +21,7 @@
     "base": "#FFFFFF",
     "background": "#09011f",
     "lighter": "#0c0127",
-    "shadow": "0px 0px 20px #835dec, 0px 0px 2rem #5026c3,inset 0px 0px 20px #835dec, inset 0px 0px 20px #5026c3",
+    "shadow": "0px 0px 1rem #a98ef1, 0px 0px 2rem #5019e6 ,0px 0px 2rem #4400ff, inset 0px 0px 20px #835dec, inset 0px 0px 2rem #5019e6, inset 0px 0px 2rem #4400ff",
     "text": "3px 0px 0px #835dec, 3px 0px 5px #835dec, 3px 0px 10px #835dec,2px 0px 80px #1c0e43, 6px 0px 90px #5026c3, 0px 0px 60px #5026c3,4px 0px 100px #5026c3",
     "itemsShadow": "-27px 27px 100px #04000c, 27px -27px 100px #0e0232",
     "inset": "inset -27px 27px 100px #04000c,inset 27px -27px 100px #0e0232"
