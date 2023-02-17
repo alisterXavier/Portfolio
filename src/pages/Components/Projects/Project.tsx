@@ -18,7 +18,7 @@ const Project = ({
   selectedProject,
   setSelectedProject,
 }: SelectedProjectInterface) => {
-  const isSmallScreen = useSmallDeviceSize()
+  const isSmallScreen = useSmallDeviceSize();
   const flexD = ["flex-row", "flex-row-reverse"];
   return (
     <motion.div
@@ -34,7 +34,9 @@ const Project = ({
       ></BiArrowBack>
       <div
         className={`selected ${
-          isSmallScreen ? "flex-col" : flexD[Math.floor(Math.random() * flexD.length)]
+          isSmallScreen
+            ? "flex-col"
+            : flexD[Math.floor(Math.random() * flexD.length)]
         }`}
       >
         <figure className="selected-figure mx-auto">
@@ -81,15 +83,10 @@ const Project = ({
         </figure>
         <div className="selected-project lg:mx-5 Omnes lg:w-[50%]">
           <div className="my-3">
-          <h1 className="text-2xl lg:text-3xl">{selectedProject?.title}</h1>
-          <p className="text-sm lg:text-base">{selectedProject?.stack}</p>
+            <h1 className="text-2xl lg:text-3xl">{selectedProject?.title}</h1>
+            <p className="text-sm lg:text-base">{selectedProject?.stack}</p>
           </div>
-          <p className="text-sm lg:text-base my-2">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis
-            magni sit doloribus cumque aspernatur blanditiis tenetur velit
-            veritatis iusto, sed eius facilis expedita ipsa doloremque deleniti
-            accusamus odio sunt veniam.
-          </p>
+          <p className="text-sm lg:text-base my-2">{selectedProject?.desc}</p>
           <div className="flex justify-between">
             <a
               className="text-teal-300 hover:underline"
