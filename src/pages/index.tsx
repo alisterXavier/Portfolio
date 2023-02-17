@@ -11,6 +11,7 @@ import { AnimatePresence } from "framer-motion";
 import Project from "./Components/Projects/Project";
 import { ProjectDataInterface } from "../types/types";
 import colors from "@a/data/colors.json";
+import { useRandomNumber } from "../Hooks/randomNumber";
 
 export default function Home() {
   const isSmallScreen = useSmallDeviceSize();
@@ -19,7 +20,7 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState<
     ProjectDataInterface | undefined
   >(undefined);
-  const id = useRef<number>(Math.floor(Math.random() * colors.length));
+  const colorId = useRandomNumber();
 
   const sectionObserver = (id: string) => {
     var active, navSections;
@@ -34,35 +35,34 @@ export default function Home() {
   };
 
   useEffect(() => {
-    document.documentElement.style.setProperty(
-      "--neon",
-      colors[id.current].base
-    );
-    document.documentElement.style.setProperty(
-      "--neon-shadow",
-      colors[id.current].shadow
-    );
-    document.documentElement.style.setProperty(
-      "--background",
-      colors[id.current].background
-    );
-    document.documentElement.style.setProperty(
-      "--lighter-background",
-      colors[id.current].lighter
-    );
-    document.documentElement.style.setProperty(
-      "--glow-text-shadow",
-      colors[id.current].text
-    );
-    document.documentElement.style.setProperty(
-      "--stack-shadow",
-      colors[id.current].itemsShadow
-    );
-    document.documentElement.style.setProperty(
-      "--inset-neu-shadow",
-      colors[id.current].inset
-    );
-  }, []);
+    if (colorId || colorId === 0) {
+      document.documentElement.style.setProperty("--neon", colors[colorId].base);
+      document.documentElement.style.setProperty(
+        "--neon-shadow",
+        colors[colorId].shadow
+      );
+      document.documentElement.style.setProperty(
+        "--background",
+        colors[colorId].background
+      );
+      document.documentElement.style.setProperty(
+        "--lighter-background",
+        colors[colorId].lighter
+      );
+      document.documentElement.style.setProperty(
+        "--glow-text-shadow",
+        colors[colorId].text
+      );
+      document.documentElement.style.setProperty(
+        "--stack-shadow",
+        colors[colorId].itemsShadow
+      );
+      document.documentElement.style.setProperty(
+        "--inset-neu-shadow",
+        colors[colorId].inset
+      );
+    }
+  }, [colorId]);
 
   return (
     <>

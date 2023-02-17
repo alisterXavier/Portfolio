@@ -50,7 +50,7 @@ const AboutMe = ({
 
   return (
     <section
-      className="about-wrapper flex justify-center items-center text-start"
+      className="about-wrapper flex justify-center items-center text-start Amcap"
       id="about-Me"
       ref={aboutRef}
       data-about
@@ -61,8 +61,8 @@ const AboutMe = ({
       <div className="about relative" ref={innerAbout}>
         <div className="about-name">
           <h1 className="text-3xl lg:text-7xl flex justify-evenly">
-            <span className="">Hi, I&apos;m</span>
-            <span className="">Alister</span> <span className="">Xavier,</span>
+            <span className="">HI, I&apos;M</span>
+            <span className="">ALISTER</span> <span className="">XAVIER,</span>
           </h1>
         </div>
         <div className="about-text text-sm lg:text-2xl p-4 lg:p-6">
@@ -70,7 +70,7 @@ const AboutMe = ({
           aim to make sure that systems interfaces, languages, and graphics are
           human-friendly, aesthetically pleasing, clear, on-brand, and usable.
           Check out my
-          <span className="text-orange-500 cursor-pointer">
+          <span className="neon cursor-pointer">
             <a
               onClick={(e) => {
                 scrollToView(e.currentTarget);
@@ -81,7 +81,7 @@ const AboutMe = ({
             </a>
           </span>
           for a clear view of the technologies and languages I have used and
-          <span className="text-orange-500 cursor-pointer">
+          <span className="neon cursor-pointer">
             <a
               onClick={(e) => {
                 scrollToView(e.currentTarget);
@@ -92,7 +92,7 @@ const AboutMe = ({
             </a>
           </span>
           where I used some of them. Looking forward to doing business with you.
-          <span className="text-orange-500 cursor-pointer block">
+          <span className="neon cursor-pointer block">
             <a
               onClick={(e) => {
                 scrollToView(e.currentTarget);

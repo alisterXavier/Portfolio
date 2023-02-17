@@ -75,6 +75,35 @@
   font-family: "Amcap";
   src: url("/assets/fonts/amcap-eternal/AMCAP Eternal.otf");
 }
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+html,
+body {
+  padding: 0%;
+  margin: 0%;
+  max-width: 100vw;
+  scroll-behavior: smooth;
+}
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+textarea:focus, input:focus{
+  outline: none;
+
+}
 .glow {
   text-shadow: var(--glow-text-shadow);
 }
@@ -91,7 +120,6 @@
 .back-neu-shadow{
   box-shadow: var(--stack-shadow);
 }
-
 .lights-on {
   animation: lights-on 600ms 1s ease;
 }
@@ -133,35 +161,6 @@
 }
 .Omnes {
   font-family: "Omnes";
-}
-
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
-  padding: 0%;
-  margin: 0%;
-  max-width: 100vw;
-  scroll-behavior: smooth;
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
 }
 
 .main {
