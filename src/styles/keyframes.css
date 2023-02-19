@@ -182,26 +182,6 @@
 }
 @keyframes slide-in-left {
   0% {
-    translate: 100px 0px;
-    opacity: 0;
-  }
-  100% {
-    translate: 0px 0px;
-    opacity: 1;
-  }
-}
-@keyframes slide-out-left {
-  0% {
-    opacity: 1;
-    translate: 0px 0px;
-  }
-  100% {
-    opacity: 0;
-    translate: 100px 0px;
-  }
-}
-@keyframes slide-in-right {
-  0% {
     translate: -100px 0px;
     opacity: 0;
   }
@@ -210,7 +190,7 @@
     opacity: 1;
   }
 }
-@keyframes slide-out-right {
+@keyframes slide-out-left {
   0% {
     opacity: 1;
     translate: 0px 0px;

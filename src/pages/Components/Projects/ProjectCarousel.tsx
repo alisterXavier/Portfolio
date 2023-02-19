@@ -84,7 +84,6 @@ const ProjectCarousel = ({
                     <div className="project-detail p-2 Omnes">
                       <h1 className="text-lg font-semibold">{project.title}</h1>
                       <p className="text-sm mt-2">{project.stack}</p>
-                      <p className="text-sm mt-2">{project.desc}</p>
                     </div>
                   </div>
                 </motion.div>

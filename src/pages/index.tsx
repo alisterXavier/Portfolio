@@ -36,7 +36,10 @@ export default function Home() {
 
   useEffect(() => {
     if (colorId || colorId === 0) {
-      document.documentElement.style.setProperty("--neon", colors[colorId].base);
+      document.documentElement.style.setProperty(
+        "--neon",
+        colors[colorId].base
+      );
       document.documentElement.style.setProperty(
         "--neon-shadow",
         colors[colorId].shadow
@@ -80,7 +83,25 @@ export default function Home() {
                 className="cursor-pointer fill-white"
                 onClick={(e) => {
                   e.preventDefault();
-                  setNavToggle(!navToggle);
+                  const value = !navToggle;
+                  if (value) {
+                    document
+                      .querySelector(".nav-wrapper")
+                      ?.classList.remove("fade-out");
+                    document
+                      .querySelector(".nav-wrapper")
+                      ?.classList.add("fade-in");
+                  } else {
+                    document
+                      .querySelector(".nav-wrapper")
+                      ?.classList.remove("fade-in");
+                    document
+                      .querySelector(".nav-wrapper")
+                      ?.classList.add("fade-out");
+                  }
+                  setTimeout(() => {
+                    setNavToggle(value);
+                  }, 600);
                 }}
               ></HiMenu>
               <span className="">

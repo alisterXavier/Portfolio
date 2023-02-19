@@ -18,7 +18,7 @@
     "inset": "inset -15px -15px 47px #00060b,inset 15px 15px 47px #00162d"
   },
   {
-    "base": "#FFFFFF",
+    "base": "#ddd0ff",
     "background": "#09011f",
     "lighter": "#0c0127",
     "shadow": "0px 0px 1rem #a98ef1, 0px 0px 2rem #5019e6 ,0px 0px 2rem #4400ff, inset 0px 0px 20px #835dec, inset 0px 0px 2rem #5019e6, inset 0px 0px 2rem #4400ff",

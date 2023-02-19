@@ -1,4 +1,4 @@
-import { RefObject } from "react";
+import { RefObject, useEffect, useRef } from "react";
 import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
 
 interface NavbarInterface {

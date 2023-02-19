@@ -200,14 +200,3 @@ textarea:focus, input:focus{
   opacity: 1;
   left: 100%;
 }
-
-@media screen and (max-width: 1024px) {
-  .content-wrapper {
-    z-index: 2;
-    left: 0px;
-    transition: left 200ms ease;
-  }
-  .main.navbar-active .content-wrapper {
-    left: 200px;
-  }
-}

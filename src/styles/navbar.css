@@ -22,9 +22,7 @@ nav li {
   z-index: 2;
   width: 200px;
   height: 100%;
-  background: var(--neon);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--neon);
 }
 .slider {
   position: absolute;
@@ -55,20 +53,22 @@ nav li:hover ~ .slider {
 }
 
 @media screen and (max-width: 1024px) {
-  .slider{
+  .slider {
     display: none;
   }
   .nav-header-wrapper {
     display: flex;
   }
   .navigation-panel {
-    width: 50vw;
+    width: 70vw;
     height: 100vh;
     justify-content: center;
-    transform: translateZ(-200px);
+    transform: translateX(-100vw);
+    background-color: var(--background);
+    backdrop-filter: blur(0px);
   }
   .main.navbar-active .navigation-panel {
-    transform: translateZ(0px) perspective(1200px);
+    transform: translateX(0px);
   }
   .navigation-panel ul {
     width: 50%;
@@ -76,6 +76,14 @@ nav li:hover ~ .slider {
     height: fit-content;
   }
   .navigation-panel ul li {
+    opacity: 0;
     height: 50px;
+  }
+  .navigation-panel ul.fade-in li {
+    animation: slide-in-left 500ms forwards;
+  }
+  .navigation-panel ul.fade-out li {
+    opacity: 1;
+    animation: slide-out-left 500ms ease;
   }
 }
