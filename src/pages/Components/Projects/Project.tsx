@@ -92,6 +92,7 @@ const Project = ({
               className="text-teal-300 hover:underline"
               href={selectedProject?.git_link}
               target="_blank"
+              rel="noreferrer"
             >
               Github
             </a>
@@ -101,6 +102,7 @@ const Project = ({
               }`}
               href={selectedProject?.app_link}
                target="_blank"
+               rel="noreferrer"
             >
               App
             </a>
