@@ -91,6 +91,7 @@ const Project = ({
             <a
               className="text-teal-300 hover:underline"
               href={selectedProject?.git_link}
+              target="_blank"
             >
               Github
             </a>
@@ -99,6 +100,7 @@ const Project = ({
                 !selectedProject?.app_link && "hidden"
               }`}
               href={selectedProject?.app_link}
+               target="_blank"
             >
               App
             </a>
