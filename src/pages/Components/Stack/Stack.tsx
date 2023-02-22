@@ -102,8 +102,9 @@ const Stack = ({
                   }}
                 >
                   <div className="img-container">
-                    <figure className="language-img">
+                    <figure className="language-img relative">
                       <Image
+                      className=""
                         alt={l.img}
                         src={l.img}
                         width={100}

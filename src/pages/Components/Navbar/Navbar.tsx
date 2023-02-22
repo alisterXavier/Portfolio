@@ -12,6 +12,26 @@ const Navbar = ({ navToggle, setNavToggle, navRef }: NavbarInterface) => {
 
   const EnterPrevNav = (e: React.MouseEvent) => {
     const { id } = e.currentTarget;
+    const child = e.currentTarget.querySelector("p");
+
+    (function (child) {
+      const value = (child as HTMLParagraphElement).innerText;
+      var count = 0;
+      if (child)
+        var interval = setInterval(() => {
+          if (count < value.length) {
+            child.innerText = value
+            .split("")
+            .map((l) => value.split("")[Math.floor(Math.random() * value.length)])
+              .join(""); 
+          } else {
+            clearInterval(interval);
+            child.innerText = value;
+          }
+          count++;
+        }, 20);
+    })(child);
+
     const translate =
       id === "about"
         ? "0px"
@@ -45,7 +65,7 @@ const Navbar = ({ navToggle, setNavToggle, navRef }: NavbarInterface) => {
       ?.scrollIntoView({ behavior: "smooth" });
     setNavToggle(false);
   };
-
+  const hoverLetterMix = () => {};
   return (
     <nav
       className={`navigation-panel flex items-center ${navToggle && "active"}`}
@@ -58,7 +78,7 @@ const Navbar = ({ navToggle, setNavToggle, navRef }: NavbarInterface) => {
             className="neon hello cursor-pointer active:scale-95"
             id="me"
             onClick={() => {
-              window?.scrollTo(0,0)
+              window?.scrollTo(0, 0);
             }}
           >
             ALISTER XAVIER
@@ -66,7 +86,7 @@ const Navbar = ({ navToggle, setNavToggle, navRef }: NavbarInterface) => {
         </span>
       )}
       <ul
-        className="nav-wrapper lg:ml-auto"
+        className="nav-wrapper lg:ml-auto Omnes"
         onClick={(e) => {
           e.stopPropagation();
         }}

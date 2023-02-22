@@ -74,9 +74,11 @@ const ProjectCarousel = ({
                       </div>
                     ) : (
                       <Image
-                        layout="fill"
+                        fill
+                        quality={100}
                         src={project.img[0]}
                         alt={project.title}
+                        sizes="100%"
                       />
                     )}
                   </figure>

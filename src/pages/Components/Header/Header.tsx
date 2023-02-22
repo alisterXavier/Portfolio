@@ -198,7 +198,7 @@ const Header = ({ section } : {section: (id: string) => void}) => {
         }}
       >
         <h1 className="neon hello">MORE ABOUT ME</h1>
-        <div className="cursor cursor-none absolute">
+        <div className="cursor cursor-none absolute invisible">
           <AiFillCaretDown className="fill-white"/>
         </div>
         <div className="down neon">

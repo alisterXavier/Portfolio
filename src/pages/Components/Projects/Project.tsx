@@ -69,7 +69,8 @@ const Project = ({
                       alt=""
                       quality={100}
                       className="selected-project-img lg:rounded"
-                      layout="fill"
+                      fill
+                      sizes="100%"
                     />
                   </SwiperSlide>
                 );
