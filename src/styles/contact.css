@@ -24,7 +24,6 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  animation: popup 500ms 200ms forwards;
 }
 .contact-wrapper .contact-form-wrapper .contact-form {
   width: 100%;

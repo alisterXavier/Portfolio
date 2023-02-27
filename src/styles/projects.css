@@ -65,8 +65,15 @@
   background-color: var(--background);
 }
 .selected-wrapper .selected {
-  display: flex;
-  width: 80%;
+  opacity: 0;
+  animation: opacity 500ms forwards;
+  animation-delay: 700ms;
+}
+.selected-wrapper .disselected {
+  opacity: 1;
+  animation: opacity-reverse 500ms forwards;
+}
+.selected-wrapper .selected {
   opacity: 0;
   animation: opacity 500ms forwards;
   animation-delay: 700ms;

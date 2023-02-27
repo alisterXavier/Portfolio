@@ -9,7 +9,6 @@ interface NavbarInterface {
 
 const Navbar = ({ navToggle, setNavToggle, navRef }: NavbarInterface) => {
   const isSmallScreen = useSmallDeviceSize();
-
   const EnterPrevNav = (e: React.MouseEvent) => {
     const { id } = e.currentTarget;
     const child = e.currentTarget.querySelector("p");
@@ -21,15 +20,17 @@ const Navbar = ({ navToggle, setNavToggle, navRef }: NavbarInterface) => {
         var interval = setInterval(() => {
           if (count < value.length) {
             child.innerText = value
-            .split("")
-            .map((l) => value.split("")[Math.floor(Math.random() * value.length)])
-              .join(""); 
+              .split("")
+              .map((l, i) => {
+                return i > count ? value[Math.floor(Math.random() * value.length)] : l;
+              })
+              .join("");
           } else {
             clearInterval(interval);
             child.innerText = value;
           }
-          count++;
-        }, 20);
+          count += 1/3;
+        }, 30);
     })(child);
 
     const translate =
@@ -65,7 +66,6 @@ const Navbar = ({ navToggle, setNavToggle, navRef }: NavbarInterface) => {
       ?.scrollIntoView({ behavior: "smooth" });
     setNavToggle(false);
   };
-  const hoverLetterMix = () => {};
   return (
     <nav
       className={`navigation-panel flex items-center ${navToggle && "active"}`}

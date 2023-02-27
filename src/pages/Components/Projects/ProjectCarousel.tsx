@@ -13,6 +13,24 @@ const ProjectCarousel = ({
   setSelectedProject,
 }: SelectedProjectInterface) => {
   const swiperRef = useRef<SwiperRef>(null);
+  const observer = useRef<IntersectionObserver>();
+
+  useEffect(() => {
+    observer.current = new IntersectionObserver(
+      (elements) => {
+        elements.forEach((element) => {
+          if (element.isIntersecting) {
+            swiperRef.current?.swiper.autoplay.start();
+          } else swiperRef.current?.swiper.autoplay.stop();
+        });
+      },
+      {
+        threshold: 1,
+      }
+    );
+
+    observer.current?.observe(swiperRef.current as unknown as Element);
+  }, []);
 
   useEffect(() => {
     swiperRef.current && selectedProject

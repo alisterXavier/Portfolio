@@ -13,12 +13,15 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { BiArrowBack } from "react-icons/bi";
 import { SelectedProjectInterface } from "@/types/types";
 import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
+import { useRef } from "react";
 
 const Project = ({
   selectedProject,
   setSelectedProject,
 }: SelectedProjectInterface) => {
   const isSmallScreen = useSmallDeviceSize();
+  const selected = useRef<HTMLDivElement>(null);
+
   const flexD = ["flex-row", "flex-row-reverse"];
   return (
     <motion.div
@@ -29,15 +32,20 @@ const Project = ({
         className="absolute z-10 top-5 left-5 cursor-pointer neon"
         size={30}
         onClick={() => {
-          setSelectedProject(undefined);
+          selected.current?.classList.remove("selected");
+          selected.current?.classList.add("disselected");
+          setTimeout(() => {
+            setSelectedProject(undefined);
+          }, 700);
         }}
       ></BiArrowBack>
       <div
-        className={`selected ${
+        className={`selected flex w-[80%] ${
           isSmallScreen
             ? "flex-col"
             : flexD[Math.floor(Math.random() * flexD.length)]
         }`}
+        ref={selected}
       >
         <figure className="selected-figure mx-auto">
           {selectedProject?.img?.length && selectedProject?.img.length > 0 ? (
@@ -102,8 +110,8 @@ const Project = ({
                 !selectedProject?.app_link && "hidden"
               }`}
               href={selectedProject?.app_link}
-               target="_blank"
-               rel="noreferrer"
+              target="_blank"
+              rel="noreferrer"
             >
               App
             </a>
