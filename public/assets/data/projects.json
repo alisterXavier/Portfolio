@@ -17,6 +17,19 @@
   },
   {
     "img": [
+      "/assets/Project-images/arcade-asylum/app_1.png",
+      "/assets/Project-images/arcade-asylum/app_2.png",
+      "/assets/Project-images/arcade-asylum/app_3.png",
+      "/assets/Project-images/arcade-asylum/app_4.png"
+    ],
+    "title": "Arcade Asylum",
+    "stack": "Firebase, ExpressJS, VueJS, JavaScript, Css",
+    "desc": "A game classic game store  with limited items and stripe as checkout.",
+    "git_link": "https://github.com/alisterXavier/ArcadeAsylum",
+    "app_link": "https://arcade-asylum.vercel.app/"
+  },
+  {
+    "img": [
       "/assets/Project-images/to-infinity-and-beyond/app_1.png",
       "/assets/Project-images/to-infinity-and-beyond/app_2.png",
       "/assets/Project-images/to-infinity-and-beyond/app_3.png",
@@ -132,7 +145,7 @@
   {
     "title": "WikiScape",
     "stack": "React, Python Flask, Python Wikipedia Api",
-    "desc": "Wikipedia clone, It uses python's limited wikipedia api to get data.",
+    "desc": "Wikipedia clone, It uses python's limited wikipedia api to get data. Depth lvl 1",
     "git_link": "https://github.com/alisterXavier/Wiki-React-Flask"
   }
 ]

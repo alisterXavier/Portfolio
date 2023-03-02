@@ -111,21 +111,14 @@ export default function Home() {
                   if (value) {
                     document
                       .querySelector(".nav-wrapper")
-                      ?.classList.remove("fade-out");
-                    document
-                      .querySelector(".nav-wrapper")
                       ?.classList.add("fade-in");
-                  } else {
+                  }
+                  else{
                     document
                       .querySelector(".nav-wrapper")
                       ?.classList.remove("fade-in");
-                    document
-                      .querySelector(".nav-wrapper")
-                      ?.classList.add("fade-out");
                   }
-                  setTimeout(() => {
-                    setNavToggle(value);
-                  }, 600);
+                  setNavToggle(value);
                 }}
               ></HiMenu>
               <span className="">

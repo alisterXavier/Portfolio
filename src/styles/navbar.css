@@ -80,10 +80,6 @@ nav li:hover ~ .slider {
     height: 50px;
   }
   .navigation-panel ul.fade-in li {
-    animation: slide-in-left 500ms forwards;
-  }
-  .navigation-panel ul.fade-out li {
-    opacity: 1;
-    animation: slide-out-left 500ms ease;
+    animation: slide-in-left 200ms forwards;
   }
 }

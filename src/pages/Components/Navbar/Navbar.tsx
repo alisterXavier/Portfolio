@@ -13,26 +13,6 @@ const Navbar = ({ navToggle, setNavToggle, navRef }: NavbarInterface) => {
     const { id } = e.currentTarget;
     const child = e.currentTarget.querySelector("p");
 
-    (function (child) {
-      const value = (child as HTMLParagraphElement).innerText;
-      var count = 0;
-      if (child)
-        var interval = setInterval(() => {
-          if (count < value.length) {
-            child.innerText = value
-              .split("")
-              .map((l, i) => {
-                return i > count ? value[Math.floor(Math.random() * value.length)] : l;
-              })
-              .join("");
-          } else {
-            clearInterval(interval);
-            child.innerText = value;
-          }
-          count += 1/3;
-        }, 30);
-    })(child);
-
     const translate =
       id === "about"
         ? "0px"
