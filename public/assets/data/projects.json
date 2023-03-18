@@ -7,12 +7,13 @@
       "/assets/Project-images/BlaaApp2.0/app_4.png",
       "/assets/Project-images/BlaaApp2.0/app_5.png",
       "/assets/Project-images/BlaaApp2.0/app_6.png",
-      "/assets/Project-images/BlaaApp2.0/app_7.png"
+      "/assets/Project-images/BlaaApp2.0/app_7.png",
+      "/assets/Project-images/BlaaApp2.0/app_8.png"
     ],
     "title": "Social Media App 2.0",
     "stack": "Firebase, ExpressJS, ReactJS, TypeScript, Css",
     "desc": "Updated version of previous social media app.",
-    "git_link": "https://github.com/alisterXavier/Blaa-App-2.0",
+    "git_link": "https://github.com/alisterXavier/BlaaApp2.0",
     "app_link": "https://blaa-app-2-0.vercel.app/"
   },
   {
@@ -116,7 +117,7 @@
     ],
     "title": "e-commerce App",
     "stack": "ReactJS, Css",
-    "desc": "Designs from Frontend mentor",
+    "desc": "ReactJS, Css",
     "git_link": "https://github.com/alisterXavier/e-commerce",
     "app_link": "http://e-commerce-dremanic.vercel.app/"
   },
