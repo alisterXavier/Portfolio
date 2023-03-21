@@ -4,15 +4,22 @@ import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
 import stack from "@a/data/stack.json";
 
 const AllStack = () => {
-  const isSmallScreen = useSmallDeviceSize();
   const eachLang = useRef<Array<HTMLDivElement>>([]);
 
   useEffect(() => {
+    (
+      document.querySelector(".content-wrapper") as HTMLElement
+    ).classList.add("lighter-background");
     eachLang.current.forEach((lang) => {
       setTimeout(() => {
         lang.classList.add("animate-in");
       }, 500);
     });
+    return () => {
+      (
+        document.querySelector(".content-wrapper") as HTMLElement
+      ).classList.remove("lighter-background");
+    };
   }, []);
 
   return (
@@ -24,7 +31,7 @@ const AllStack = () => {
               return (
                 <div
                   key={index}
-                  className="language-container-wrapper back-neu-shadow"
+                  className="language-container-wrapper back-neu-shadow lighter-background"
                   ref={(e) => {
                     if (e !== null) eachLang.current.splice(index, 1, e);
                   }}

@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { useSmallDeviceSize } from "../Hooks/smalDeviceHook";
 import Header from "./Components/Header/Header";
 import Navbar from "./Components/Navbar/Navbar";
@@ -10,8 +10,6 @@ import Contact from "./Components/Contact/Contact";
 import { AnimatePresence } from "framer-motion";
 import Project from "./Components/Projects/Project";
 import { ProjectDataInterface } from "../types/types";
-import colors from "@a/data/colors.json";
-import { useRandomNumber } from "../Hooks/randomNumber";
 import Head from "next/head";
 
 export default function Home() {
@@ -21,7 +19,6 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState<
     ProjectDataInterface | undefined
   >(undefined);
-  const colorId = useRandomNumber();
 
   const sectionObserver = (id: string) => {
     var active, navSections;
@@ -34,40 +31,6 @@ export default function Home() {
         (navSections as HTMLElement).dataset.active = "true";
     }
   };
-
-  useEffect(() => {
-    if (colorId || colorId === 0) {
-      document.documentElement.style.setProperty(
-        "--neon",
-        colors[colorId].base
-      );
-      document.documentElement.style.setProperty(
-        "--neon-shadow",
-        colors[colorId].shadow
-      );
-      document.documentElement.style.setProperty(
-        "--background",
-        colors[colorId].background
-      );
-      document.documentElement.style.setProperty(
-        "--lighter-background",
-        colors[colorId].lighter
-      );
-      document.documentElement.style.setProperty(
-        "--glow-text-shadow",
-        colors[colorId].text
-      );
-      document.documentElement.style.setProperty(
-        "--stack-shadow",
-        colors[colorId].itemsShadow
-      );
-      document.documentElement.style.setProperty(
-        "--inset-neu-shadow",
-        colors[colorId].inset
-      );
-    }
-  }, [colorId]);
-
   return (
     <>
       <Head>

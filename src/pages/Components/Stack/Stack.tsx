@@ -8,13 +8,11 @@ import ParallaxText from "./ParallexText";
 
 const Stack = ({
   section,
-  navRef,
 }: {
   section: (id: string) => void;
   navRef: RefObject<HTMLElement>;
 }) => {
   const isSmallScreen = useSmallDeviceSize();
-  const stackRibbon = useRef<HTMLDivElement>(null);
   const eachLanguage = useRef<Array<HTMLDivElement>>([]);
   const stackRef = useRef<HTMLDivElement>(null);
   const observer = useRef<IntersectionObserver | null>(null);
@@ -73,7 +71,7 @@ const Stack = ({
       <div className="more hello">
         <Link
           href="/Components/Stack/completeStack"
-          className="cursor-pointer relative neon"
+          className="cursor-pointer relative neon text-xl"
           onClick={ViewCompleteStack}
         >
           COMPLETE STACK
