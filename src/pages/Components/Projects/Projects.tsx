@@ -3,6 +3,8 @@ import ProjectCarousel from "./ProjectCarousel";
 import { SelectedProjectInterface } from "@/types/types";
 import { Menu, Transition } from "@headlessui/react";
 import {FaAngleDown} from "react-icons/fa"
+import projects from "@a/data/projects.json";
+
 interface ProjectInterface extends SelectedProjectInterface {
   section: (id: string) => void;
 }
@@ -56,6 +58,7 @@ const Projects = ({
 };
 
 const Filter = () => {
+  const stack = projects.map(project => project.)
   return (
     <div className="relative z-[1] w-56 text-right">
       <Menu as="div" className="relative inline-block text-left">
