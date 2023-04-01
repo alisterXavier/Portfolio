@@ -1,8 +1,8 @@
-import { useEffect, useRef, Fragment } from "react";
+import { useEffect, useRef, Fragment, useState } from "react";
 import ProjectCarousel from "./ProjectCarousel";
 import { SelectedProjectInterface } from "@/types/types";
 import { Menu, Transition } from "@headlessui/react";
-import {FaAngleDown} from "react-icons/fa"
+import { FaAngleDown } from "react-icons/fa";
 import projects from "@a/data/projects.json";
 
 interface ProjectInterface extends SelectedProjectInterface {
@@ -15,7 +15,7 @@ const Projects = ({
 }: ProjectInterface) => {
   const projects = useRef<HTMLElement>(null);
   const observer = useRef<IntersectionObserver | null>(null);
-
+  const [filter, setFilter] = useState<string | null>(null);
   useEffect(() => {
     observer.current = new IntersectionObserver(
       (entries) => {
@@ -46,25 +46,34 @@ const Projects = ({
           </h2>
         </div>
         <div className="carousel flex flex-col justify-end items-end">
-        <Filter />
-        <ProjectCarousel
-          selectedProject={selectedProject}
-          setSelectedProject={setSelectedProject}
-        />
+          <Filter filter={filter} setFilter={setFilter} />
+          <ProjectCarousel
+            selectedProject={selectedProject}
+            setSelectedProject={setSelectedProject}
+            filter={filter}
+          />
         </div>
       </div>
     </section>
   );
 };
 
-const Filter = () => {
-  const stack = projects.map(project => project.)
+const Filter = ({
+  filter,
+  setFilter,
+}: {
+  filter: string | null;
+  setFilter: (value: string | null) => void;
+}) => {
+  const stack = new Set(
+    projects.map((project) => project.stack.map((i) => i)).flat()
+  );
   return (
-    <div className="relative z-[1] w-56 text-right">
+    <div className="relative z-[1] w-56 text-right mr-10">
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-            Filter
+            {filter === null ? "All" : filter}
             <FaAngleDown
               className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
@@ -80,67 +89,36 @@ const Filter = () => {
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 mt-2 w-56 origin-top-right divide-y divide-gray-100 rounded-md bg-white shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <Menu.Items className="absolute right-0 mt-2 w-56 h-[250px] overflow-scroll origin-top-right divide-y divide-gray-100 rounded-md bg-[#000000f3] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
             <div className="px-1 py-1 ">
               <Menu.Item>
                 {({ active }) => (
                   <button
-                    className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
+                    className={`neon ${
+                      active ? "bg-[#3d3d3df3]" : ""
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    onClick={() => setFilter(null)}
                   >
-                    Edit
+                    All
                   </button>
                 )}
               </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    Duplicate
-                  </button>
-                )}
-              </Menu.Item>
-            </div>
-            <div className="px-1 py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    Archive
-                  </button>
-                )}
-              </Menu.Item>
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    Move
-                  </button>
-                )}
-              </Menu.Item>
-            </div>
-            <div className="px-1 py-1">
-              <Menu.Item>
-                {({ active }) => (
-                  <button
-                    className={`${
-                      active ? "bg-violet-500 text-white" : "text-gray-900"
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
-                  >
-                    Delete
-                  </button>
-                )}
-              </Menu.Item>
+              {Array.from(stack).map((item, i) => {
+                return (
+                  <Menu.Item key={i}>
+                    {({ active }) => (
+                      <button
+                        className={`neon ${
+                          active ? "bg-[#3d3d3df3]" : ""
+                        } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                        onClick={() => setFilter(item)}
+                      >
+                        {item}
+                      </button>
+                    )}
+                  </Menu.Item>
+                );
+              })}
             </div>
           </Menu.Items>
         </Transition>

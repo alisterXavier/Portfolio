@@ -8,10 +8,14 @@ import { Autoplay, Mousewheel, Navigation } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 
+interface AddFilter extends SelectedProjectInterface {
+  filter: string | null;
+}
 const ProjectCarousel = ({
+  filter,
   selectedProject,
   setSelectedProject,
-}: SelectedProjectInterface) => {
+}: AddFilter) => {
   const swiperRef = useRef<SwiperRef>(null);
   const observer = useRef<IntersectionObserver>();
 
@@ -40,31 +44,36 @@ const ProjectCarousel = ({
 
   return (
     <>
-        <Swiper
-          ref={swiperRef}
-          mousewheel={true}
-          autoplay={{
-            delay: 1800,
-          }}
-          modules={[Mousewheel, Autoplay, Navigation]}
-          breakpoints={{
-            200: {
-              width: 300,
-              slidesPerView: 1,
-              spaceBetween: 40,
-            },
-            800: {
-              slidesPerView: 2,
-              spaceBetween: 50,
-            },
-            1024: {
-              slidesPerView: 4,
-              spaceBetween: 50,
-            },
-          }}
-          className="mySwiper"
-        >
-          {projects.map((project, index) => {
+      <Swiper
+        ref={swiperRef}
+        mousewheel={true}
+        autoplay={{
+          delay: 1800,
+        }}
+        modules={[Mousewheel, Autoplay, Navigation]}
+        breakpoints={{
+          200: {
+            width: 350,
+            slidesPerView: 1,
+            spaceBetween: 40,
+          },
+          800: {
+            slidesPerView: 2,
+            spaceBetween: 50,
+          },
+          1024: {
+            width: 1350,
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+        }}
+        className="mySwiper"
+      >
+        {projects
+          .filter((item) => {
+            return filter === null ? item.stack : item.stack.includes(filter);
+          })
+          .map((project, index) => {
             return (
               <SwiperSlide
                 key={index}
@@ -102,14 +111,21 @@ const ProjectCarousel = ({
                   <div>
                     <div className="project-detail p-2 Omnes">
                       <h1 className="text-lg font-semibold">{project.title}</h1>
-                      <p className="text-sm mt-2">{project.stack.map((i,index) => `${i}${index < project.stack.length - 1 ? "," : ""} `)}</p>
+                      <p className="text-sm mt-2">
+                        {project.stack.map(
+                          (i, index) =>
+                            `${i}${
+                              index < project.stack.length - 1 ? "," : ""
+                            } `
+                        )}
+                      </p>
                     </div>
                   </div>
                 </motion.div>
               </SwiperSlide>
             );
           })}
-        </Swiper>
+      </Swiper>
     </>
   );
 };
