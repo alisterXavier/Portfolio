@@ -1,7 +1,7 @@
 export interface ProjectDataInterface {
   img?: Array<string>;
   title: string;
-  stack: string;
+  stack: string[];
   desc: string;
   git_link: string;
   app_link?: string;
