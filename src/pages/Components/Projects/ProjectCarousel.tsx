@@ -67,7 +67,7 @@ const ProjectCarousel = ({
             spaceBetween: 50,
           },
         }}
-        className="mySwiper"
+        className="mySwiper transition-all duration-75"
       >
         {projects
           .filter((item) => {
@@ -76,7 +76,7 @@ const ProjectCarousel = ({
           .map((project, index) => {
             return (
               <SwiperSlide
-                key={index}
+                key={`${project.title}${index}`}
                 className="cursor-pointer"
                 onClick={() => {
                   setSelectedProject(project);
