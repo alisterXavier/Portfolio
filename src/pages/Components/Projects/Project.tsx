@@ -93,7 +93,12 @@ const Project = ({
         <div className="selected-project lg:mx-5 Omnes lg:w-[50%]">
           <div className="my-3">
             <h1 className="text-2xl lg:text-3xl">{selectedProject?.title}</h1>
-            <p className="text-sm lg:text-base">{selectedProject?.stack}</p>
+            <p className="text-sm lg:text-base">
+              {selectedProject?.stack.map(
+                (i, index) =>
+                  `${i}${index < selectedProject?.stack.length - 1 ? "," : ""} `
+              )}
+            </p>
           </div>
           <p className="text-sm lg:text-base my-2">{selectedProject?.desc}</p>
           <div className="flex justify-between">

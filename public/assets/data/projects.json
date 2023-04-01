@@ -11,7 +11,7 @@
       "/assets/Project-images/BlaaApp2.0/app_8.png"
     ],
     "title": "Social Media App 2.0",
-    "stack": "Firebase, ExpressJS, ReactJS, TypeScript, Css",
+    "stack": ["Firebase, Express.js, React.js, Redux, TypeScript, Css"],
     "desc": "Updated version of previous social media app.",
     "git_link": "https://github.com/alisterXavier/BlaaApp2.0",
     "app_link": "https://blaa-app-2-0.vercel.app/"
@@ -24,7 +24,7 @@
       "/assets/Project-images/arcade-asylum/app_4.png"
     ],
     "title": "Arcade Asylum",
-    "stack": "Firebase, ExpressJS, VueJS, JavaScript, Css",
+    "stack": ["Firebase", "Express.js", "Vue.js", "Pinia", "JavaScript", "Css"],
     "desc": "A game classic game store  with limited items and stripe as checkout.",
     "git_link": "https://github.com/alisterXavier/ArcadeAsylum",
     "app_link": "https://arcade-asylum.vercel.app/"
@@ -38,7 +38,7 @@
     ],
     "title": "To infinity and beyond",
     "desc": "A web app the displays some celestial bodies made using threeJS.",
-    "stack": "NextJS, ThreeJS, Css",
+    "stack": ["Next.js", "Javascript", "Three.js", "Css"],
     "git_link": "https://github.com/alisterXavier/To-infinity-and-beyond",
     "app_link": "https://to-infinity-and-beyond.vercel.app/"
   },
@@ -48,7 +48,7 @@
       "/assets/Project-images/music-downloader/app_2.png"
     ],
     "title": "Music Downloader",
-    "stack": "NextJS, TypeScript, Css",
+    "stack": ["Next.js", "TypeScript", "Css"],
     "desc": "A music downloader app uses apollo graphql server to fetch data and download music",
     "git_link": "https://github.com/alisterXavier/Music-downloader",
     "app_link": "https://music-downloader-three.vercel.app/"
@@ -61,7 +61,7 @@
       "/assets/Project-images/Crypto/app_4.png"
     ],
     "title": "Cryptocurrency Platform",
-    "stack": "NextJS, Css, Coinranking Api",
+    "stack": ["Next.js", "Javascript", "Css", "Coinranking Api"],
     "desc": "Cryptocurrency webapp clone of Uniswap",
     "git_link": "https://github.com/alisterXavier/Crypto-Curr",
     "app_link": "https://crypto-curr-eta.vercel.app/components/swap"
@@ -79,7 +79,7 @@
       "/assets/Project-images/netflix/app_9.png"
     ],
     "title": "Netflix Clone",
-    "stack": "ReactJS, ExpressJS, Firebase, Css",
+    "stack": ["React.js", "Javascript", "Express.js", "Firebase", "Css"],
     "desc": "Netflix Clone made using Firebase to store all of its data.",
     "git_link": "https://github.com/alisterXavier/NetflixClone",
     "app_link": "https://netflix-clone-qwerty.vercel.app/"
@@ -87,7 +87,7 @@
   {
     "img": ["/assets/Project-images/nft-landing/app_1.png"],
     "title": "Nft Landing Page",
-    "stack": "NextJS, Css",
+    "stack": ["Next.js", "Javascript", "Css"],
     "desc": "Single page site of an Nft landing page",
     "git_link": "https://github.com/alisterXavier/NFT-LandingPage",
     "app_link": "https://nft-landing-page-bzfd.vercel.app/"
@@ -103,7 +103,7 @@
       "/assets/Project-images/BlaaApp/app_7.png"
     ],
     "title": "Social Media App",
-    "stack": " MongoDB, ExpressJS, ReactJS, NodeJS, Css",
+    "stack": ["MongoDB", "Express.js", "React.js", "Javascript", "Node.js", "Css"],
     "desc": "Full stack social media application (MERN)",
     "git_link": "https://github.com/alisterXavier/blaa-app"
   },
@@ -116,8 +116,8 @@
       "/assets/Project-images/e-commerce/app_5.png"
     ],
     "title": "e-commerce App",
-    "stack": "ReactJS, Css",
-    "desc": "ReactJS, Css",
+    "stack": ["React.js", "Javascript", "Css"],
+    "desc": "",
     "git_link": "https://github.com/alisterXavier/e-commerce",
     "app_link": "http://e-commerce-dremanic.vercel.app/"
   },
@@ -130,7 +130,7 @@
       "/assets/Project-images/rockPaperScissors/app_5.png"
     ],
     "title": "Rock Paper Scissors",
-    "stack": "NextJS, Css",
+    "stack": ["Next.js", "Javascript", "Css"],
     "desc": "Rock Paper Scissors game Player vs PC, Has an additional mode Rock Paper Scissors Lizard Spock (Star Trek) - Frontend mentor",
     "git_link": "https://github.com/alisterXavier/Rock-Paper-Scissor",
     "app_link": "https://rock-paper-scissor-fx9r.vercel.app/"
@@ -138,14 +138,14 @@
   {
     "img": ["/assets/Project-images/ip-address/app_1.png"],
     "title": "Ip Address Tracker",
-    "stack": "NextJs, ipify API, LeafletJs, Css",
+    "stack": ["Next.js", "Javascript", "Ipify API", "Leaflet", "Css"],
     "desc": "Designs from Frontend mentor",
     "git_link": "https://github.com/alisterXavier/ip-address-tracker",
     "app_link": "https://ip-address-tracker-dremanic.vercel.app/"
   },
   {
     "title": "WikiScape",
-    "stack": "React, Python Flask, Python Wikipedia Api",
+    "stack": ["React.js", "Javascript", "Python Flask", "Python Wikipedia Api"],
     "desc": "Wikipedia clone, It uses python's limited wikipedia api to get data. Depth lvl 1",
     "git_link": "https://github.com/alisterXavier/Wiki-React-Flask"
   }
