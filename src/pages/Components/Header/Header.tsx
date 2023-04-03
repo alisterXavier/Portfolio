@@ -54,8 +54,8 @@ const Header = ({ section } : {section: (id: string) => void}) => {
     if (banner.current !== null) {
       const { x, y, width, height } = banner.current.getBoundingClientRect();
       const limit = 50;
-      const Xangle = (event.clientX - x - width / 2) / limit;
-      const Yangle = -(event.clientY - y - height / 2) / limit;
+      const Xangle = (event.clientX - x - width ) / limit;
+      const Yangle = -(event.clientY - y - height) / limit;
 
       if (!isSmallScreen) {
         banner.current.style.setProperty("--XDeg", `${Yangle}`);

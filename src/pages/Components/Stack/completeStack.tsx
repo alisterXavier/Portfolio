@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { useEffect, useRef } from "react";
-import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
 import stack from "@a/data/stack.json";
 
 const AllStack = () => {
