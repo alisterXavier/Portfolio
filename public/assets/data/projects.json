@@ -1,5 +1,11 @@
 [
   {
+    "title": "E-commerce App",
+    "stack": ["React.js", "Next.js", "JavaScript", "Tailwind", "Node.js", "Express.js", "Docker", "Supabase", "OpenApi", "Stripe"],
+    "desc": "An E-commerce App, Created with the mentioned stack. Hosted on AWS and has a stripe checkout page",
+    "git_link": "https://github.com/alisterXavier/ecommerce-project-uni"
+  },
+  {
     "img": [
       "/assets/Project-images/BlaaApp2.0/app_1.png",
       "/assets/Project-images/BlaaApp2.0/app_2.png",

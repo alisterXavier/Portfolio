@@ -102,9 +102,9 @@ const ProjectCarousel = ({
                       <Image
                         fill
                         quality={100}
+                        sizes="100%"
                         src={project.img[0]}
                         alt={project.title}
-                        sizes="100%"
                       />
                     )}
                   </figure>
