@@ -5,6 +5,7 @@ export interface ProjectDataInterface {
   desc: string;
   git_link: string;
   app_link?: string;
+  completed: boolean
 }
 export interface SelectedProjectInterface {
   selectedProject: ProjectDataInterface | undefined;

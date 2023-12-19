@@ -1,12 +1,13 @@
-import { motion } from "framer-motion";
-import Image from "next/image";
-import { useEffect, useRef } from "react";
-import projects from "@a/data/projects.json";
-import { Swiper, SwiperRef, SwiperSlide } from "swiper/react";
-import { SelectedProjectInterface } from "@/types/types";
-import { Autoplay, Mousewheel, Navigation } from "swiper";
-import "swiper/css";
-import "swiper/css/navigation";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { useEffect, useRef } from 'react';
+import projects from '@a/data/projects.json';
+import { Swiper, SwiperRef, SwiperSlide } from 'swiper/react';
+import { SelectedProjectInterface } from '@/types/types';
+import { Autoplay, Mousewheel, Navigation } from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import { AiOutlineWarning } from 'react-icons/ai';
 
 interface AddFilter extends SelectedProjectInterface {
   filter: string | null;
@@ -110,12 +111,21 @@ const ProjectCarousel = ({
                   </figure>
                   <div>
                     <div className="project-detail p-2 Omnes">
-                      <h1 className="text-lg font-semibold">{project.title}</h1>
+                      <h1 className="text-lg font-semibold flex">
+                        {project.title}
+                        {!project.completed && (
+                          <AiOutlineWarning
+                            size={25}
+                            className="ml-5"
+                            color="var(--neon)"
+                          />
+                        )}
+                      </h1>
                       <p className="text-sm mt-2">
                         {project.stack.map(
                           (i, index) =>
                             `${i}${
-                              index < project.stack.length - 1 ? "," : ""
+                              index < project.stack.length - 1 ? ',' : ''
                             } `
                         )}
                       </p>

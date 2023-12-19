@@ -1,19 +1,19 @@
-import Image from "next/image";
-import { motion } from "framer-motion";
-import "swiper/css";
-import "swiper/css/bundle";
+import Image from 'next/image';
+import { motion } from 'framer-motion';
+import 'swiper/css';
+import 'swiper/css/bundle';
 import {
   Mousewheel,
   Autoplay,
   EffectFade,
   Navigation,
   Pagination,
-} from "swiper";
-import { Swiper, SwiperSlide } from "swiper/react";
-import { BiArrowBack } from "react-icons/bi";
-import { SelectedProjectInterface } from "@/types/types";
-import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
-import { useRef } from "react";
+} from 'swiper';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { BiArrowBack } from 'react-icons/bi';
+import { SelectedProjectInterface } from '@/types/types';
+import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
+import { useRef } from 'react';
 
 const Project = ({
   selectedProject,
@@ -22,7 +22,7 @@ const Project = ({
   const isSmallScreen = useSmallDeviceSize();
   const selected = useRef<HTMLDivElement>(null);
 
-  const flexD = ["flex-row", "flex-row-reverse"];
+  const flexD = ['flex-row', 'flex-row-reverse'];
   return (
     <motion.div
       className="selected-wrapper active bg-black fixed top-0 left-0 text-white"
@@ -32,8 +32,8 @@ const Project = ({
         className="absolute z-10 top-5 left-5 cursor-pointer neon"
         size={30}
         onClick={() => {
-          selected.current?.classList.remove("selected");
-          selected.current?.classList.add("disselected");
+          selected.current?.classList.remove('selected');
+          selected.current?.classList.add('disselected');
           setTimeout(() => {
             setSelectedProject(undefined);
           }, 700);
@@ -42,7 +42,7 @@ const Project = ({
       <div
         className={`selected flex w-[80%] ${
           isSmallScreen
-            ? "flex-col"
+            ? 'flex-col'
             : flexD[Math.floor(Math.random() * flexD.length)]
         }`}
         ref={selected}
@@ -51,7 +51,7 @@ const Project = ({
           {selectedProject?.img?.length && selectedProject?.img.length > 0 ? (
             <Swiper
               spaceBetween={30}
-              effect={"fade"}
+              effect={'fade'}
               pagination={{
                 clickable: true,
               }}
@@ -92,11 +92,14 @@ const Project = ({
         </figure>
         <div className="selected-project lg:mx-5 Omnes lg:w-[50%]">
           <div className="my-3">
-            <h1 className="text-2xl lg:text-3xl">{selectedProject?.title}</h1>
+            <h1 className="text-2xl lg:text-3xl flex justify-between items-end">
+              {selectedProject?.title}{' '}
+              {!selectedProject?.completed && <span className='text-[var(--neon)] text-sm'>In Progress</span>}
+            </h1>
             <p className="text-sm lg:text-base">
               {selectedProject?.stack.map(
                 (i, index) =>
-                  `${i}${index < selectedProject?.stack.length - 1 ? "," : ""} `
+                  `${i}${index < selectedProject?.stack.length - 1 ? ',' : ''} `
               )}
             </p>
           </div>
@@ -112,7 +115,7 @@ const Project = ({
             </a>
             <a
               className={`text-lime-400 hover:underline ${
-                !selectedProject?.app_link && "hidden"
+                !selectedProject?.app_link && 'hidden'
               }`}
               href={selectedProject?.app_link}
               target="_blank"
