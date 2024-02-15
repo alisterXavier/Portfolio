@@ -101,11 +101,13 @@ const ProjectCarousel = ({
                       </div>
                     ) : (
                       <Image
-                        fill
+                        object-fit="cover"
                         quality={100}
                         sizes="100%"
                         src={project.img[0]}
                         alt={project.title}
+                        width={100}
+                        height={100}
                       />
                     )}
                   </figure>

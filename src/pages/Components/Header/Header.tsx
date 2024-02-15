@@ -125,7 +125,7 @@ const Header = ({ section } : {section: (id: string) => void}) => {
           </h1>
           <div className="mt-5">
             <p className="headerBannerText" ref={bannerText}>
-              A FRONTEND DEVELOPER.
+              A SOFTWARE DEVELOPER.
             </p>
           </div>
           <div className="platforms flex justify-end items-center relative">

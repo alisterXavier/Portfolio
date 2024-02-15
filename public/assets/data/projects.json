@@ -2,22 +2,27 @@
   {
     "title": "E-commerce App",
     "stack": [
-      "React.js",
       "Next.js",
       "Redux",
       "JavaScript",
       "Typescript",
       "Tailwind",
-      "Node.js",
       "Express.js",
       "Docker",
       "Supabase",
       "OpenApi",
-      "Stripe"
+      "DigitalOcean",
+      "CircleCi"
     ],
     "desc": "An E-commerce App, Created with the mentioned stack. Hosted on AWS and has a stripe checkout page",
     "git_link": "https://github.com/alisterXavier/ecommerce-project-uni",
-    "completed": false
+    "completed": false,
+    "img": [
+      "/assets/Project-images/PAO/app_1.png",
+      "/assets/Project-images/PAO/app_2.png",
+      "/assets/Project-images/PAO/app_3.png",
+      "/assets/Project-images/PAO/app_4.png"
+    ]
   },
   {
     "img": [

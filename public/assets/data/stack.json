@@ -107,5 +107,15 @@
   {
     "lang": "Docker",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Docker-svgrepo-com.svg/900px-Docker-svgrepo-com.svg.png?20230427111848"
+  },
+
+  {
+    "lang": "CircleCi",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Circleci-icon-logo.svg/330px-Circleci-icon-logo.svg.png"
+  },
+
+  {
+    "lang": "AWS",
+    "img": "https://download.logo.wine/logo/Amazon_Web_Services/Amazon_Web_Services-Logo.wine.png"
   }
 ]

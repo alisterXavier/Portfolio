@@ -1,5 +1,5 @@
-import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
-import { RefObject, useEffect, useRef } from "react";
+import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
+import { RefObject, useEffect, useRef } from 'react';
 
 const AboutMe = ({
   section,
@@ -17,16 +17,16 @@ const AboutMe = ({
     const x = ((event.pageX - 500) * -1) / 15;
     const y = ((event.pageY - 500) * -1) / 15;
 
-    innerAbout.current?.style.setProperty("--x", `${x}`);
-    innerAbout.current?.style.setProperty("--y", `${y}`);
+    innerAbout.current?.style.setProperty('--x', `${x}`);
+    innerAbout.current?.style.setProperty('--y', `${y}`);
   };
 
   const scrollToView = (e: HTMLElement) => {
     var text = e.innerText.trim().toLowerCase();
-    text = text.includes("contact") ? "contact" : text;
+    text = text.includes('contact') ? 'contact' : text;
     document
       .querySelector(`[data-${text}]`)
-      ?.scrollIntoView({ behavior: "smooth" });
+      ?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -34,15 +34,15 @@ const AboutMe = ({
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            section("#about");
+            section('#about');
             entry.target
-              .querySelector(".about-name")
-              ?.classList.add("animate-in");
+              .querySelector('.about-name')
+              ?.classList.add('animate-in');
           }
         });
       },
       {
-        threshold: .9,
+        threshold: 0.9,
       }
     );
     if (aboutRef.current) observer.current.observe(aboutRef.current);
@@ -66,41 +66,45 @@ const AboutMe = ({
           </h1>
         </div>
         <div className="about-text text-sm lg:text-2xl p-4 lg:p-6">
-          A <span>web developer</span>. As a well-rounded user and developer, I
-          aim to make sure that systems interfaces, languages, and graphics are
-          human-friendly, aesthetically pleasing, clear, on-brand, and usable.
-          Check out my
+          I specialize in creating user-friendly systems and managing backend
+          logic, databases, algorithms, cloud infrastructure, and CI/CD
+          practices. Collaborating with designers, project managers, and QA
+          engineers, I ensure smooth software delivery. Step into my world by
+          exploring my
           <span className="neon cursor-pointer">
             <a
               onClick={(e) => {
                 scrollToView(e.currentTarget);
               }}
             >
-              {" "}
-              stack{" "}
+              {' '}
+              stack{' '}
             </a>
           </span>
-          for a clear view of the technologies and languages I have used and
+          , Where you&apos;ll find intriguing details about my previous
           <span className="neon cursor-pointer">
             <a
               onClick={(e) => {
                 scrollToView(e.currentTarget);
               }}
             >
-              {" "}
-              projects{" "}
+              {' '}
+              projects{' '}
             </a>
           </span>
-          where I used some of them. Looking forward to doing business with you.
-          <span className="neon cursor-pointer block">
+          waiting to be discovered. I&apos;m enthusiastic about potential
+          collaborations—feel free to get in
+          <span className="neon cursor-pointer">
             <a
               onClick={(e) => {
                 scrollToView(e.currentTarget);
               }}
             >
-              Contact me{" "}
+              {' '}
+              touch{' '}
             </a>
           </span>
+          .
         </div>
       </div>
     </section>

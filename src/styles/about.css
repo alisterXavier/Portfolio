@@ -57,7 +57,7 @@
 .about .about-text a {
   position: relative;
 }
-.about .about-text a:after {
+.about .about-text a::after {
   content: "";
   position: absolute;
   left: 0%;
