@@ -60,6 +60,18 @@
   },
 
   {
+    "lang": "AWS",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/768px-Amazon_Web_Services_Logo.svg.png"
+  },
+  {
+    "lang": "CircleCi",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Circleci-icon-logo.svg/330px-Circleci-icon-logo.svg.png"
+  },
+  {
+    "lang": "Docker",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Docker-svgrepo-com.svg/900px-Docker-svgrepo-com.svg.png?20230427111848"
+  },
+  {
     "lang": "Oracle Sql",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/768px-Oracle_logo.svg.png"
   },
@@ -68,7 +80,7 @@
     "lang": "MySQL",
     "img": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/MySQL_logo.svg/1496px-MySQL_logo.svg.png"
   },
-  
+
   {
     "lang": "PostgreSQL",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/993px-Postgresql_elephant.svg.png"
@@ -100,27 +112,11 @@
   },
 
   {
-    "lang": "Windows",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Windows_logo_and_wordmark_-_2021.svg/1920px-Windows_logo_and_wordmark_-_2021.svg.png"
-  },
-
-  {
     "lang": "Linux",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Tux.svg/225px-Tux.svg.png"
   },
-
   {
-    "lang": "Docker",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/Docker-svgrepo-com.svg/900px-Docker-svgrepo-com.svg.png?20230427111848"
-  },
-
-  {
-    "lang": "CircleCi",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Circleci-icon-logo.svg/330px-Circleci-icon-logo.svg.png"
-  },
-
-  {
-    "lang": "AWS",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/768px-Amazon_Web_Services_Logo.svg.png"
+    "lang": "Windows",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e2/Windows_logo_and_wordmark_-_2021.svg/1920px-Windows_logo_and_wordmark_-_2021.svg.png"
   }
 ]
