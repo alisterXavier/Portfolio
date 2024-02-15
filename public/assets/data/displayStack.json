@@ -1,9 +1,5 @@
 [
   {
-    "lang": "Javascript",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png"
-  },
-  {
     "lang": "Html",
     "img": "https://www.w3.org/html/logo/downloads/HTML5_Badge_128.png"
   },
@@ -12,12 +8,16 @@
     "img": "https://cdn1.iconfinder.com/data/icons/logotypes/32/badge-css-3-512.png"
   },
   {
+    "lang": "Javascript",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/99/Unofficial_JavaScript_logo_2.svg/480px-Unofficial_JavaScript_logo_2.svg.png"
+  },
+  {
     "lang": "NodeJS",
     "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Node.js_logo.svg/885px-Node.js_logo.svg.png?20170401104355"
   },
   {
-    "lang": "Oracle Sql",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/50/Oracle_logo.svg/768px-Oracle_logo.svg.png"
+    "lang": "AWS",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/768px-Amazon_Web_Services_Logo.svg.png"
   },
   {
     "lang": "ReactJS",

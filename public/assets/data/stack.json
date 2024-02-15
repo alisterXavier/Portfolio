@@ -26,7 +26,7 @@
 
   {
     "lang": "Typescript",
-    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/120px-Typescript_logo_2020.svg.png" 
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/120px-Typescript_logo_2020.svg.png"
   },
 
   {
@@ -66,7 +66,12 @@
 
   {
     "lang": "MySQL",
-    "img": "https://www.mysql.com/common/logos/logo-mysql-170x115.png"
+    "img": "https://upload.wikimedia.org/wikipedia/en/thumb/d/dd/MySQL_logo.svg/1496px-MySQL_logo.svg.png"
+  },
+  
+  {
+    "lang": "PostgreSQL",
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/29/Postgresql_elephant.svg/993px-Postgresql_elephant.svg.png"
   },
 
   {
@@ -116,6 +121,6 @@
 
   {
     "lang": "AWS",
-    "img": "https://download.logo.wine/logo/Amazon_Web_Services/Amazon_Web_Services-Logo.wine.png"
+    "img": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/Amazon_Web_Services_Logo.svg/768px-Amazon_Web_Services_Logo.svg.png"
   }
 ]
