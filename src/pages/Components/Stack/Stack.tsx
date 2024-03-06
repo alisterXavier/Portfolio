@@ -84,7 +84,7 @@ const Stack = ({
             return (
               <div
                 key={index}
-                className="language-container-wrapper"
+                className="language-container-wrapper half"
                 ref={(elem) => {
                   if (elem !== null)
                     eachLanguage.current.splice(index, 1, elem);
