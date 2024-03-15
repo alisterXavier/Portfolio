@@ -1,27 +1,28 @@
-import { useRef, useState, useEffect, useLayoutEffect } from "react";
-import emailjs from "@emailjs/browser";
-import { useTransform, motion, useScroll, useSpring } from "framer-motion";
-import { GrRotateRight } from "react-icons/gr";
-import { BiCheck } from "react-icons/bi";
-import { TbBrandDiscord, TbBrandTelegram } from "react-icons/tb";
-import { AiOutlineLinkedin } from "react-icons/ai";
-import { ImCross } from "react-icons/im";
-import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
+import { useRef, useState, useEffect, useLayoutEffect } from 'react';
+import emailjs from '@emailjs/browser';
+import { useTransform, motion, useScroll, useSpring } from 'framer-motion';
+import { GrRotateRight } from 'react-icons/gr';
+import { BiCheck } from 'react-icons/bi';
+import { TbBrandDiscord, TbBrandTelegram } from 'react-icons/tb';
+import { AiOutlineLinkedin } from 'react-icons/ai';
+import { ImCross } from 'react-icons/im';
+import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
+import { useInView } from 'react-intersection-observer';
 
 const Contact = ({ section }: { section: (id: string) => void }) => {
-  const isSmallScreen = useSmallDeviceSize()
+  const isSmallScreen = useSmallDeviceSize();
   const [elementTop, setElementTop] = useState(0);
   const [clientHeight, setClientHeight] = useState(0);
   const { scrollY } = useScroll();
   const initial = elementTop - clientHeight;
-  const convert = isSmallScreen ? [100, -300] : [200, -200]
+  const convert = isSmallScreen ? [100, -300] : [200, -200];
   const final = elementTop + convert[0];
   const yTransform = useTransform(scrollY, [initial, final], convert);
   const y = useSpring(yTransform, { stiffness: 200, damping: 90 });
 
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [message, setMessage] = useState('');
   const [send, setSend] = useState<string | boolean>();
   const [emailActive, setEmailActive] = useState(false);
   const [nameActive, setNameActive] = useState(false);
@@ -30,24 +31,23 @@ const Contact = ({ section }: { section: (id: string) => void }) => {
   const messageTag = useRef<HTMLTextAreaElement>(null);
   const nameInput = useRef<HTMLInputElement>(null);
   const emailInput = useRef<HTMLInputElement>(null);
-  const observer = useRef<IntersectionObserver | null>();
-  const contactRef = useRef<HTMLDivElement>(null);
+  const [contactRef, inView, entry] = useInView({ threshold: 0.8 });
 
   const sendEmail = () => {
     if (validate()) {
       try {
-        setSend("loading");
+        setSend('loading');
         emailjs
           .send(
-            "service_qfh5m9x",
-            "template_erq4h2c",
+            'service_qfh5m9x',
+            'template_erq4h2c',
             {
               from_name: name,
-              to_name: "Alister",
+              to_name: 'Alister',
               from_email: email,
               message: message,
             },
-            "YGydwiDxBuQnIDA7N"
+            'YGydwiDxBuQnIDA7N'
           )
           .then((res) => {
             setTimeout(() => {
@@ -71,17 +71,17 @@ const Contact = ({ section }: { section: (id: string) => void }) => {
     const nameValidate = name.length !== 0;
     const messageValidate = message.length !== 0;
 
-    if (!emailValidate) (emailTag.current as HTMLElement).style.color = "red";
-    if (!nameValidate) (nameTag.current as HTMLElement).style.color = "red";
+    if (!emailValidate) (emailTag.current as HTMLElement).style.color = 'red';
+    if (!nameValidate) (nameTag.current as HTMLElement).style.color = 'red';
     if (!messageValidate)
-      (messageTag.current as HTMLElement).classList.add("invalid");
+      (messageTag.current as HTMLElement).classList.add('invalid');
 
     if (!emailValidate || !nameValidate || !messageValidate) {
       setSend(false);
       setTimeout(() => {
-        (emailTag.current as HTMLElement).removeAttribute("style");
-        (nameTag.current as HTMLElement).removeAttribute("style");
-        (messageTag.current as HTMLElement).classList.remove("invalid");
+        (emailTag.current as HTMLElement).removeAttribute('style');
+        (nameTag.current as HTMLElement).removeAttribute('style');
+        (messageTag.current as HTMLElement).classList.remove('invalid');
         setSend(undefined);
       }, 2000);
     }
@@ -93,57 +93,44 @@ const Contact = ({ section }: { section: (id: string) => void }) => {
   const copy = (e: HTMLElement) => {
     const { id } = e;
     const usernames = {
-      "discord uid": "DREMANiC#8953",
-      email: "xavieralister153@gmail.com",
+      'discord uid': 'DREMANiC#8953',
+      email: 'xavieralister153@gmail.com',
     };
-    const parent = e.closest("[data-parent]");
+    const parent = e.closest('[data-parent]');
     if (parent) {
       (
-        parent.querySelector(".tooltip") as HTMLElement
+        parent.querySelector('.tooltip') as HTMLElement
       ).innerText = `${id.toUpperCase()} COPIED!`;
       navigator.clipboard?.writeText(usernames[id as keyof typeof usernames]);
-      (parent?.querySelector(".tooltip") as HTMLElement).classList.add(
-        "active"
+      (parent?.querySelector('.tooltip') as HTMLElement).classList.add(
+        'active'
       );
       setTimeout(() => {
-        (parent.querySelector(".tooltip") as HTMLElement).classList.remove(
-          "active"
+        (parent.querySelector('.tooltip') as HTMLElement).classList.remove(
+          'active'
         );
       }, 1000);
     }
   };
 
   useLayoutEffect(() => {
-    const element = contactRef.current;
+    const element = entry?.target;
     const onResize = () => {
       if (element) {
-        setElementTop(
-          element.getBoundingClientRect().top + window.scrollY ||
-            window.pageYOffset
-        );
+        setElementTop(element.getBoundingClientRect().top + window.scrollY);
         setClientHeight(window.innerHeight);
       }
     };
     onResize();
-    window.addEventListener("resize", onResize);
-    return () => window.removeEventListener("resize", onResize);
-  }, [contactRef]);
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, [contactRef, entry?.target]);
 
   useEffect(() => {
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            section("#contact");
-          }
-        });
-      },
-      {
-        threshold: 0.8,
-      }
-    );
-    if (contactRef.current) observer.current.observe(contactRef.current);
-  }, []);
+    if (inView) {
+      section('#contact');
+    }
+  }, [inView, section]);
 
   return (
     <div
@@ -163,10 +150,9 @@ const Contact = ({ section }: { section: (id: string) => void }) => {
         }}
       >
         <div className="w-[90%] lg:w-[60%] lg:h-full h-[85%] flex flex-col items-center justify-center inner-contact text-white Omnes">
-          
           <div className="contact-form">
             <label
-              className={`name-wrapper ${nameActive && "active"}`}
+              className={`name-wrapper ${nameActive && 'active'}`}
               onClick={() => {
                 if (name.length === 0) {
                   if (nameActive) nameInput.current?.blur();
@@ -201,7 +187,7 @@ const Contact = ({ section }: { section: (id: string) => void }) => {
             </label>
 
             <label
-              className={`email-wrapper ${emailActive && "active"}`}
+              className={`email-wrapper ${emailActive && 'active'}`}
               onClick={() => {
                 if (email.length === 0) {
                   if (emailActive) emailInput.current?.blur();
@@ -249,7 +235,7 @@ const Contact = ({ section }: { section: (id: string) => void }) => {
               ></textarea>
             </label>
             <button className="send-btn" onClick={sendEmail}>
-              {send === "loading" ? (
+              {send === 'loading' ? (
                 <div className="loading">
                   <span></span>
                   <span></span>

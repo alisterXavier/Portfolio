@@ -26,6 +26,36 @@
   },
   {
     "img": [
+      "/assets/Project-images/arcade-asylum/app_1.png",
+      "/assets/Project-images/arcade-asylum/app_2.png",
+      "/assets/Project-images/arcade-asylum/app_3.png",
+      "/assets/Project-images/arcade-asylum/app_4.png"
+    ],
+    "title": "Arcade Asylum",
+    "stack": ["Firebase", "Express.js", "Vue.js", "Pinia", "JavaScript", "Css"],
+    "desc": "A game classic game store  with limited items and stripe as checkout.",
+    "git_link": "https://github.com/alisterXavier/ArcadeAsylum",
+    "app_link": "https://arcade-asylum.vercel.app/",
+    "completed": true
+  },
+  {
+    "img": [
+      "/assets/Project-images/e-commerce/app_1.png",
+      "/assets/Project-images/e-commerce/app_2.png",
+      "/assets/Project-images/e-commerce/app_3.png",
+      "/assets/Project-images/e-commerce/app_4.png",
+      "/assets/Project-images/e-commerce/app_5.png"
+    ],
+    "title": "e-commerce App",
+    "stack": ["React.js", "JavaScript", "Css"],
+    "desc": "",
+    "git_link": "https://github.com/alisterXavier/e-commerce",
+    "app_link": "http://e-commerce-dremanic.vercel.app/",
+    "completed": true
+  },
+
+  {
+    "img": [
       "/assets/Project-images/BlaaApp2.0/app_1.png",
       "/assets/Project-images/BlaaApp2.0/app_2.png",
       "/assets/Project-images/BlaaApp2.0/app_3.png",
@@ -51,88 +81,6 @@
   },
   {
     "img": [
-      "/assets/Project-images/arcade-asylum/app_1.png",
-      "/assets/Project-images/arcade-asylum/app_2.png",
-      "/assets/Project-images/arcade-asylum/app_3.png",
-      "/assets/Project-images/arcade-asylum/app_4.png"
-    ],
-    "title": "Arcade Asylum",
-    "stack": ["Firebase", "Express.js", "Vue.js", "Pinia", "JavaScript", "Css"],
-    "desc": "A game classic game store  with limited items and stripe as checkout.",
-    "git_link": "https://github.com/alisterXavier/ArcadeAsylum",
-    "app_link": "https://arcade-asylum.vercel.app/",
-    "completed": true
-  },
-  {
-    "img": [
-      "/assets/Project-images/to-infinity-and-beyond/app_1.png",
-      "/assets/Project-images/to-infinity-and-beyond/app_2.png",
-      "/assets/Project-images/to-infinity-and-beyond/app_3.png",
-      "/assets/Project-images/to-infinity-and-beyond/app_4.png"
-    ],
-    "title": "To infinity and beyond",
-    "desc": "A web app the displays some celestial bodies made using threeJS.",
-    "stack": ["Next.js", "JavaScript", "Three.js", "Css"],
-    "git_link": "https://github.com/alisterXavier/To-infinity-and-beyond",
-    "app_link": "https://to-infinity-and-beyond.vercel.app/",
-    "completed": true
-  },
-  {
-    "img": [
-      "/assets/Project-images/music-downloader/app_1.png",
-      "/assets/Project-images/music-downloader/app_2.png"
-    ],
-    "title": "Music Downloader",
-    "stack": ["Next.js", "TypeScript", "Css"],
-    "desc": "A music downloader app uses apollo graphql server to fetch data and download music",
-    "git_link": "https://github.com/alisterXavier/Music-downloader",
-    "app_link": "https://music-downloader-three.vercel.app/",
-    "completed": true
-  },
-  {
-    "img": [
-      "/assets/Project-images/Crypto/app_1.png",
-      "/assets/Project-images/Crypto/app_2.png",
-      "/assets/Project-images/Crypto/app_3.png",
-      "/assets/Project-images/Crypto/app_4.png"
-    ],
-    "title": "Cryptocurrency Platform",
-    "stack": ["Next.js", "JavaScript", "Css", "Coinranking Api"],
-    "desc": "Cryptocurrency webapp clone of Uniswap",
-    "git_link": "https://github.com/alisterXavier/Crypto-Curr",
-    "app_link": "https://crypto-curr-eta.vercel.app/components/swap",
-    "completed": true
-  },
-  {
-    "img": [
-      "/assets/Project-images/netflix/app_1.png",
-      "/assets/Project-images/netflix/app_2.png",
-      "/assets/Project-images/netflix/app_3.png",
-      "/assets/Project-images/netflix/app_4.png",
-      "/assets/Project-images/netflix/app_5.png",
-      "/assets/Project-images/netflix/app_6.png",
-      "/assets/Project-images/netflix/app_7.png",
-      "/assets/Project-images/netflix/app_8.png",
-      "/assets/Project-images/netflix/app_9.png"
-    ],
-    "title": "Netflix Clone",
-    "stack": ["React.js", "JavaScript", "Express.js", "Firebase", "Css"],
-    "desc": "Netflix Clone made using Firebase to store all of its data.",
-    "git_link": "https://github.com/alisterXavier/NetflixClone",
-    "app_link": "https://netflix-clone-qwerty.vercel.app/",
-    "completed": true
-  },
-  {
-    "img": ["/assets/Project-images/nft-landing/app_1.png"],
-    "title": "Nft Landing Page",
-    "stack": ["Next.js", "JavaScript", "Css"],
-    "desc": "Single page site of an Nft landing page",
-    "git_link": "https://github.com/alisterXavier/NFT-LandingPage",
-    "app_link": "https://nft-landing-page-bzfd.vercel.app/",
-    "completed": true
-  },
-  {
-    "img": [
       "/assets/Project-images/BlaaApp/app_1.png",
       "/assets/Project-images/BlaaApp/app_2.png",
       "/assets/Project-images/BlaaApp/app_3.png",
@@ -154,21 +102,70 @@
     "git_link": "https://github.com/alisterXavier/blaa-app",
     "completed": true
   },
+
   {
     "img": [
-      "/assets/Project-images/e-commerce/app_1.png",
-      "/assets/Project-images/e-commerce/app_2.png",
-      "/assets/Project-images/e-commerce/app_3.png",
-      "/assets/Project-images/e-commerce/app_4.png",
-      "/assets/Project-images/e-commerce/app_5.png"
+      "/assets/Project-images/to-infinity-and-beyond/app_1.png",
+      "/assets/Project-images/to-infinity-and-beyond/app_2.png",
+      "/assets/Project-images/to-infinity-and-beyond/app_3.png",
+      "/assets/Project-images/to-infinity-and-beyond/app_4.png"
     ],
-    "title": "e-commerce App",
-    "stack": ["React.js", "JavaScript", "Css"],
-    "desc": "",
-    "git_link": "https://github.com/alisterXavier/e-commerce",
-    "app_link": "http://e-commerce-dremanic.vercel.app/",
+    "title": "To infinity and beyond",
+    "desc": "A web app the displays some celestial bodies made using threeJS.",
+    "stack": ["Next.js", "JavaScript", "Three.js", "Css"],
+    "git_link": "https://github.com/alisterXavier/To-infinity-and-beyond",
+    "app_link": "https://to-infinity-and-beyond.vercel.app/",
     "completed": true
   },
+
+  {
+    "img": [
+      "/assets/Project-images/music-downloader/app_1.png",
+      "/assets/Project-images/music-downloader/app_2.png"
+    ],
+    "title": "Music Downloader",
+    "stack": ["Next.js", "TypeScript", "Css"],
+    "desc": "A music downloader app uses apollo graphql server to fetch data and download music",
+    "git_link": "https://github.com/alisterXavier/Music-downloader",
+    "app_link": "https://music-downloader-three.vercel.app/",
+    "completed": true
+  },
+
+  {
+    "img": [
+      "/assets/Project-images/Crypto/app_1.png",
+      "/assets/Project-images/Crypto/app_2.png",
+      "/assets/Project-images/Crypto/app_3.png",
+      "/assets/Project-images/Crypto/app_4.png"
+    ],
+    "title": "Cryptocurrency Platform",
+    "stack": ["Next.js", "JavaScript", "Css", "Coinranking Api"],
+    "desc": "Cryptocurrency webapp clone of Uniswap",
+    "git_link": "https://github.com/alisterXavier/Crypto-Curr",
+    "app_link": "https://crypto-curr-eta.vercel.app/components/swap",
+    "completed": true
+  },
+
+  {
+    "img": [
+      "/assets/Project-images/netflix/app_1.png",
+      "/assets/Project-images/netflix/app_2.png",
+      "/assets/Project-images/netflix/app_3.png",
+      "/assets/Project-images/netflix/app_4.png",
+      "/assets/Project-images/netflix/app_5.png",
+      "/assets/Project-images/netflix/app_6.png",
+      "/assets/Project-images/netflix/app_7.png",
+      "/assets/Project-images/netflix/app_8.png",
+      "/assets/Project-images/netflix/app_9.png"
+    ],
+    "title": "Netflix Clone",
+    "stack": ["React.js", "JavaScript", "Express.js", "Firebase", "Css"],
+    "desc": "Netflix Clone made using Firebase to store all of its data.",
+    "git_link": "https://github.com/alisterXavier/NetflixClone",
+    "app_link": "https://netflix-clone-qwerty.vercel.app/",
+    "completed": true
+  },
+
   {
     "img": [
       "/assets/Project-images/rockPaperScissors/app_1.png",
@@ -194,7 +191,17 @@
     "completed": true
   },
   {
+    "img": ["/assets/Project-images/nft-landing/app_1.png"],
+    "title": "Nft Landing Page",
+    "stack": ["Next.js", "JavaScript", "Css"],
+    "desc": "Single page site of an Nft landing page",
+    "git_link": "https://github.com/alisterXavier/NFT-LandingPage",
+    "app_link": "https://nft-landing-page-bzfd.vercel.app/",
+    "completed": true
+  },
+  {
     "title": "WikiScape",
+    "img": [],
     "stack": ["React.js", "JavaScript", "Python Flask", "Python Wikipedia Api"],
     "desc": "Wikipedia clone, It uses python's limited wikipedia api to get data. Depth lvl 1",
     "git_link": "https://github.com/alisterXavier/Wiki-React-Flask",

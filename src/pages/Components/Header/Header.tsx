@@ -1,39 +1,39 @@
-import { useEffect, useRef } from "react";
-import { TbBrandDiscord, TbBrandTelegram } from "react-icons/tb";
+import { useEffect, useRef } from 'react';
+import { TbBrandDiscord, TbBrandTelegram } from 'react-icons/tb';
 import {
   AiOutlineLinkedin,
   AiOutlineMail,
   AiFillCaretDown,
-} from "react-icons/ai";
-import { useSmallDeviceSize } from "@/Hooks/smalDeviceHook";
+} from 'react-icons/ai';
+import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
+import { useInView } from 'react-intersection-observer';
 
-const Header = ({ section } : {section: (id: string) => void}) => {
-  const headerRef = useRef<HTMLElement>(null);
+const Header = ({ section }: { section: (id: string) => void }) => {
   const banner = useRef<HTMLDivElement>(null);
   const bannerText = useRef<HTMLParagraphElement>(null);
   const HItext = useRef<HTMLHeadingElement>(null);
   const Fname = useRef<HTMLHeadingElement>(null);
-  const observer = useRef<IntersectionObserver | null>(null);
+  const [headerRef, inView, entry] = useInView({ threshold: 0.5 });
   const platform = useRef<Array<HTMLAnchorElement>>([]);
   const isSmallScreen = useSmallDeviceSize();
 
   const copy = (e: HTMLElement) => {
     const { id } = e;
     const usernames: {
-      "discord uid": string;
+      'discord uid': string;
       email: string;
     } = {
-      "discord uid": "DREMANiC#8953",
-      email: "xavieralister153@gmail.com",
+      'discord uid': 'DREMANiC#8953',
+      email: 'xavieralister153@gmail.com',
     };
 
     document.querySelector(
-      ".tooltip"
+      '.tooltip'
     )!.innerHTML = `${id.toUpperCase()} COPIED!`;
     navigator.clipboard.writeText(usernames[id as keyof typeof usernames]);
-    document.querySelector(".tooltip")?.classList.add("active");
+    document.querySelector('.tooltip')?.classList.add('active');
     setTimeout(() => {
-      document.querySelector(".tooltip")?.classList.remove("active");
+      document.querySelector('.tooltip')?.classList.remove('active');
     }, 1000);
   };
 
@@ -44,9 +44,9 @@ const Header = ({ section } : {section: (id: string) => void}) => {
       const y =
         e.clientY - (e.currentTarget as HTMLElement).getBoundingClientRect().y;
 
-      document.querySelector(".cursor")?.classList.remove("invisible");
-      (document.querySelector(".cursor")! as HTMLElement).style.left = `${x}px`;
-      (document.querySelector(".cursor")! as HTMLElement).style.top = `${y}px`;
+      document.querySelector('.cursor')?.classList.remove('invisible');
+      (document.querySelector('.cursor')! as HTMLElement).style.left = `${x}px`;
+      (document.querySelector('.cursor')! as HTMLElement).style.top = `${y}px`;
     }
   };
 
@@ -54,56 +54,37 @@ const Header = ({ section } : {section: (id: string) => void}) => {
     if (banner.current !== null) {
       const { x, y, width, height } = banner.current.getBoundingClientRect();
       const limit = 50;
-      const Xangle = (event.clientX - x - width ) / limit;
+      const Xangle = (event.clientX - x - width) / limit;
       const Yangle = -(event.clientY - y - height) / limit;
 
       if (!isSmallScreen) {
-        banner.current.style.setProperty("--XDeg", `${Yangle}`);
-        banner.current.style.setProperty("--YDeg", `${Xangle}`);
+        banner.current.style.setProperty('--XDeg', `${Yangle}`);
+        banner.current.style.setProperty('--YDeg', `${Xangle}`);
       }
     }
   };
 
   useEffect(() => {
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        Array.from(entries).forEach((e) => {
-          if (e.isIntersecting) {
-            section("#me");
-            setTimeout(() => {
-              banner.current?.classList.add(
-                "glow-border",
-                "glow-shadow",
-                "reflection-lights-on"
-              );
-              setTimeout(() => {
-                bannerText.current?.classList.add("neon");
-                HItext.current?.classList.add(
-                  "neon",
-                  "glow",
-                  "flicker-effect-1"
-                );
-                Fname.current?.classList.add(
-                  "neon",
-                  "glow",
-                  "flicker-effect"
-                );
-                bannerText.current?.classList.add("glow");
-                platform.current.forEach((e: HTMLElement) => {
-                  e.classList.add("platform-glow");
-                });
-              }, 500);
-            }, 900);
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    if (headerRef.current) {
-      observer.current.observe(headerRef.current);
+    if (inView) {
+      section('#me');
+      setTimeout(() => {
+        banner.current?.classList.add(
+          'glow-border',
+          'glow-shadow',
+          'reflection-lights-on'
+        );
+        setTimeout(() => {
+          bannerText.current?.classList.add('neon');
+          HItext.current?.classList.add('neon', 'glow', 'flicker-effect-1');
+          Fname.current?.classList.add('neon', 'glow', 'flicker-effect');
+          bannerText.current?.classList.add('glow');
+          platform.current.forEach((e: HTMLElement) => {
+            e.classList.add('platform-glow');
+          });
+        }, 500);
+      }, 900);
     }
-  }, []);
+  }, [inView, section]);
 
   return (
     <header
@@ -190,19 +171,19 @@ const Header = ({ section } : {section: (id: string) => void}) => {
         onClick={() => {
           document
             .querySelector(`[data-about]`)
-            ?.scrollIntoView({ behavior: "smooth" });
+            ?.scrollIntoView({ behavior: 'smooth' });
         }}
         onMouseMove={downMouse}
         onMouseLeave={() => {
-          document.querySelector(".cursor")?.classList.add("invisible");
+          document.querySelector('.cursor')?.classList.add('invisible');
         }}
       >
         <h1 className="neon hello">MORE ABOUT ME</h1>
         <div className="cursor cursor-none absolute invisible">
-          <AiFillCaretDown className="fill-white"/>
+          <AiFillCaretDown className="fill-white" />
         </div>
         <div className="down neon">
-          <AiFillCaretDown/>
+          <AiFillCaretDown />
         </div>
       </div>
     </header>

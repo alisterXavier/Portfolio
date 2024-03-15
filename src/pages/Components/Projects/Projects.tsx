@@ -1,57 +1,123 @@
-import { useEffect, useRef, Fragment, useState } from "react";
-import ProjectCarousel from "./ProjectCarousel";
-import { SelectedProjectInterface } from "@/types/types";
-import { Menu, Transition } from "@headlessui/react";
-import { FaAngleDown } from "react-icons/fa";
-import projects from "@a/data/projects.json";
-
+import { useEffect, useRef, Fragment, useState } from 'react';
+import { SelectedProjectInterface } from '@/types/types';
+import { Menu, Transition } from '@headlessui/react';
+import { FaAngleDown } from 'react-icons/fa';
+import projectList from '@a/data/projects.json';
+import Image from 'next/image';
+import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
+import { useInView } from 'react-intersection-observer';
+import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
+import ProjectCarousel from './ProjectCarousel';
 interface ProjectInterface extends SelectedProjectInterface {
   section: (id: string) => void;
 }
+
+function genFadePosition() {
+  const randomNumber = Math.random();
+  const scaledNumber = randomNumber * (3 - 0) + 0;
+  const roundedNumber = Math.round(scaledNumber);
+  const pos = ['left', 'right', 'bottom', 'top'];
+  return pos[roundedNumber];
+}
+const animeTitle = {
+  initial: {
+    x: '100%',
+    opacity: 0,
+    duration: 1,
+  },
+  visible: {
+    x: 0,
+    opacity: 1,
+  },
+};
+
 const Projects = ({
   section,
   selectedProject,
   setSelectedProject,
 }: ProjectInterface) => {
-  const projects = useRef<HTMLElement>(null);
-  const observer = useRef<IntersectionObserver | null>(null);
+  const isSmallScreen = useSmallDeviceSize();
+  const [projectsRef, projectInView] = useInView({
+    threshold: 0.5,
+  });
+
+  const controls = useAnimation();
   const [filter, setFilter] = useState<string | null>(null);
+
   useEffect(() => {
-    observer.current = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            section("#projects");
-          }
-        });
-      },
-      {
-        threshold: 0.5,
-      }
-    );
-    if (projects.current) observer.current.observe(projects.current);
-  }, [section]);
+    if (projectInView) {
+      section('#projects');
+      controls.start('visible');
+    } else {
+      controls.start('initial');
+    }
+  }, [controls, projectInView, projectsRef, section]);
+
+  const blurEffect = (element: React.MouseEvent) => {
+    const parent = element.currentTarget.parentElement;
+    const allChildren = parent?.querySelectorAll('.project-card');
+    allChildren?.forEach((i) => i.classList.add('blurr'));
+    element.currentTarget.classList.remove('blurr');
+  };
+
+  const unBlurr = (e: React.MouseEvent) => {
+    const parent = e.currentTarget.parentElement;
+    const allChildren = parent?.querySelectorAll('.project-card');
+    allChildren?.forEach((i) => i.classList.remove('blurr'));
+  };
 
   return (
     <section
       className="projects view relative overflow-hidden"
-      ref={projects}
+      ref={projectsRef}
       id="Projects"
       data-projects
     >
-      <div className="w-full h-full flex flex-col items-center justify-center">
-        <div className="project-title my-5">
-          <h2 className="project-glitch my-0 mx-auto text-5xl lg:text-6xl hello neon">
+      <div className="w-full h-full flex flex-col items-center justify-center p-5">
+        <motion.div className="project-title flex items-center z-[2] justify-start bg-[var(--background)] w-[85%] h-[10%]">
+          <motion.h2
+            className="project-glitch my-0 text-5xl lg:text-8xl hello neon"
+            animate={controls}
+            initial={'initial'}
+            variants={animeTitle}
+          >
             PROJECTS
-          </h2>
-        </div>
-        <div className="carousel flex flex-col justify-end items-end">
-          <Filter filter={filter} setFilter={setFilter} />
-          <ProjectCarousel
-            selectedProject={selectedProject}
-            setSelectedProject={setSelectedProject}
-            filter={filter}
-          />
+          </motion.h2>
+        </motion.div>
+        <div className="carousel relative flex justify-center z-[1] w-full h-[90%]">
+          {/* <Filter filter={filter} setFilter={setFilter} /> */}
+          {isSmallScreen ? (
+            <ProjectCarousel
+              selectedProject={selectedProject}
+              setSelectedProject={setSelectedProject}
+              filter={filter}
+            />
+          ) : (
+            <div
+              className="w-[85%] h-full overflow-hidden"
+              onMouseLeave={unBlurr}
+            >
+              <div className="flex flex-wrap w-full h-full overflow-y-scroll pr-[17px] box-content">
+                {projectList.map((p, index) => {
+                  return (
+                    <motion.div
+                      key={index}
+                      layoutId={p.title}
+                      className="relative overflow-hidden project-card cursor-pointer"
+                      onClick={() => {
+                        setSelectedProject(p);
+                      }}
+                      onMouseMove={blurEffect}
+                    >
+                      <figure className={`relative w-[400px] h-[200px]`}>
+                        <Image fill sizes="100%" src={p.img[0]} alt={p.title} />
+                      </figure>
+                    </motion.div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </section>
@@ -66,14 +132,14 @@ const Filter = ({
   setFilter: (value: string | null) => void;
 }) => {
   const stack = new Set(
-    projects.map((project) => project.stack.map((i) => i)).flat()
+    projectList.map((project) => project.stack.map((i) => i)).flat()
   );
   return (
     <div className="relative z-[1] w-56 text-right mr-10">
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
-            {filter === null ? "All" : filter}
+            {filter === null ? 'All' : filter}
             <FaAngleDown
               className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
               aria-hidden="true"
@@ -95,7 +161,7 @@ const Filter = ({
                 {({ active }) => (
                   <button
                     className={`neon ${
-                      active ? "bg-[#3d3d3df3]" : ""
+                      active ? 'bg-[#3d3d3df3]' : ''
                     } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                     onClick={() => setFilter(null)}
                   >
@@ -109,7 +175,7 @@ const Filter = ({
                     {({ active }) => (
                       <button
                         className={`neon ${
-                          active ? "bg-[#3d3d3df3]" : ""
+                          active ? 'bg-[#3d3d3df3]' : ''
                         } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
                         onClick={() => setFilter(item)}
                       >

@@ -17,36 +17,9 @@ const ProjectCarousel = ({
   selectedProject,
   setSelectedProject,
 }: AddFilter) => {
-  const swiperRef = useRef<SwiperRef>(null);
-  const observer = useRef<IntersectionObserver>();
-
-  useEffect(() => {
-    observer.current = new IntersectionObserver(
-      (elements) => {
-        elements.forEach((element) => {
-          if (element.isIntersecting) {
-            swiperRef.current?.swiper.autoplay.start();
-          } else swiperRef.current?.swiper.autoplay.stop();
-        });
-      },
-      {
-        threshold: 1,
-      }
-    );
-
-    observer.current?.observe(swiperRef.current as unknown as Element);
-  }, []);
-
-  useEffect(() => {
-    swiperRef.current && selectedProject
-      ? swiperRef.current?.swiper.autoplay.stop()
-      : swiperRef.current?.swiper.autoplay.start();
-  }, [selectedProject]);
-
   return (
     <>
       <Swiper
-        ref={swiperRef}
         mousewheel={true}
         autoplay={{
           delay: 1800,
@@ -84,13 +57,6 @@ const ProjectCarousel = ({
                 }}
               >
                 <motion.div
-                  onMouseEnter={() => {
-                    swiperRef.current?.swiper.autoplay.stop();
-                  }}
-                  onMouseLeave={() => {
-                    !selectedProject &&
-                      swiperRef.current?.swiper.autoplay.start();
-                  }}
                   className="project-item text-white"
                   layoutId={project.title}
                 >

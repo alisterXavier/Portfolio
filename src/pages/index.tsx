@@ -1,16 +1,16 @@
-import { useRef, useState } from "react";
-import { useSmallDeviceSize } from "../Hooks/smalDeviceHook";
-import Header from "./Components/Header/Header";
-import Navbar from "./Components/Navbar/Navbar";
-import { HiMenu } from "react-icons/hi";
-import AboutMe from "./Components/About/AboutMe";
-import Stack from "./Components/Stack/Stack";
-import Projects from "./Components/Projects/Projects";
-import Contact from "./Components/Contact/Contact";
-import { AnimatePresence } from "framer-motion";
-import Project from "./Components/Projects/Project";
-import { ProjectDataInterface } from "../types/types";
-import Head from "next/head";
+import { useRef, useState } from 'react';
+import { useSmallDeviceSize } from '../Hooks/smalDeviceHook';
+import Header from './Components/Header/Header';
+import Navbar from './Components/Navbar/Navbar';
+import { HiMenu } from 'react-icons/hi';
+import AboutMe from './Components/About/AboutMe';
+import Stack from './Components/Stack/Stack';
+import Projects from './Components/Projects/Projects';
+import Contact from './Components/Contact/Contact';
+import { AnimatePresence } from 'framer-motion';
+import Project from './Components/Projects/Project';
+import { ProjectDataInterface } from '../types/types';
+import Head from 'next/head';
 
 export default function Home() {
   const isSmallScreen = useSmallDeviceSize();
@@ -22,13 +22,13 @@ export default function Home() {
 
   const sectionObserver = (id: string) => {
     var active, navSections;
-    active = (navRef.current as HTMLElement).querySelector("[data-active]");
+    active = (navRef.current as HTMLElement).querySelector('[data-active]');
     delete (active as HTMLElement)?.dataset.active;
 
-    if (id !== "#me") {
+    if (id !== '#me') {
       navSections = (navRef.current as HTMLElement).querySelector(id);
       if (navSections !== null)
-        (navSections as HTMLElement).dataset.active = "true";
+        (navSections as HTMLElement).dataset.active = 'true';
     }
   };
   return (
@@ -56,7 +56,7 @@ export default function Home() {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
-      <div className={`main ${navToggle && "navbar-active"}`}>
+      <div className={`main ${navToggle && 'navbar-active'}`}>
         <Navbar
           navToggle={navToggle}
           setNavToggle={setNavToggle}
@@ -73,13 +73,12 @@ export default function Home() {
                   const value = !navToggle;
                   if (value) {
                     document
-                      .querySelector(".nav-wrapper")
-                      ?.classList.add("fade-in");
-                  }
-                  else{
+                      .querySelector('.nav-wrapper')
+                      ?.classList.add('fade-in');
+                  } else {
                     document
-                      .querySelector(".nav-wrapper")
-                      ?.classList.remove("fade-in");
+                      .querySelector('.nav-wrapper')
+                      ?.classList.remove('fade-in');
                   }
                   setNavToggle(value);
                 }}
@@ -109,6 +108,9 @@ export default function Home() {
                 sectionObserver(value);
               }}
             />
+            {/* <Certificates /> */}
+            {/* <TimelineComp /> */}
+
             <Stack
               section={(value: string) => {
                 sectionObserver(value);
