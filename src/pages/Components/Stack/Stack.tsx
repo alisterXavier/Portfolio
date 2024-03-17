@@ -15,7 +15,7 @@ const Stack = ({
 }) => {
   const isSmallScreen = useSmallDeviceSize();
   const eachLanguage = useRef<Array<HTMLDivElement>>([]);
-  const [stackRef, inView, entry] = useInView({ threshold: 0.5 });
+  const [stackRef, inView, entry] = useInView({ threshold: 0.2 });
 
   const ViewCompleteStack = () => {
     (
