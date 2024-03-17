@@ -104,7 +104,7 @@ const AboutMe = ({
         <motion.div
           initial="hidden"
           whileInView={'visible'}
-          className="about-text text-md lg:text-5xl p-4 lg:p-6"
+          className="about-text text-lg lg:text-5xl p-4 lg:p-6"
           transition={{
             delayChildren: 0.2,
             staggerChildren: 0.1,
