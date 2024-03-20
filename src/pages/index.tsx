@@ -72,15 +72,6 @@ export default function Home() {
                 onClick={(e) => {
                   e.preventDefault();
                   const value = !navToggle;
-                  // if (value) {
-                  //   document
-                  //     .querySelector('.nav-wrapper')
-                  //     ?.classList.add('fade-in');
-                  // } else {
-                  //   document
-                  //     .querySelector('.nav-wrapper')
-                  //     ?.classList.remove('fade-in');
-                  // }
                   setNavToggle(value);
                 }}
               ></HiMenu>
