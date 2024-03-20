@@ -1,5 +1,5 @@
 import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
-import { motion } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { RefObject, useEffect, useRef } from 'react';
 import { useInView } from 'react-intersection-observer';
 
@@ -39,9 +39,9 @@ const AboutMe = ({
   const isSmallScreen = useSmallDeviceSize();
   const innerAbout = useRef<HTMLDivElement>(null);
   const [aboutRef, inView, entry] = useInView({
-    threshold: 0.9,
+    threshold: 0.6,
   });
-
+  const control = useAnimation();
   const Parallex = (event: React.MouseEvent) => {
     const x = ((event.pageX - 500) * -1) / 15;
     const y = ((event.pageY - 500) * -1) / 15;
@@ -80,9 +80,10 @@ const AboutMe = ({
   useEffect(() => {
     if (inView) {
       section('#about');
-      entry?.target?.querySelector('.about-name')?.classList.add('animate-in');
-    }
-  }, [entry?.target, inView, section]);
+      control.start('visible');
+    } else if (entry?.boundingClientRect.y && entry.boundingClientRect.y >= 0)
+      control.start('hidden');
+  }, [entry, control, inView, section]);
 
   return (
     <section
@@ -103,7 +104,7 @@ const AboutMe = ({
         </div> */}
         <motion.div
           initial="hidden"
-          whileInView={'visible'}
+          animate={control}
           className="about-text text-lg lg:text-5xl p-4 lg:p-6"
           transition={{
             delayChildren: 0.2,

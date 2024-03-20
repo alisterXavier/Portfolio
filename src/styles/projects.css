@@ -19,12 +19,6 @@
   /* box-shadow: -10px 10px 100px black; */
   transition: all 500ms ease;
 }
-.main .projects .project-title.fade-out {
-  transform: translateX(100%);
-}
-.main .projects.active .project-title {
-  animation: stack-in 1s 500ms forwards;
-}
 .main .projects .carousel {
   width: 100%;
   height: 70%;
@@ -77,34 +71,6 @@
   filter: blur(5px);
 }
 
-/* .project-card .inner-desc {
-  overflow: hidden;
-  transition: all 500ms ease;
-  top: 0%;
-  left: 0;
-  bottom: 0%;
-  right: 0;
-}
-.project-card .inner-desc.top {
-  transform: translateY(-100%);
-}
-.project-card .inner-desc.left {
-  transform: translateX(-100%);
-}
-.project-card .inner-desc.right {
-  transform: translateX(100%);
-}
-.project-card .inner-desc.bottom {
-  transform: translateY(100%);
-} */
-/* .project-card:hover .inner-desc.top,
-.project-card:hover .inner-desc.bottom {
-  transform: translateY(0%);
-}
-.project-card:hover .inner-desc.left,
-.project-card:hover .inner-desc.right {
-  transform: translateX(0%);
-} */
 /* All Projects */
 .selected-wrapper {
   width: 100vw;

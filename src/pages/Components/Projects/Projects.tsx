@@ -1,13 +1,12 @@
-import { useEffect, useRef, Fragment, useState } from 'react';
+import { useEffect, Fragment, useState } from 'react';
 import { SelectedProjectInterface } from '@/types/types';
 import { Menu, Transition } from '@headlessui/react';
 import { FaAngleDown } from 'react-icons/fa';
 import projectList from '@a/data/projects.json';
-import Image from 'next/image';
-import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
+import { motion, useAnimation } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
-import HorizontalProjectCarousel from './Carousel/Horizontal'
+import HorizontalProjectCarousel from './Carousel/Horizontal';
 import VerticalProjectCarousel from './Carousel/Vertical';
 interface ProjectInterface extends SelectedProjectInterface {
   section: (id: string) => void;
@@ -24,35 +23,65 @@ const animeTitle = {
   initial: {
     x: '100%',
     opacity: 0,
-    duration: 1,
   },
   visible: {
     x: 0,
     opacity: 1,
+    // type: 'tween',
   },
 };
-
+const animeCarousel = {
+  initial: {
+    opacity: 0,
+  },
+  visible: {
+    opacity: 1,
+  },
+};
 const Projects = ({
   section,
   selectedProject,
   setSelectedProject,
 }: ProjectInterface) => {
   const isSmallScreen = useSmallDeviceSize();
-  const [projectsRef, projectInView] = useInView({
+  const [projectsRef, projectInView, projectEntry] = useInView({
     threshold: 0.5,
   });
+  const [projectCarouselRef, projectCarouselInView, carouselEntry] = useInView({
+    threshold: 0.6,
+  });
 
-  const controls = useAnimation();
+  const titleControls = useAnimation();
+  const carouselControls = useAnimation();
   const [filter, setFilter] = useState<string | null>(null);
 
   useEffect(() => {
     if (projectInView) {
       section('#projects');
-      controls.start('visible');
-    } else {
-      controls.start('initial');
+      titleControls.start('visible');
+    } else if (
+      projectEntry?.boundingClientRect.y &&
+      projectEntry?.boundingClientRect.y >= 0
+    ) {
+      titleControls.start('initial');
     }
-  }, [controls, projectInView, projectsRef, section]);
+    if (projectCarouselInView) carouselControls.start('visible');
+    else if (
+      carouselEntry?.boundingClientRect.y &&
+      carouselEntry?.boundingClientRect.y >= 0
+    ) {
+      carouselControls.start('initial');
+    }
+  }, [
+    titleControls,
+    projectInView,
+    projectsRef,
+    section,
+    carouselControls,
+    projectCarouselInView,
+    carouselEntry,
+    projectEntry?.boundingClientRect.y,
+  ]);
 
   const blurEffect = (element: React.MouseEvent) => {
     const parent = element.currentTarget.parentElement;
@@ -75,36 +104,49 @@ const Projects = ({
       data-projects
     >
       <div className="w-full h-full flex flex-col items-center justify-center p-5">
-        <motion.div className="project-title flex items-center z-[2] justify-start bg-[var(--background)] w-[85%] h-[10%]">
-          <motion.h2
-            className="project-glitch my-0 text-5xl lg:text-8xl hello neon"
-            animate={controls}
+        <div className="flex w-[85%] justify-between items-center">
+          <motion.div className="project-title flex items-center z-[2] justify-start  h-fit">
+            <motion.h2
+              className="project-glitch my-0 text-5xl lg:text-8xl hello neon"
+              animate={titleControls}
+              initial={'initial'}
+              variants={animeTitle}
+              transition={{
+                duration: 0.3,
+              }}
+            >
+              PROJECTS
+            </motion.h2>
+          </motion.div>
+          <motion.div
+            animate={carouselControls}
             initial={'initial'}
-            variants={animeTitle}
+            variants={animeCarousel}
           >
-            PROJECTS
-          </motion.h2>
-        </motion.div>
-        <div className="carousel relative flex flex-col justify-end items-end w-full h-[90%]">
-          <div>
             <Filter filter={filter} setFilter={setFilter} />
-          </div>
-          <div className="relative flex justify-center z-[1] w-full h-[90%]">
-            {isSmallScreen ? (
-              <HorizontalProjectCarousel
-                setSelectedProject={setSelectedProject}
-                filter={filter}
-              />
-            ) : (
-              <VerticalProjectCarousel
-                filter={filter}
-                unBlurr={unBlurr}
-                blurEffect={blurEffect}
-                setSelectedProject={setSelectedProject}
-              />
-            )}
-          </div>
+          </motion.div>
         </div>
+        <motion.div
+          className="relative flex justify-center z-[1] w-full h-[80%]"
+          animate={carouselControls}
+          initial={'initial'}
+          variants={animeCarousel}
+          ref={projectCarouselRef}
+        >
+          {isSmallScreen ? (
+            <HorizontalProjectCarousel
+              setSelectedProject={setSelectedProject}
+              filter={filter}
+            />
+          ) : (
+            <VerticalProjectCarousel
+              filter={filter}
+              unBlurr={unBlurr}
+              blurEffect={blurEffect}
+              setSelectedProject={setSelectedProject}
+            />
+          )}
+        </motion.div>
       </div>
     </section>
   );

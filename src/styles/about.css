@@ -31,10 +31,10 @@
   transition: translate 1s ease, opacity 1s ease;
   -webkit-text-fill-color: transparent;
 }
-.about .about-name.animate-in h1 {
+/* .about .about-name.animate-in h1 {
   opacity: 1;
   translate: 0px 0px;
-}
+} */
 .about .about-text {
   letter-spacing: -1px;
   /* border: 2px solid; */

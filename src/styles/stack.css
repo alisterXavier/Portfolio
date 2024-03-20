@@ -66,14 +66,10 @@
   justify-content: center;
   align-items: center;
   transform: translateY(0%);
-  opacity: 0;
   transition: background-color 500ms ease, border 500ms ease,
     box-shadow 500ms ease, transform 700ms ease;
 }
 
-.stack .stack-container-wrapper .language-container-wrapper.animate-in {
-  animation: stack-in 500ms forwards;
-}
 .stack
   .stack-container-wrapper
   .language-container-wrapper

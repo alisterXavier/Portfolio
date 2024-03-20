@@ -2,27 +2,27 @@ $delay-fade-in: 500ms
 $delay-fade-out: 300ms
 $delay-stack: 300ms
 
-@for $var from 1 through 50
-    .stack .stack-container .language-container-wrapper.animate-in:nth-child(#{$var})
-        animation-delay: $delay-stack
-    $delay-stack: $delay-stack + 70ms
+// @for $var from 1 through 50
+//     .stack .stack-container .language-container-wrapper.animate-in:nth-child(#{$var})
+//         animation-delay: $delay-stack
+//     $delay-stack: $delay-stack + 70ms
 
 
 @for $i from 1 through 50
-    .all-projects-wrapper.active .all-projects > div:nth-child(#{$i}) .option-title
-        animation-delay: $delay-fade-in
+    // .all-projects-wrapper.active .all-projects > div:nth-child(#{$i}) .option-title
+    //     animation-delay: $delay-fade-in
     .navigation-panel ul.fade-in li:nth-child(#{$i})
         animation-delay: $delay-fade-in
     $delay-fade-in: $delay-fade-in + 40ms
 
 @for $i from 1 through 50
-    .all-projects-wrapper .all-projects.fade-out > div:nth-child(#{$i}) .option-title
-        animation-delay: $delay-fade-out
+    // .all-projects-wrapper .all-projects.fade-out > div:nth-child(#{$i}) .option-title
+    //     animation-delay: $delay-fade-out
     .navigation-panel ul.fade-out li:nth-child(#{$i})
         animation-delay: $delay-fade-out
     $delay-fade-out: $delay-fade-out + 40ms
 
-@media only screen and (max-width: 651px)
-    @for $i from 1 through 10
-        .all-projects .project:nth-child(#{$i})
-            left: 0%
+// @media only screen and (max-width: 651px)
+//     @for $i from 1 through 10
+//         .all-projects .project:nth-child(#{$i})
+//             left: 0%

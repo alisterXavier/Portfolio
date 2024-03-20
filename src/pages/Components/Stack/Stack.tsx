@@ -6,6 +6,22 @@ import Link from 'next/link';
 import languages from '@a/data/displayStack.json';
 import ParallaxText from './ParallexText';
 import { useInView } from 'react-intersection-observer';
+import { motion, useAnimation } from 'framer-motion';
+
+const animateStack = {
+  initial: {
+    opacity: 0,
+    translate: '0% 50%',
+  },
+
+  visible: {
+    opacity: 1,
+    translate: '0% 0%',
+    transition: {
+      type:"tween"
+    }
+  },
+};
 
 const Stack = ({
   section,
@@ -15,8 +31,8 @@ const Stack = ({
 }) => {
   const isSmallScreen = useSmallDeviceSize();
   const eachLanguage = useRef<Array<HTMLDivElement>>([]);
-  const [stackRef, inView, entry] = useInView({ threshold: 0.2 });
-
+  const [stackRef, inView, entry] = useInView({ threshold: 0.4 });
+  const control = useAnimation();
   const ViewCompleteStack = () => {
     (
       document.querySelector('.main') as HTMLElement
@@ -29,26 +45,24 @@ const Stack = ({
   useEffect(() => {
     if (inView) {
       section('#stack');
+      control.start('visible');
+      // add bg color 
       (document.querySelector('.content-wrapper') as HTMLElement).classList.add(
-        'lighter-background'
-      );
-      (document.querySelector('.project-title') as HTMLElement).classList.add(
         'lighter-background'
       );
 
       eachLanguage.current.forEach((lang) => {
         (lang as HTMLElement).classList.add(
-          'animate-in',
           'back-neu-shadow',
           'lighter-background'
         );
       });
     } else {
+      if (entry?.boundingClientRect.y && entry.boundingClientRect.y >= 0)
+        control.start('initial');
+      // remove bg color 
       (
         document.querySelector('.content-wrapper') as HTMLElement
-      ).classList.remove('lighter-background');
-      (
-        document.querySelector('.project-title') as HTMLElement
       ).classList.remove('lighter-background');
       eachLanguage.current.forEach((lang) => {
         (lang as HTMLElement).classList.remove(
@@ -57,7 +71,7 @@ const Stack = ({
         );
       });
     }
-  }, [inView, section]);
+  }, [control, entry, inView, section]);
 
   return (
     <section
@@ -79,16 +93,25 @@ const Stack = ({
         </Link>
       </div>
       <div className="stack-container-wrapper">
-        <div className="stack-container" >
+        <motion.div
+          className="stack-container"
+          animate={control}
+          transition={{
+            delayChildren: 0.2,
+            staggerChildren: 0.1,
+          }}
+        >
           {languages.map((l, index) => {
             return (
-              <div
+              <motion.div
                 key={index}
+                variants={animateStack}
                 className="language-container-wrapper half"
                 ref={(elem) => {
                   if (elem !== null)
                     eachLanguage.current.splice(index, 1, elem);
                 }}
+
                 // onMouseMove={parallexImage}
                 // onMouseLeave={parallexImageRemove}
               >
@@ -114,10 +137,10 @@ const Stack = ({
                   </div>
                   <p className="language-name">{l.lang}</p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

@@ -135,16 +135,6 @@
     filter: blur(1px) brightness(1);
   }
 }
-@keyframes stack-in {
-  0% {
-    translate: 0% 50%;
-    opacity: 0;
-  }
-  100% {
-    translate: 0% 0%;
-    opacity: 1;
-  }
-}
 @keyframes opacity {
   from {
     opacity: 0;
@@ -171,6 +161,7 @@
     opacity: 1;
   }
 }
+/* For the more about me button in header */
 @keyframes move {
   0% {
     transform: translateY(5px);
@@ -182,6 +173,7 @@
     transform: translateY(5px);
   }
 }
+/* For the useless cubes in the header */
 @keyframes up-down {
   0%,
   100% {

@@ -11,6 +11,7 @@ import { AnimatePresence } from 'framer-motion';
 import Project from './Components/Projects/Project';
 import { ProjectDataInterface } from '../types/types';
 import Head from 'next/head';
+import ReactLenis from '@studio-freight/react-lenis';
 
 export default function Home() {
   const isSmallScreen = useSmallDeviceSize();
@@ -32,7 +33,7 @@ export default function Home() {
     }
   };
   return (
-    <>
+    <ReactLenis root options={{ lerp: 0.07, duration: 1, syncTouch: true }}>
       <Head>
         <link
           rel="apple-touch-icon"
@@ -71,15 +72,15 @@ export default function Home() {
                 onClick={(e) => {
                   e.preventDefault();
                   const value = !navToggle;
-                  if (value) {
-                    document
-                      .querySelector('.nav-wrapper')
-                      ?.classList.add('fade-in');
-                  } else {
-                    document
-                      .querySelector('.nav-wrapper')
-                      ?.classList.remove('fade-in');
-                  }
+                  // if (value) {
+                  //   document
+                  //     .querySelector('.nav-wrapper')
+                  //     ?.classList.add('fade-in');
+                  // } else {
+                  //   document
+                  //     .querySelector('.nav-wrapper')
+                  //     ?.classList.remove('fade-in');
+                  // }
                   setNavToggle(value);
                 }}
               ></HiMenu>
@@ -140,6 +141,6 @@ export default function Home() {
           )}
         </AnimatePresence>
       </div>
-    </>
+    </ReactLenis>
   );
 }
