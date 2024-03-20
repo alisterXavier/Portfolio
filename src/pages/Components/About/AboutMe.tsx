@@ -94,7 +94,7 @@ const AboutMe = ({
         !isSmallScreen && Parallex(e);
       }}
     >
-      <div className="about relative" l>
+      <div className="about relative">
         {/* <div className="about-name">
           <h1 className="text-3xl lg:text-7xl flex justify-evenly">
             <span className="">HI, I&apos;M</span>
