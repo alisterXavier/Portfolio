@@ -1,9 +1,10 @@
 import { useEffect, useRef } from 'react';
-import { TbBrandDiscord, TbBrandTelegram } from 'react-icons/tb';
+import { TbBrandDiscord } from 'react-icons/tb';
 import {
   AiOutlineLinkedin,
   AiOutlineMail,
   AiFillCaretDown,
+  AiFillGithub,
 } from 'react-icons/ai';
 import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
 import { useInView } from 'react-intersection-observer';
@@ -124,7 +125,7 @@ const Header = ({ section }: { section: (id: string) => void }) => {
                   if (e !== null) platform.current[0] = e;
                 }}
               >
-                <TbBrandDiscord size={20}></TbBrandDiscord>
+                <TbBrandDiscord size={20} />
               </a>
               <a
                 onClick={(e) => {
@@ -136,18 +137,18 @@ const Header = ({ section }: { section: (id: string) => void }) => {
                   if (e !== null) platform.current[1] = e;
                 }}
               >
-                <AiOutlineMail size={20}></AiOutlineMail>
+                <AiOutlineMail size={20} />
               </a>
               <a
                 rel="noreferrer"
-                href="https://t.me/AlisterXavier"
+                href="https://github.com/alisterXavier"
                 target="_blank"
-                className="platform telegram"
+                className="platform github"
                 ref={(e) => {
                   if (e !== null) platform.current[2] = e;
                 }}
               >
-                <TbBrandTelegram size={20}></TbBrandTelegram>
+                <AiFillGithub size={20} />
               </a>
               <a
                 rel="noreferrer"
@@ -158,7 +159,7 @@ const Header = ({ section }: { section: (id: string) => void }) => {
                   if (e !== null) platform.current[3] = e;
                 }}
               >
-                <AiOutlineLinkedin size={20}></AiOutlineLinkedin>
+                <AiOutlineLinkedin size={20} />
               </a>
             </div>
           </div>

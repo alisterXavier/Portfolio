@@ -3,7 +3,7 @@ import emailjs from '@emailjs/browser';
 import { useTransform, motion, useScroll, useSpring } from 'framer-motion';
 import { GrRotateRight } from 'react-icons/gr';
 import { BiCheck } from 'react-icons/bi';
-import { TbBrandDiscord, TbBrandTelegram } from 'react-icons/tb';
+import { TbBrandDiscord } from 'react-icons/tb';
 import { AiOutlineLinkedin } from 'react-icons/ai';
 import { ImCross } from 'react-icons/im';
 import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
@@ -273,14 +273,6 @@ const Contact = ({ section }: { section: (id: string) => void }) => {
                 target="_blank"
               >
                 <TbBrandDiscord size={20}></TbBrandDiscord>
-              </a>
-              <a
-                rel="noreferrer"
-                href="https://t.me/AlisterXavier"
-                target="_blank"
-                className="platform telegram platform-glow"
-              >
-                <TbBrandTelegram size={20}></TbBrandTelegram>
               </a>
               <a
                 rel="noreferrer"

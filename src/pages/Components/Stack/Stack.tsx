@@ -79,7 +79,7 @@ const Stack = ({
         </Link>
       </div>
       <div className="stack-container-wrapper">
-        <div className="stack-container">
+        <div className="stack-container" >
           {languages.map((l, index) => {
             return (
               <div

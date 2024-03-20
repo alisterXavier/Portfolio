@@ -168,6 +168,21 @@
 
   {
     "img": [
+      "/assets/Project-images/batman/app_1.png",
+      "/assets/Project-images/batman/app_2.png",
+      "/assets/Project-images/batman/app_3.png",
+      "/assets/Project-images/batman/app_4.png",
+      "/assets/Project-images/batman/app_5.png"
+    ],
+    "title": "Batman-Joker Css Playthrough",
+    "stack": ["Next.js", "JavaScript", "Tailwind"],
+    "desc": "Just a playground for css",
+    "git_link": "https://github.com/alisterXavier/Batman-Joker/",
+    "app_link": "https://batman-joker.vercel.app/",
+    "completed": true
+  },
+  {
+    "img": [
       "/assets/Project-images/rockPaperScissors/app_1.png",
       "/assets/Project-images/rockPaperScissors/app_2.png",
       "/assets/Project-images/rockPaperScissors/app_3.png",

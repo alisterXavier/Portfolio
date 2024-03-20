@@ -7,7 +7,10 @@ import Image from 'next/image';
 import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
-import ProjectCarousel from './ProjectCarousel';
+import {
+  HorizontalProjectCarousel,
+  VerticalProjectCarousel,
+} from './ProjectCarousel';
 interface ProjectInterface extends SelectedProjectInterface {
   section: (id: string) => void;
 }
@@ -84,40 +87,25 @@ const Projects = ({
             PROJECTS
           </motion.h2>
         </motion.div>
-        <div className="carousel relative flex justify-center z-[1] w-full h-[90%]">
-          {/* <Filter filter={filter} setFilter={setFilter} /> */}
-          {isSmallScreen ? (
-            <ProjectCarousel
-              selectedProject={selectedProject}
-              setSelectedProject={setSelectedProject}
-              filter={filter}
-            />
-          ) : (
-            <div
-              className="w-[85%] h-full overflow-hidden"
-              onMouseLeave={unBlurr}
-            >
-              <div className="flex flex-wrap w-full h-full overflow-y-scroll pr-[17px] box-content">
-                {projectList.map((p, index) => {
-                  return (
-                    <motion.div
-                      key={index}
-                      layoutId={p.title}
-                      className="relative overflow-hidden project-card cursor-pointer"
-                      onClick={() => {
-                        setSelectedProject(p);
-                      }}
-                      onMouseMove={blurEffect}
-                    >
-                      <figure className={`relative w-[400px] h-[200px]`}>
-                        <Image fill sizes="100%" src={p.img[0]} alt={p.title} />
-                      </figure>
-                    </motion.div>
-                  );
-                })}
-              </div>
-            </div>
-          )}
+        <div className="carousel relative flex flex-col justify-end items-end w-full h-[90%]">
+          <div>
+            <Filter filter={filter} setFilter={setFilter} />
+          </div>
+          <div className="relative flex justify-center z-[1] w-full h-[90%]">
+            {isSmallScreen ? (
+              <HorizontalProjectCarousel
+                setSelectedProject={setSelectedProject}
+                filter={filter}
+              />
+            ) : (
+              <VerticalProjectCarousel
+                filter={filter}
+                unBlurr={unBlurr}
+                blurEffect={blurEffect}
+                setSelectedProject={setSelectedProject}
+              />
+            )}
+          </div>
         </div>
       </div>
     </section>
@@ -135,10 +123,13 @@ const Filter = ({
     projectList.map((project) => project.stack.map((i) => i)).flat()
   );
   return (
-    <div className="relative z-[1] w-56 text-right mr-10">
-      <Menu as="div" className="relative inline-block text-left">
-        <div>
-          <Menu.Button className="inline-flex w-full justify-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-sm font-medium text-white hover:bg-opacity-30 focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75">
+    <div className="relative z-[2] text-right mr-10">
+      <Menu
+        as="div"
+        className="relative w-[150px] h-[50px] inline-block text-left"
+      >
+        <div className="w-full">
+          <Menu.Button className="inline-flex w-full justify-between items-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-md font-medium text-white hover:bg-opacity-30 border border-[var(--neon)]">
             {filter === null ? 'All' : filter}
             <FaAngleDown
               className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"
@@ -155,14 +146,14 @@ const Filter = ({
           leaveFrom="transform opacity-100 scale-100"
           leaveTo="transform opacity-0 scale-95"
         >
-          <Menu.Items className="absolute right-0 mt-2 w-56 h-[250px] overflow-scroll origin-top-right divide-y divide-gray-100 rounded-md bg-[#000000f3] shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <Menu.Items className="absolute right-0 mt-2 w-[200px] h-[250px] overflow-scroll origin-top-right rounded-sm bg-[#000000f3]">
             <div className="px-1 py-1 ">
               <Menu.Item>
                 {({ active }) => (
                   <button
                     className={`neon ${
                       active ? 'bg-[#3d3d3df3]' : ''
-                    } group flex w-full items-center rounded-md px-2 py-2 text-sm`}
+                    } group flex w-full items-center rounded-sm px-2 py-2 text-sm`}
                     onClick={() => setFilter(null)}
                   >
                     All
