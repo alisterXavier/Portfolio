@@ -7,10 +7,8 @@ import Image from 'next/image';
 import { motion, useAnimation, useScroll, useTransform } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 import { useSmallDeviceSize } from '@/Hooks/smalDeviceHook';
-import {
-  HorizontalProjectCarousel,
-  VerticalProjectCarousel,
-} from './ProjectCarousel';
+import HorizontalProjectCarousel from './Carousel/Horizontal'
+import VerticalProjectCarousel from './Carousel/Vertical';
 interface ProjectInterface extends SelectedProjectInterface {
   section: (id: string) => void;
 }
