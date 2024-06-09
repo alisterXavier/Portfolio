@@ -33,7 +33,11 @@ export default function Home() {
     }
   };
   return (
-    <ReactLenis root options={{ lerp: 0.07, duration: 1, syncTouch: true }}>
+    <ReactLenis root options={{
+      lerp: !isSmallScreen ? 0.04 : 0 ,
+      duration: !isSmallScreen ? 0.05 : 0,
+      syncTouch: true,
+    }}>
       <Head>
         <link
           rel="apple-touch-icon"

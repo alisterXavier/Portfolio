@@ -14,7 +14,7 @@
       "DigitalOcean",
       "CircleCi"
     ],
-    "desc": "An E-commerce App, Created with the mentioned stack. Hosted on AWS and has a stripe checkout page",
+    "desc": "The e-commerce application is built with modern web technologies such as Next.js for React applications and Redux for state management, using both JavaScript and TypeScript for development versatility. Tailwind ensures efficient styling, while Express.js serves as the backend framework. The app uses Docker for containerization, Supabase for database management, and OpenAPI for defining its API. It is hosted on DigitalOcean and AWS for deployment flexibility and redundancy. CircleCI automates continuous integration and deployment, streamlining development and ensuring consistent delivery of new features and fixes. This setup provides a robust and efficient e-commerce platform.",
     "git_link": "https://github.com/alisterXavier/ecommerce-project-uni",
     "completed": false,
     "img": [
@@ -33,7 +33,7 @@
     ],
     "title": "Arcade Asylum",
     "stack": ["Firebase", "Express.js", "Vue.js", "Pinia", "JavaScript", "Css"],
-    "desc": "A game classic game store  with limited items and stripe as checkout.",
+    "desc": "The classic game store is a web application built using a combination of modern and traditional web technologies. The store offers a selection of limited items and uses Stripe for a secure and smooth checkout process. Firebase serves as the backend, providing data storage and real-time synchronization for the application. Express.js powers the server-side, handling API requests efficiently. The front-end is developed with Vue.js, a popular JavaScript framework, and Pinia for state management. JavaScript and CSS are employed for scripting and styling, respectively. This technology stack creates an intuitive, responsive, and reliable classic game store experience for users.",
     "git_link": "https://github.com/alisterXavier/ArcadeAsylum",
     "app_link": "https://arcade-asylum.vercel.app/",
     "completed": true
@@ -74,7 +74,7 @@
       "TypeScript",
       "Css"
     ],
-    "desc": "Updated version of previous social media app.",
+    "desc": "The updated version of the social media app utilizes Firebase, Express.js, React.js, Redux, TypeScript, and CSS to provide an improved user experience. Firebase supports data storage and real-time synchronization, while Express.js manages server-side API requests. React.js powers a dynamic and responsive user interface, with Redux handling efficient state management. TypeScript ensures type safety and code quality. The app features a better UI than the previous MERN app, offering a polished and user-friendly design with enhanced navigation. This results in a more refined and enjoyable social media experience for users.",
     "git_link": "https://github.com/alisterXavier/BlaaApp2.0",
     "app_link": "https://blaa-app-2-0.vercel.app/",
     "completed": true
@@ -98,9 +98,18 @@
       "Node.js",
       "Css"
     ],
-    "desc": "Full stack social media application (MERN)",
+    "desc": "A full-stack social media application built using the MERN stack (MongoDB, Express.js, React, and Node.js) and Socket.IO offers a dynamic and efficient platform for users to connect and share content. The backend, powered by Node.js and Express.js, handles API requests and server-side logic, while MongoDB provides flexible and scalable data storage. React creates a responsive and intuitive user interface, enabling modular code and easy feature implementation. Socket.IO is integrated for real-time communication features such as instant messaging, live updates, and notifications. Users can create profiles, post content, follow others, and engage with posts through likes and comments, delivering a seamless and interactive social media experience.",
     "git_link": "https://github.com/alisterXavier/blaa-app",
     "completed": true
+  },
+
+  {
+    "title": "Aegis",
+    "img": [],
+    "stack": ["Next.js", "Typescript", "Tailwind", "MongoDB"],
+    "desc": "This tool simplifies SSL certificate management for your web servers. It offers a user-friendly interface, centralizes all your SSL information, and automates tasks like certificate creation and server configuration. With this tool, you can manage your SSL certificates efficiently and save time.",
+    "git_link": "https://github.com/alisterXavier/aegis",
+    "completed": false
   },
 
   {
@@ -125,7 +134,7 @@
     ],
     "title": "Music Downloader",
     "stack": ["Next.js", "TypeScript", "Css"],
-    "desc": "A music downloader app uses apollo graphql server to fetch data and download music",
+    "desc": "A music downloader application built using Next.js and an Apollo GraphQL server offers a modern and efficient platform for users to discover and download music. Apollo GraphQL provides a flexible API for querying music data, while Next.js ensures a fast and smooth user interface with server-side rendering. Users can search for, browse, and download music directly within the app, benefiting from precise data fetching and optimal performance.",
     "git_link": "https://github.com/alisterXavier/Music-downloader",
     "app_link": "https://music-downloader-three.vercel.app/",
     "completed": true
@@ -140,7 +149,7 @@
     ],
     "title": "Cryptocurrency Platform",
     "stack": ["Next.js", "JavaScript", "Css", "Coinranking Api"],
-    "desc": "Cryptocurrency webapp clone of Uniswap",
+    "desc": "A cryptocurrency web app clone of Uniswap built using Next.js, JavaScript, CSS, and the Coinranking API offers users an efficient and user-friendly platform for interacting with digital currencies. Next.js provides fast server-side rendering, resulting in smooth navigation and optimal performance, while CSS ensures an intuitive and visually appealing user interface. JavaScript powers the app's interactivity, allowing users to search, browse, and engage with various cryptocurrencies seamlessly. By integrating the Coinranking API, the app fetches real-time data on cryptocurrencies, enabling users to make informed decisions",
     "git_link": "https://github.com/alisterXavier/Crypto-Curr",
     "app_link": "https://crypto-curr-eta.vercel.app/components/swap",
     "completed": true
@@ -218,7 +227,7 @@
     "title": "WikiScape",
     "img": [],
     "stack": ["React.js", "JavaScript", "Python Flask", "Python Wikipedia Api"],
-    "desc": "Wikipedia clone, It uses python's limited wikipedia api to get data. Depth lvl 1",
+    "desc": "A simplified version of Wikipedia using Python's limited Wikipedia API. The application will retrieve data from Wikipedia and present it to the user in a concise format. The depth of the data retrieval is restricted to level one, meaning that the information provided will be limited to a single layer of content from the initial search. This approach ensures that the user receives a focused, straightforward summary of the topic they are searching for without delving too deeply into the linked or related information.",
     "git_link": "https://github.com/alisterXavier/Wiki-React-Flask",
     "completed": true
   }
