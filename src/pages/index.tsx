@@ -34,9 +34,9 @@ export default function Home() {
   };
   return (
     <ReactLenis root options={{
-      lerp: !isSmallScreen ? 0.04 : 0 ,
-      duration: !isSmallScreen ? 0.05 : 0,
-      syncTouch: true,
+      lerp: isSmallScreen ? 0 : 0.04 ,
+      duration: isSmallScreen ? 0 : 0.05 ,
+      syncTouch: !isSmallScreen,
     }}>
       <Head>
         <link
