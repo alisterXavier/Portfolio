@@ -74,7 +74,7 @@
 /* All Projects */
 .selected-wrapper {
   width: 100vw;
-  height: 100vh;
+  min-height: 100vh;
   z-index: 20;
   display: flex;
   align-items: center;
@@ -143,8 +143,8 @@
     width: 100%;
     padding: 30px;
   }
-  .selected .selected-figure {
-    width: 300px;
+  .selected-wrapper .selected-figure {
+    width: 100%;
     height: 170px;
   }
 }

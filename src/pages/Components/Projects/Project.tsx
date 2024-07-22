@@ -36,7 +36,7 @@ const Project = ({
           selected.current?.classList.add('disselected');
           setTimeout(() => {
             setSelectedProject(undefined);
-          }, 700);
+          }, 600);
         }}
       ></BiArrowBack>
       <div
@@ -47,7 +47,7 @@ const Project = ({
         }`}
         ref={selected}
       >
-        <figure className="selected-figure mx-auto">
+        <figure className="selected-figure mx-auto w-full">
           {selectedProject?.img?.length && selectedProject?.img.length > 0 ? (
             <Swiper
               spaceBetween={30}

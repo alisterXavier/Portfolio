@@ -40,7 +40,6 @@ const animeCarousel = {
 };
 const Projects = ({
   section,
-  selectedProject,
   setSelectedProject,
 }: ProjectInterface) => {
   const isSmallScreen = useSmallDeviceSize();
@@ -103,9 +102,9 @@ const Projects = ({
       id="Projects"
       data-projects
     >
-      <div className="w-full h-full flex flex-col items-center justify-center p-5">
-        <div className="flex w-[85%] justify-between items-center">
-          <motion.div className="project-title flex items-center z-[2] justify-start  h-fit">
+      <div className="w-full h-full flex flex-col justify-center p-5">
+        <div className="flex w-full justify-between items-center">
+          <motion.div className="project-title flex items-center z-[2] justify-between  h-fit">
             <motion.h2
               className="project-glitch my-0 text-5xl lg:text-8xl hello neon"
               animate={titleControls}
@@ -163,13 +162,13 @@ const Filter = ({
     projectList.map((project) => project.stack.map((i) => i)).flat()
   );
   return (
-    <div className="relative z-[2] text-right mr-10">
+    <div className="relative z-[2] text-right">
       <Menu
         as="div"
-        className="relative w-[150px] h-[50px] inline-block text-left"
+        className="relative w-[100px] h-[50px] inline-block text-left"
       >
-        <div className="w-full">
-          <Menu.Button className="inline-flex w-full justify-between items-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-md font-medium text-white hover:bg-opacity-30 border border-[var(--neon)]">
+        <div className="w-full h-full">
+          <Menu.Button className="inline-flex w-full h-full justify-between items-center rounded-md bg-black bg-opacity-20 px-4 py-2 text-md font-medium text-white hover:bg-opacity-30 border border-[var(--neon)]">
             {filter === null ? 'All' : filter}
             <FaAngleDown
               className="ml-2 -mr-1 h-5 w-5 text-violet-200 hover:text-violet-100"

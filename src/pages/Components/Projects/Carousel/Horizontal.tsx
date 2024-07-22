@@ -4,7 +4,7 @@ import { AiOutlineWarning } from 'react-icons/ai';
 import { Autoplay, Mousewheel, Navigation } from 'swiper';
 import projects from '@a/data/projects.json';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import Image from 'next/image'
+import Image from 'next/image';
 import 'swiper/css';
 import 'swiper/css/navigation';
 
@@ -36,7 +36,7 @@ const HorizontalProjectCarousel = ({
             spaceBetween: 50,
           },
         }}
-        className="mySwiper transition-all duration-75"
+        className="mySwiper transition-all duration-75 mt-10"
       >
         {projects
           .filter((item) => {
@@ -52,11 +52,11 @@ const HorizontalProjectCarousel = ({
                 }}
               >
                 <motion.div
-                  className="project-item text-white"
+                  className="project-item text-white h-full"
                   layoutId={project.title}
                 >
-                  <figure className="relative">
-                    {project.img && project.img.length > 0 ? (
+                  {project.img && project.img.length > 0 ? (
+                    <figure className="relative h-[200px]">
                       <Image
                         object-fit="cover"
                         quality={100}
@@ -66,13 +66,13 @@ const HorizontalProjectCarousel = ({
                         width={100}
                         height={100}
                       />
-                    ) : (
-                      <div className="w-full h-full flex items-center justify-center bg-black">
-                        <p className="text-5xl neon glow hello">NO IMAGE</p>
-                      </div>
-                    )}
-                  </figure>
-                  <div>
+                    </figure>
+                  ) : (
+                    <div className="w-full h-[200px] flex items-center justify-center bg-black">
+                      <p className="text-5xl neon glow hello">NO IMAGE</p>
+                    </div>
+                  )}
+                  <div className="h-[40%]">
                     <div className="project-detail p-2 Omnes">
                       <h1 className="text-lg font-semibold flex">
                         {project.title}
