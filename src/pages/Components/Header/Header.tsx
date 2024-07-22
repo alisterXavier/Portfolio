@@ -152,7 +152,7 @@ const Header = ({ section }: { section: (id: string) => void }) => {
               </a>
               <a
                 rel="noreferrer"
-                href="https://www.linkedin.com/in/alister-xavier-63259020b/"
+                href="https://www.linkedin.com/in/alister-xavier/"
                 target="_blank"
                 className="platform linkedin"
                 ref={(e) => {
