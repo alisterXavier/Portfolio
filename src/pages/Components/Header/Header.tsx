@@ -22,10 +22,8 @@ const Header = ({ section }: { section: (id: string) => void }) => {
     const { id } = e;
     const usernames: {
       'discord uid': string;
-      email: string;
     } = {
       'discord uid': 'DREMANiC#8953',
-      email: 'xavieralister153@gmail.com',
     };
 
     document.querySelector(
@@ -128,14 +126,12 @@ const Header = ({ section }: { section: (id: string) => void }) => {
                 <TbBrandDiscord size={20} />
               </a>
               <a
-                onClick={(e) => {
-                  copy(e.currentTarget);
-                }}
                 className="envelope platform cursor-pointer"
                 id="email"
                 ref={(e) => {
                   if (e !== null) platform.current[1] = e;
                 }}
+                href='mailto:example@example.com'
               >
                 <AiOutlineMail size={20} />
               </a>
