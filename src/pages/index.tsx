@@ -1,17 +1,20 @@
-import { useRef, useState } from 'react';
+import ReactLenis from '@studio-freight/react-lenis';
+import { AnimatePresence } from 'framer-motion';
+import Head from 'next/head';
+import { useEffect, useRef, useState } from 'react';
+import toast, { Toaster } from 'react-hot-toast';
+import { FaArrowRight } from 'react-icons/fa';
+import { HiMenu } from 'react-icons/hi';
+import { ImCross } from 'react-icons/im';
 import { useSmallDeviceSize } from '../Hooks/smalDeviceHook';
+import { ProjectDataInterface } from '../types/types';
+import AboutMe from './Components/About/AboutMe';
+import Contact from './Components/Contact/Contact';
 import Header from './Components/Header/Header';
 import Navbar from './Components/Navbar/Navbar';
-import { HiMenu } from 'react-icons/hi';
-import AboutMe from './Components/About/AboutMe';
-import Stack from './Components/Stack/Stack';
-import Projects from './Components/Projects/Projects';
-import Contact from './Components/Contact/Contact';
-import { AnimatePresence } from 'framer-motion';
 import Project from './Components/Projects/Project';
-import { ProjectDataInterface } from '../types/types';
-import Head from 'next/head';
-import ReactLenis from '@studio-freight/react-lenis';
+import Projects from './Components/Projects/Projects';
+import Stack from './Components/Stack/Stack';
 
 export default function Home() {
   const isSmallScreen = useSmallDeviceSize();
@@ -20,6 +23,30 @@ export default function Home() {
   const [selectedProject, setSelectedProject] = useState<
     ProjectDataInterface | undefined
   >(undefined);
+
+  const notify = () => {
+    const handleClick = () => {
+      toast.dismiss();
+    };
+    toast(
+      <div className="neon flex justify-between items-center">
+        <ImCross size={15} className="mr-2 cursor-pointer" onClick={handleClick} />
+        <p className="cursor-pointer">Check out my new portfolio</p>
+        <a className="ml-2" href="https://alister-xavier.vercel.app/" target='__blank'>
+          <FaArrowRight size={20} />
+        </a>
+      </div>,
+      {
+        position: 'top-right',
+        duration: 10000,
+        style: {
+          width: '300px',
+          background: 'var(--background)',
+          border: '3px solid var(--neon)',
+        },
+      }
+    );
+  };
 
   const sectionObserver = (id: string) => {
     var active, navSections;
@@ -32,12 +59,19 @@ export default function Home() {
         (navSections as HTMLElement).dataset.active = 'true';
     }
   };
+
+  useEffect(() => {
+    notify();
+  }, []);
   return (
-    <ReactLenis root options={{
-      lerp: isSmallScreen ? 0 : 0.04 ,
-      duration: isSmallScreen ? 0 : 0.05 ,
-      syncTouch: !isSmallScreen,
-    }}>
+    <ReactLenis
+      root
+      options={{
+        lerp: isSmallScreen ? 0 : 0.04,
+        duration: isSmallScreen ? 0 : 0.05,
+        syncTouch: !isSmallScreen,
+      }}
+    >
       <Head>
         <link
           rel="apple-touch-icon"
@@ -61,6 +95,7 @@ export default function Home() {
         <meta name="msapplication-TileColor" content="#da532c" />
         <meta name="theme-color" content="#ffffff" />
       </Head>
+      <Toaster />
       <div className={`main ${navToggle && 'navbar-active'}`}>
         <Navbar
           navToggle={navToggle}
